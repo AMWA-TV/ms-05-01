@@ -9,15 +9,15 @@ This repository holds the source for this Specification, part of the family of [
 
 ### What does it do?
 
-- TBC
+It defines a system for modelling various types of devices which interrelates with existing NMOS Specifications and the JT-NM Reference Architecture.
 
 ### Why does it matter?
 
-- TBC
+The modelling system can model actual devices on top of published classes and schemas, leading to at least basic interoperability between compatible devices. It also provides a way of conveying the model in a live system, including dynamic updates due to reconfiguration of the devices which can be consumed by a controller or management entity.
 
 ### How does it work?
 
-- TBC
+The NMOS Control Architecture (NCA) defines class hierarchies, inheritance relationships, and also a powerful schema mechanism which can support the requirements of a modern modelling system.
 
 <!-- INTRO-END -->
 
