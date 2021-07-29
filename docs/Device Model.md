@@ -12,7 +12,7 @@ A block may contain other blocks. The contained blocks are said to be **nested**
 
 ### 8.1.2. Block namespaces
 
-Every NCA object has a name that is unique _within its containing block_ (see [Identification](109.0.%20Identification.md), and every block constitutes a namespace for the objects it contains.
+Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.
 
 If a block class is instantiated multiple times in a device, the names of its contained objects (e.g. **Gain,**** Mute, ****Pad,**...) will not conflict, because each of the eight block objects is a separate namespace - at a parent level of the hierarchy, the channels must have unique names.
 
@@ -26,7 +26,7 @@ In NCA, a **schema** is a YANG code block (text file) that defines a block class
 - The schema must contain instance declarations of all the block's objects and all its nested blocks, as needed to define the block's control API.
 - The schema may specify the block class's signal flow, if signal paths are being used - see [Signal paths](#84-signal-paths).
 - Every schema is identified by a **schema ID.**
-- For schemas which are intended to be used across industry or across products, this **schema ID** value will be constructed in a way that is globally unique - a Global Schema ID (GSID) value - see [Identification](109.0.%20Identification.md)).
+- For schemas which are intended to be used across industry or across products, this **schema ID** value will be constructed in a way that is globally unique - a Global Schema ID (GSID) value - see [Identification](Identification.md)).
 
 A schema is not a block, it is only the description of a block. Schemas are the standardized way of documenting the contents of block classes within NCA.
 
@@ -96,7 +96,7 @@ Since schemas are YANG documents, the envisioned reusable schema ecosystem will 
 
 A key NCA feature to support schema libraries is the Global Schema ID, or GSID. In schema libraries, a unique GSID value will be assigned to each schema intended for reuse. GSIDs will be the principal query key for people or systems seeking to retrieve schema definitions from public or corporate libraries, and will be the primary way Controllers retrieve definitions of schemas that Devices implement.
 
-The syntax of the GSID is defined in [Identification](109.0.%20Identification.md).
+The syntax of the GSID is defined in [Identification](Identification.md).
 
 ### 8.2.5. Schemas and APIs
 
@@ -152,7 +152,7 @@ An object contained in a block is called a **member** or **member object** of th
 
 A Device may have certain application functions the designers wish not to be network-controllable. Such functions will not be represented in the root block or its nested blocks, and will consequently not be in the device's control API.
 
-The housekeeping objects are called **managers** and are discussed in [Managers](112.0.%20Managers.md).
+The housekeeping objects are called **managers** and are discussed in [Managers](Managers.md).
 
 | ![NCA device](images/Figure-5.png) |
 |:--:|

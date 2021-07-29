@@ -96,7 +96,7 @@ Locking rules are defined as follows, subject to the data definitions in the YAN
 7. A lockholder may upgrade its lock from **NoWrite** to **NoReadWrite** , or downgrade its lock from **NoReadWrite** to **NoWrite, or** remove its lock entirely.
 8. No lock survives a Device reset.
 9. Controller to Device communication is session-oriented. When a Controller's session ends for any reason, the Device must automatically remove all locks set by that Controller session.
-10. It is possible to lock an entire Device by locking its Device Manager object (see [Managers](112.0.%20Managers.md)), provided that none of the device's other objects are locked.
+10. It is possible to lock an entire Device by locking its Device Manager object (see [Managers](Managers.md)), provided that none of the device's other objects are locked.
 11. Locked objects may not be deleted.
 
 ## 10.6. Capability enumeration
@@ -163,7 +163,7 @@ NCA's architecture supports reliable implementations with the following features
 2. **Multiple redundant media transport streams and networks**
 3. **Control traffic security**
 
-NCA control traffic security features (see [Security](113.0.%20Security.md)) reduce the chance of control failure due to malicious activity.
+NCA control traffic security features (see [Security](Security.md)) reduce the chance of control failure due to malicious activity.
 
 4. **Fully-acknowledged command/response architecture**
 
@@ -175,11 +175,11 @@ All asynchronous device changes can be discovered by event subscription; no Cont
 
 6. **Device supervision**
 
-See [Device supervision](110.0.%20Framework%20Mechanisms.md#1091-device-supervision).
+See [Device supervision](Framework%20Mechanisms.md#1091-device-supervision).
 
 7. **Secure Device reset capability**
 
-See [Device reset](110.0.%20Framework%20Mechanisms.md#1092-device-reset).
+See [Device reset](Framework%20Mechanisms.md#1092-device-reset).
 
 NCA protocols (defined in future work) may support additional reliability features - for example, Ethernet-based protocols can support spanning-tree Ethernet and/or can use reliable data transport protocols such as TCP.
 
@@ -187,7 +187,7 @@ NCA protocols (defined in future work) may support additional reliability featur
 
 Devices are continuously supervised with the aid of **heartbeat messages**. Such messages shall be defined as part of each NCA protocol specification.
 
-Device supervision ensures that a control session (see [Control sessions](110.0.%20Framework%20Mechanisms.md#102-control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
+Device supervision ensures that a control session (see [Control sessions](Framework%20Mechanisms.md#102-control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
 
 The exact format of heartbeat messages and the specific rules of the Device supervision mechanism are protocol-specific.
 
