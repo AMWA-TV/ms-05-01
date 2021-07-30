@@ -1,4 +1,4 @@
-# 9. Identification
+# Identification
 
 NCA defines the following framework identifiers (a "framework" identifier is an identifier that is used by the basic NCA framework, irrespective of application). `Table 2` lists the identifiers NCA uses.
 
@@ -10,17 +10,17 @@ NCA defines the following framework identifiers (a "framework" identifier is an 
 | **Object Path** or just **Path** _ncaOPath_ | Device | Permanent | Array of strings | Unique identifier of an object within a device, consisting of the ordered concatenation of the **Name** values of all the object's containing blocks, starting from the **Root Block** , ending with the object's own **Name** value. Note that while the object ID may change over time due to reconfiguration, the object path is a persistent identifier of a specific function or property within a device. |
 | **User Label** _ncaString_ | n/a | Can change at any time | String | Read/write string that users may set to identify an object's operational purpose in a particular application context. Analogous to the texts written on mixing console scribble strips, labels, and bits of paper tape affixed to equipment in use. "Elvis's Vocal Mic", "First violins #3", etcetera.This label need not be unique in any scope. |
 | **Product GUID** _ncaGUID_ | Universe | Permanent | GUID | Read-only GUID that uniquely identifies the particular product that constitutes the Device. Property of the class **NCA deviceManager**. |
-| **Schema ID** _ncaGSID_ | Global or local, as declared | Permanent | TBD | identifier of a schema - see [Schema Reuse](Device%20Model.md#823-schema-reuse). The schema ID definition will contain both a "namespace" part and an identifier, and the identifier part will be unique within the namespace. A special namespace identifier exists to define "device-local" schemas if needed. |
+| **Schema ID** _ncaGSID_ | Global or local, as declared | Permanent | TBD | identifier of a schema - see [Schema Reuse](Device%20Model.md#schema-reuse). The schema ID definition will contain both a "namespace" part and an identifier, and the identifier part will be unique within the namespace. A special namespace identifier exists to define "device-local" schemas if needed. |
 | **Property ID** **Method ID** **Event ID** _ncaPropertyID_ _ncaMethodID_ _ncaEventID_ | Object | Permanent | See [Appendix B](Appendix%20B%20-%20Property%2C%20Method%2C%20Event%20IDs.md) | Static identifiers that identify the properties, methods, and events of control classes. Values are defined by the class specification in the control model, and do not change over time. Unique within each class. |
 | **Connection Management Identifiers** | future | TBD | TBD | stream identifiers, connection endpoint identifiers, media transport session identifiers, and others. Compatible with NMOS IS-04 and -05 and the JT-NM Reference Architecture. This is a future NCA topic, not defined in NCA 1.0. |
 
 *Table 2. NCA Identifiers*
 
-## 9.1. Object ID management
+## Object ID management
 
 Object IDs can change from time to time within a device, based on dynamic configuration and other events. Each block object maintains an object ID revision timestamp that indicates the last time the object IDs of its members block have changed.
 
-## 9.2. NCA-NMOS identity mapping
+## NCA-NMOS identity mapping
 
 NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace.
 
@@ -30,14 +30,14 @@ The touchpoints feature is implemented by the **Touchpoints** property of **ncaR
 
 Because **Touchpoints** is defined in **ncaRoot** , it is inherited by every NCA object and may be used as required.
 
-### 9.2.1. NMOS Namespaces
+### NMOS Namespaces
 
 Namespaces for NMOS are as follows:
 
 - IS-04: **x-nmos** (includes the identities which link to IS-05 and IS-07)
 - IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 Input and Output resources)
 
-#### 9.2.1.1. Touchpoint Resources for NMOS
+#### Touchpoint Resources for NMOS
 
 The resources are provided as an array of objects. The NMOS touchpoint resources need to include:
 
@@ -60,7 +60,7 @@ For the **x-nmos/channelmapping** namespace, **ncaTouchpointNmos_is_08** is defi
 
 YANG models for the touchpoints are defined as part of the overall ncaRoot definition in the control model.
 
-## 9.3. NCA discoverability in IS-04
+## NCA discoverability in IS-04
 
 Compliant NCA protocols will need to be advertised through existing IS-04 practices inside the controls array of an NMOS Device. An example is illustrated in `Code Block 1` below. The specific type tag for each protocol will be defined by the protocol defining document.
 

@@ -175,11 +175,11 @@ All asynchronous device changes can be discovered by event subscription; no Cont
 
 6. **Device supervision**
 
-See [Device supervision](Framework%20Mechanisms.md#1091-device-supervision).
+See [Device supervision](Framework%20Mechanisms.md#device-supervision).
 
 7. **Secure Device reset capability**
 
-See [Device reset](Framework%20Mechanisms.md#1092-device-reset).
+See [Device reset](Framework%20Mechanisms.md#device-reset).
 
 NCA protocols (defined in future work) may support additional reliability features - for example, Ethernet-based protocols can support spanning-tree Ethernet and/or can use reliable data transport protocols such as TCP.
 
@@ -187,7 +187,7 @@ NCA protocols (defined in future work) may support additional reliability featur
 
 Devices are continuously supervised with the aid of **heartbeat messages**. Such messages shall be defined as part of each NCA protocol specification.
 
-Device supervision ensures that a control session (see [Control sessions](Framework%20Mechanisms.md#102-control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
+Device supervision ensures that a control session (see [Control sessions](Framework%20Mechanisms.md#control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
 
 The exact format of heartbeat messages and the specific rules of the Device supervision mechanism are protocol-specific.
 

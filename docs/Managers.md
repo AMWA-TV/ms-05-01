@@ -1,4 +1,4 @@
-# 12. Managers
+# Managers
 
 NCA defines a set of classes called **managers**that perform central housekeeping functions. Some of these classes are mandatory, some optional. Manager classes are **singletons**, i.e. they are instantiated at most once per device.
 

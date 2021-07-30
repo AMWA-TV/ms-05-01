@@ -7,7 +7,7 @@
 
 _(c) AMWA 2021, CC Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)_
 
-## 1. Scope and purpose
+## Scope and purpose
 
 This document introduces NCA, the **NMOS Control Architecture**. NCA is an architecture for modeling media devices, and controlling and monitoring them over IP networks.
 
@@ -25,7 +25,7 @@ NCA's specification is designed to complement and interoperate with the existing
 
 **NCA is not a user interface specification.** The NCA control model defines numerous elements with application functions (switches, indicators, gain controls, etcetera), but these elements are embodied only as abstractions in a NCA device control model. How, whether, or when they are represented in a user control interface is out of NCA's scope.
 
-## 2. NCA Documentation Structure
+## NCA Documentation Structure
 
 Documentation of the NCA is organized across multiple parts:
 
@@ -35,11 +35,11 @@ Documentation of the NCA is organized across multiple parts:
 
 In addition to the above, NCA anticipates that future phases of work will develop processes for the documentation and curation of a growing set of common models and mechanisms for typical devices and device components found in practice. By leveraging these common models and mechanisms, interoperability between control systems and devices can be improved, and custom engineering avoided in many cases..
 
-### 2.1. Scope of this document
+### Scope of this document
 
 This document describes the NCA architectural framework - item (1.) in the preceding section. The subsequent documents will be developed in later phases of the NCA workstream.
 
-## 3. References
+## References
 
 <!--
 [AS-10]: https://static.amwa.tv/as-10-mxf-for-production-spec.pdf "AMWA AS-10 MXF for Production"

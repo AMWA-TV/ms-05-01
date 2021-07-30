@@ -1,6 +1,6 @@
-# 5. Components of the architecture
+# Components of the architecture
 
-## 5.1. Models
+## Models
 
 NCA is based on two interrelated models:
 
@@ -16,7 +16,7 @@ NCA defines both the Device model and the control model in object-oriented terms
 
 In this document, control class names will be prefixed by " **nca**", e.g. " **ncaSwitch**" might be the name of a control class that exports an API for controlling a switching function.
 
-## 5.2. Classes, objects, and APIs
+## Classes, objects, and APIs
 
 In NCA, each object has its own control API. The signature of each object's API is completely defined by the class of which it is an instance. The complete API of a Device is exactly equal to the union of the APIs of all the objects it contains.
 
@@ -24,7 +24,7 @@ Thus, if a Controller knows all the objects in a Device, and if it knows the def
 
 In many cases, Controllers will have been custom-built for Devices they control, and will therefore have the required object and class information _a priori._ However, NCA provides rich mechanisms for controllers to acquire such information from public registries and from the devices themselves.
 
-## 5.3. Protocols
+## Protocols
 
 A controller needs a control protocol to access control APIs. The definition of control protocols is outside the scope of this architecture specification, but protocol definitions are clearly required for the models to be useful.
 

@@ -1,4 +1,4 @@
-# 4. Definitions
+# Definitions
 
 Definitions and abbreviations for this draft
 
@@ -60,7 +60,7 @@ Definitions and abbreviations for this draft
 
 **Touchpoint** Linkage item which indicates the association between an NCA item and an identified resource in another control environment (e.g. NMOS IS-xx).
 
-### 4.1. The term _Device_
+### The term _Device_
 
 The [NMOS Glossary][NMOS-G] and [JTNM Reference Architecture][JTNM-RA] define _Device_ as follows:
 
@@ -70,7 +70,7 @@ As NCA is a part of the NMOS family of specification, use of this term is compat
 
 This document will use the capitalized term **Device** to denote a device in the NCA sense. The uncapitalized version will be used in nonspecific English uses of the term, e.g. "device control". Where a clear distinction must be made between earlier NMOS and NCA devices, the term will be qualified, as in "NCA Device", "NMOS Device", and so on.
 
-### 4.2. The term _Controller_
+### The term _Controller_
 
 In this document, the capitalized term **Controller** means a programmatic entity for controlling Devices using NCA-specified means. The uncapitalized version will be used for the nonspecific English use of the term, e.g. "controllers for non-NCA environments". Where a clear distinction must be made between NCA and non-NCA controllers, the term will be qualified, as in "non-NCA controller", "NCA Controller".
 

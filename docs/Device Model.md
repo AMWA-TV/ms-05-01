@@ -1,22 +1,22 @@
-# 8. Device model
+# Device model
 
-## 8.1. Blocks
+## Blocks
 
 The control model defines an abstract class named **ncaBlock** that is a container for objects. Subclasses of **ncaBlock** are called **block classes**. Each block class defines a specific configuration of objects.
 
 In Devices, block classes are instantiated to make objects known as **blocks.** A block class may be instantiated as many times as required to define the required control API. For example, an eight-channel audio mixer might define a block class named **myMixChannel** and instantiate it eight times, to create eight blocks which define the eight required channel-control APIs.
 
-### 8.1.1. Nested blocks
+### Nested blocks
 
 A block may contain other blocks. The contained blocks are said to be **nested**inside the containing block. For example, the **myMixChannel** class might specify an instance of a block named **EqA** that defines an equalizer section. **EqA** is "nested" inside **myMixChannel**.
 
-### 8.1.2. Block namespaces
+### Block namespaces
 
 Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.
 
 If a block class is instantiated multiple times in a device, the names of its contained objects (e.g. **Gain,**** Mute, ****Pad,**...) will not conflict, because each of the eight block objects is a separate namespace - at a parent level of the hierarchy, the channels must have unique names.
 
-## 8.2. Schemas and Schema IDs
+## Schemas and Schema IDs
 
 In NCA, a **schema** is a YANG code block (text file) that defines a block class. Schemas are built according to the following rules:
 
@@ -52,7 +52,7 @@ These purposes are separate, and involve two separate sets of files. It is expec
 
 _Note: YANG documentation uses the word "schema" more generally than NCA does. In YANG terminology, a "schema" is_ **any** _YANG definition file; in NCA language, a "schema" is a YANG definition of a specific block class's contents._
 
-### 8.2.1. Schema composition
+### Schema composition
 
 When a block contains nested blocks, its schema imports the nested blocks' schemas and defines instances of them.
 
@@ -66,18 +66,18 @@ Creating a composite schema has three main steps:
 2. Defining instances of the nested schemas in the composite schema using YANG **ct:instance** statements.
 3. Adding whatever other objects are needed in the composite schema using standard YANG methods.
 
-### 8.2.2. Device schemas
+### Device schemas
 
 A **Device schema** is the schema that describes the complete control API of a (real or virtual) Device. It includes:
 
 - The list of the Device's housekeeping objects
 - The root block schema (which includes the schemas of blocks contained within the root block).
 
-#### 8.2.2.1. Base Device Schema
+#### Base Device Schema
 
 NCA defines the **Base Device Schema** **,** which is a Device schema that all Device schemas must implement to be NCA-compliant. It defines a minimal list of housekeeping objects and an empty root block.
 
-### 8.2.3. Schema reuse
+### Schema reuse
 
 A prime goal of NCA is to support a growing ecosystem of schemas that can be reused by Device developers. NCA (as an architecture) does not define this ecosystem or its management, but it does provide a few features to support it.
 
@@ -92,25 +92,25 @@ It is further expected that these reusable schemas will mainly be component sche
 
 Since schemas are YANG documents, the envisioned reusable schema ecosystem will be fundamentally concerned with the storage, retrieval, and maintenance of YANG texts.
 
-### 8.2.4. Schema identification
+### Schema identification
 
 A key NCA feature to support schema libraries is the Global Schema ID, or GSID. In schema libraries, a unique GSID value will be assigned to each schema intended for reuse. GSIDs will be the principal query key for people or systems seeking to retrieve schema definitions from public or corporate libraries, and will be the primary way Controllers retrieve definitions of schemas that Devices implement.
 
 The syntax of the GSID is defined in [Identification](Identification.md).
 
-### 8.2.5. Schemas and APIs
+### Schemas and APIs
 
 A block's complete API is equal to the union of the APIs of its members, including members of other nested blocks, if any. Therefore, the block's schema constitutes a definition of the block's entire API.
 
 The API the schema defines is a protocol-independent construct, expressed in terms of objects and their properties, methods, and events. Controllers will access it using whatever NCA protocol(s) the Device implements.
 
-## 8.3. Block enumeration mechanisms
+## Block enumeration mechanisms
 
 The base ncaBlock class defines enumeration functions that allow Controllers to interrogate blocks and their sub-blocks directly, to reveal their detailed contents.
 
 The block enumeration functions are regular methods of **ncaBlock-** derived classes, accessed in the usual manner through protocol exchanges between Controller and Device. In the case of dynamically-defined devices in which the contents of blocks may vary at runtime, the property-change event can be used to notify controllers about changes to the ncaBlock inventory.
 
-## 8.4. Signal paths
+## Signal paths
 
 A block may expose a set of **signal paths**. A signal path is the NCA abstraction that represents a signal flow from one endpoint to another inside a block.
 
@@ -134,7 +134,7 @@ Use of the signal path mechanism is preferred, but not strictly required.
 
 Depending on implementation, a block's signal flow may be read-write or read-only. In a fully-dynamic block, Controllers can retrieve and modify the signal flow. In a static block, Controllers can retrieve the signal flow but not modify it. The **ncaBlock** class has methods for retrieving and, if supported, modifying block signal paths.
 
-## 8.5. Complete block example
+## Complete block example
 
 A complete block example is shown in `Figure 4`. This example illustrates both block composition and signal flow. The Device shown is a simplified microphone preamplifier. It includes a nested instance of the equalizer block shown in `Figure 3`.
 
@@ -142,7 +142,7 @@ A complete block example is shown in `Figure 4`. This example illustrates both b
 |:--:|
 | *Figure 4. Example microphone preamplifier* |
 
-## 8.6. Device structure
+## Device structure
 
 As illustrated in `Figure 5` below, the Device model envisions a Device as a **root block** accompanied by a few housekeeping objects. The root block is an instance of the **ncaBlock** subclass **ncaRootBlock****.** The root block contains all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
 
@@ -158,7 +158,7 @@ The housekeeping objects are called **managers** and are discussed in [Managers]
 |:--:|
 | *Figure 5. NCA device* |
 
-## 8.7. Device configurability
+## Device configurability
 
 "Device configurability" means the degree to which an NCA Device's object population and internal signal paths can be defined at run time, as opposed to time of manufacture.
 

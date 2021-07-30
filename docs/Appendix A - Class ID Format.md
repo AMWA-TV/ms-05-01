@@ -1,6 +1,6 @@
-# 15. Appendix A -Class ID format
+# Appendix A -Class ID format
 
-## 15.1. Class identifiers
+## Class identifiers
 
 A class identifier (classID) shall consist of a lineage key and a version number. Every classID includes a version number to uniquely identify the revision level of the class.
 
@@ -8,7 +8,7 @@ In the following sections, a classID is represented as {n; i1•i2•i3 ...}, wh
 
 An annotated example is given in `Figure 11` below.
 
-## 15.2. Lineage keys
+## Lineage keys
 
 Each class shall be identified by a hierarchical key nominally of the form i(1)•i(2)•i(3) ... where each i(n) shall be a parameter that uniquely identifies a class within its siblings at a particular inheritance level of the class tree. Each i(n) is called a _class index_.
 
@@ -30,7 +30,7 @@ For example, for a standard class **X** whose lineage key is **1•2•12•7** 
 
 • **1•2•12•7** designates class **X** , a child of the class whose parent is **1•2•12**.
 
-## 15.3. Nonstandard classIDs
+## Nonstandard classIDs
 
 A class not defined by NCA is called a _nonstandard class_, and its classID is called a _nonstandard classID_. A nonstandard classID shall contain at least one authority key.
 
@@ -52,7 +52,7 @@ _Note: This rule is a corollary of the rule that a standard class shall not inhe
 
 Choice of class ordinal values to the right of an authority key is the responsibility of the identified authority.
 
-## 15.4. Format details
+## Format details
 
 _These details assume the existence of NCA base datatype definitions for numbers, strings, etcetera._
 
@@ -79,7 +79,7 @@ struct ncaAuthorityKey {
 
 The IEEE (Institute of Electrical and Electronic Engineers) Public CID and OUI are identifiers that uniquely identify organizations. Any incorporated organization may receive a unique Public CID or OUI from the IEEE upon request and payment of a one-time fee. The difference between the two is that OUIs are used in Ethernet MAC addresses, CIDs are not. The address spaces of the two do not overlap, so they are the same for NCA purposes.
 
-### 15.4.1. Class ordinal values
+### Class ordinal values
 
 Class ordinal values may be freely assigned subject to the following rules:
 
@@ -90,7 +90,7 @@ Class ordinal values may be freely assigned subject to the following rules:
 | 32768...65534 | 8000...FFFE | Reserved for deprecated NCA feature |
 | 65535 | FFFF | Special flag identifying the start of an authority key |
 
-## 15.5. Example
+## Example
 
 | ![Standard and nonstandard class IDs for an ncaGain subtree](images/Figure-11.png) |
 |:--:|
