@@ -22,15 +22,15 @@ In NCA, a **schema** is a YANG code block (text file) that defines a block class
 
 - A schema defines a block class as an RFC 6095 YANG complex type.
 - The block class must be defined as an extension of **ncaBlock** or an extension of a subclass of **ncaBlock**.
-- The schema must import the schemas of all nested blocks - see [Schema composition](#821-schema-composition).
+- The schema must import the schemas of all nested blocks - see [Schema composition](#schema-composition).
 - The schema must contain instance declarations of all the block's objects and all its nested blocks, as needed to define the block's control API.
-- The schema may specify the block class's signal flow, if signal paths are being used - see [Signal paths](#84-signal-paths).
+- The schema may specify the block class's signal flow, if signal paths are being used - see [Signal paths](#signal-paths).
 - Every schema is identified by a **schema ID.**
 - For schemas which are intended to be used across industry or across products, this **schema ID** value will be constructed in a way that is globally unique - a Global Schema ID (GSID) value - see [Identification](Identification.md)).
 
 A schema is not a block, it is only the description of a block. Schemas are the standardized way of documenting the contents of block classes within NCA.
 
-NCA also allows blocks whose contents are dynamic at runtime, see [Device configurability](#87-device-configurability).
+NCA also allows blocks whose contents are dynamic at runtime, see [Device configurability](#device-configurability).
 
 A block class may be **instantiated** any number of times within a device.
 
