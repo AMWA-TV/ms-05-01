@@ -1,4 +1,4 @@
-## 13. Security
+## Security
 
 The NCA security mechanism provides the following functions (this is aligned with `BCP-003-01`):
 
@@ -14,6 +14,6 @@ The NCA security mechanism does not provide **Authorization** `BCP-003-02`. Auth
 
 Implementation of NCA Security is required for NCA compliance, but implementation of Authorization is optional.
 
-### 13.1. The ncaSecurityManager class
+### The ncaSecurityManager class
 
 For the most part, implementation and operation of security measures is a protocol function, and therefore out of scope of this document. However, there are certain common elements of all security implementations that can be vested in architectural mechanisms. NCA defines these mechanisms in the Manager class named ncaSecurityManager.

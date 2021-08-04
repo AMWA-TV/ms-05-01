@@ -1,4 +1,4 @@
-# 14. Matrixing
+# Matrixing
 
 Matrixing is an optional feature which may be configured into Devices as needed.
 
@@ -8,7 +8,7 @@ A matrix's Worker objects are called _members_ of the matrix. All the members mu
 
 NCA matrices are instances of the **ncaMatrix** class.
 
-## 14.1. Matrix addressing
+## Matrix addressing
 
 **ncaMatrix** members are addressed by coordinates. NCA uses (_x,y_) coordinates, where _x_ is the horizontal (column) number, and _y_ is the vertical (row) number - see `Figure 7`.
 
@@ -16,7 +16,7 @@ NCA matrices are instances of the **ncaMatrix** class.
 |:--:|
 | *Figure 7. Matrix addressing* |
 
-## 14.2. Complex matrices
+## Complex matrices
 
 When the members of an NCA matrix are switches, the matrix represents a conventional switching matrix. When the members are gain controls, the matrix represents a conventional mixing matrix. However, **ncaMatrix** members can be of any Worker class, even blocks.
 
@@ -42,7 +42,7 @@ To reference a particular member of the matrix, a Controller first calls a **Set
 
 The special coordinate value zero denotes an entire row or column. So, for example, (0,2) indicates the entire second row. The controller can use this feature to access many members at once: whole rows (0,n); whole columns (n,0); or the whole matrix, (0,0).
 
-## 14.3. Matrix signal flow
+## Matrix signal flow
 
 A matrix has input and output signal ports (_matrix ports_) that are separate from the input and output signal ports of its members. Matrix rows have matrix input ports; matrix columns have matrix output ports.
 

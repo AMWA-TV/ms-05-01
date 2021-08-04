@@ -1,8 +1,8 @@
-# 10. Framework Mechanisms
+# Framework Mechanisms
 
 By "framework mechanisms", we mean architectural mechanisms that are essential to the operation of NCA in all devices. Framework mechanisms are distinguished from **optional mechanisms** that may be configured into schemas as needed.
 
-## 10.1. Control Traffic
+## Control Traffic
 
 NCA traffic between Controllers and Devices consists of three kinds of control messages:
 
@@ -14,7 +14,7 @@ NCA defines a Controller as a software function, not as a physical entity, and a
 
 The actual means of control message transport and the formats of the messages are determined by the protocol being used. NCA protocols are out of scope of this document.
 
-## 10.2. Control sessions
+## Control sessions
 
 NCA control is session-oriented, which implies the following:
 
@@ -24,7 +24,7 @@ NCA control is session-oriented, which implies the following:
 4. Devices shall report changing parameters to subscribing Controllers. Subscriptions are valid through the conclusion of the control session unless explicitly un-subscribed.
 5. When a communication failure occurs, the control session behaviour shall be well-defined. Whether the session survives or gracefully dies is a property of the protocol in use.
 
-## 10.3. Events, Notifications, and Subscriptions
+## Events, Notifications, and Subscriptions
 
 NCA supports the use of multiple simultaneous Controllers. Those Controllers might be coordinated - in the case of a Controller redundancy architecture, for example - or they might be uncoordinated - for example, several Controllers from different makers, controlling different but somewhat overlapping aspects of system functionality.
 
@@ -38,13 +38,13 @@ Not all Controllers need to know about all events. When a Controller wants to be
 
 Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it.
 
-### 10.3.1. Notification messages
+### Notification messages
 
 A notification message is essentially a callback command whose parameters depend on the type of event. However, unlike actual commands, a notification does not require a response.
 
 The parameters of notifications depend on the type of event. In general, event parameters are designed to give full detail about the event, so that Controllers receiving events can act on them immediately, without having to query the Device further.
 
-### 10.3.2. Notification delivery
+### Notification delivery
 
 The precise method by which notifications are delivered back to Controllers is a protocol issue, and out of scope of this document. However, for efficiency, the control model does identify two abstract ways of notification delivery. These are identified as _reliable_ and _fast_. **Reliable** delivery uses the same delivery method as Commands and Responses; **Fast** delivery uses lower-overhead, lower-reliability methods.
 
@@ -54,15 +54,15 @@ Controllers specify the type of delivery separately for each subscription. This 
 
 The control model says nothing about how **Reliable** and **Fast** delivery schemes are implemented. Their implementation will vary from protocol to protocol. In some cases, the two may be the same. **Fast** may or may not be able to multicast. The control model only defines the abstraction, not the realization.
 
-### 10.3.3. The PropertyChanged event
+### The PropertyChanged event
 
 The most common event is the **PropertyChanged** event, which is defined by **ncaRoot** , and so inherited by every object. **PropertyChanged** is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers. The specifics of the subscription mechanism and methods for subscribing to subtree events are a subject of future work.
 
-## 10.4. Controller hierarchies
+## Controller hierarchies
 
 Some NCA-controlled media networks may contain thousands of devices. In such cases, it will not be practical for a single central Controller to maintain a separate control session with each device. To address this problem, indirect control using a hierarchy of Controllers may be implemented, with successive levels aggregating control functionality in ways appropriate to the applications.
 
-## 10.5. Concurrency control
+## Concurrency control
 
 NCA supports applications that use multiple simultaneous Controllers in which a particular object may receive directives from more than one Controller.
 
@@ -96,14 +96,14 @@ Locking rules are defined as follows, subject to the data definitions in the YAN
 7. A lockholder may upgrade its lock from **NoWrite** to **NoReadWrite** , or downgrade its lock from **NoReadWrite** to **NoWrite, or** remove its lock entirely.
 8. No lock survives a Device reset.
 9. Controller to Device communication is session-oriented. When a Controller's session ends for any reason, the Device must automatically remove all locks set by that Controller session.
-10. It is possible to lock an entire Device by locking its Device Manager object (see [Managers](112.0.%20Managers.md)), provided that none of the device's other objects are locked.
+10. It is possible to lock an entire Device by locking its Device Manager object (see [Managers](Managers.md)), provided that none of the device's other objects are locked.
 11. Locked objects may not be deleted.
 
-## 10.6. Capability enumeration
+## Capability enumeration
 
 To discover the detailed capabilities of a block, a Controller enumerates its objects and its signal paths.
 
-### 10.6.1. Object enumeration
+### Object enumeration
 
 We refer to an object contained by a block as a _member_ of that block. **ncaBlock** has the following methods for enumerating a block's members:
 
@@ -117,7 +117,7 @@ We refer to an object contained by a block as a _member_ of that block. **ncaBlo
 
 **FindMembersByUserLabelRecursive(...)** Finds members of the given block and all contained blocks, given a user label value that may include wildcards.
 
-### 10.6.2. Signal path enumeration
+### Signal path enumeration
 
 **ncaBlock** defines two methods Controllers can use to enumerate signal paths:
 
@@ -127,7 +127,7 @@ We refer to an object contained by a block as a _member_ of that block. **ncaBlo
 
 These functions return simple lists of signal-path descriptors. Each signal-path descriptor specifies the ports at each end of the signal path.
 
-## 10.7. Time and media clocking
+## Time and media clocking
 
 NCA allows an arbitrary number of independent media clocks per device. These media clocks can be synchronized to various kinds of internal and external time references. As well, NCA supports a Device time-of-day clock that can also be synchronized to an external time reference. An example is in `Figure 6`.
 
@@ -137,7 +137,7 @@ NCA allows an arbitrary number of independent media clocks per device. These med
 
 In the NCA control model, each external or internal time reference is represented by an instance of class **ncaTimeSource** , each internal media clock is represented by an instance of class **ncaMediaClock** , and the Device time of day clock is represented by the singleton housekeeping object **NCA deviceTimeManager.**
 
-## 10.8. Networking
+## Networking
 
 The NCA networking mechanism has two kinds of network interfaces: _control network interfaces_, which are the network interfaces that receive and transmit control protocol traffic, and _media transport network interfaces_, which receive and transmit media streams.
 
@@ -149,7 +149,7 @@ The class structure is as follows:
 
 These classes will be defined in detail in future phases of work.
 
-## 10.9. Reliability
+## Reliability
 
 NCA enables implementations reliable enough to satisfy:
 
@@ -163,7 +163,7 @@ NCA's architecture supports reliable implementations with the following features
 2. **Multiple redundant media transport streams and networks**
 3. **Control traffic security**
 
-NCA control traffic security features (see [Security](113.0.%20Security.md)) reduce the chance of control failure due to malicious activity.
+NCA control traffic security features (see [Security](Security.md)) reduce the chance of control failure due to malicious activity.
 
 4. **Fully-acknowledged command/response architecture**
 
@@ -175,23 +175,23 @@ All asynchronous device changes can be discovered by event subscription; no Cont
 
 6. **Device supervision**
 
-See [Device supervision](110.0.%20Framework%20Mechanisms.md#1091-device-supervision).
+See [Device supervision](Framework%20Mechanisms.md#device-supervision).
 
 7. **Secure Device reset capability**
 
-See [Device reset](110.0.%20Framework%20Mechanisms.md#1092-device-reset).
+See [Device reset](Framework%20Mechanisms.md#device-reset).
 
 NCA protocols (defined in future work) may support additional reliability features - for example, Ethernet-based protocols can support spanning-tree Ethernet and/or can use reliable data transport protocols such as TCP.
 
-### 10.9.1. Device supervision
+### Device supervision
 
 Devices are continuously supervised with the aid of **heartbeat messages**. Such messages shall be defined as part of each NCA protocol specification.
 
-Device supervision ensures that a control session (see [Control sessions](110.0.%20Framework%20Mechanisms.md#102-control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
+Device supervision ensures that a control session (see [Control sessions](Framework%20Mechanisms.md#control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
 
 The exact format of heartbeat messages and the specific rules of the Device supervision mechanism are protocol-specific.
 
-### 10.9.2. Device reset
+### Device reset
 
 The NCA Device reset function allows systems to recover effectively from catastrophic errors. A Device reset has the effect of returning the affected Device to the state it was in immediately following power-up.
 

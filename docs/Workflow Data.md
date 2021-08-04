@@ -1,4 +1,4 @@
-# 11. Workflow Data
+# Workflow Data
 
 From time to time, it is necessary for devices to store and forward data about the production context in which they are working. NCA calls such data _workflow data_, and collections of such data _workflow datasets._
 
