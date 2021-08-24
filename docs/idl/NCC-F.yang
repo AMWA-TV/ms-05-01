@@ -1,0 +1,1085 @@
+ module NCC-F {
+	description 
+	"
+		Draft specification of part of the NCA class tree ('NCC') in YANG.
+		This file (NCC-F) defines framework elements only.
+		A companion file (NCCO) defines optional elements.
+	"
+	yang-version	1.1;
+	namespace 		urn:nca:ncc;
+	prefix 			ncc;
+	revision 		2021-08-30		{description "v10";} 
+	reference 		"RFC 7950 - YANG 1.1";
+	reference 		"RFC 6095 - Extending YANG with Language Abstractions";
+
+	// IETF extension that allows complex types & inheritance 
+	import 			ietf-complex-types {prefix ct;}
+	
+	// NCA extension to handle various NCA-specific constructs 
+	import 			control-extensions {prefix cx;}
+	
+	// YANG submodules for the various NCA class categories. 
+	include 			BaseDatatypes;
+	include			FrameworkDatatypes;
+	include			Identifiers;
+	include			TouchpointDatatypes;
+	include			EventAndSubscriptionDatatypes;
+	include 			BaseClasses;
+	include 			Block;
+	include			Matrix;
+	include 			FrameworkAgents;
+	include 			ConnectionManagementFramework;
+	include			ProductionDataFramework;
+	include			DatasetFramework;
+	include 			Managers;
+}
+
+submodule BaseDatatypes {
+	description 
+	"	
+		Base datatypes - used variously in all NCC data elements
+	"
+	//	NCC standard submodule header
+	yang-version	1.1;
+	belongs-to 	NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	typedef ncaBoolean			{type boolean;}
+	typedef ncaInt8				{type int8;}
+	typedef ncaInt16				{type int;}
+	typedef ncaInt32				{type int32;}
+	typedef ncaInt64				{type int64;}
+	typedef ncaUint8				{type uint8;}
+	typedef ncaUint16				{type uint16;}
+	typedef ncaUint32				{type uint32;}
+	typedef ncaUint64				{type uint64;}
+	typedef ncaFloat32			{type float32;}	// not a YANG base type - issue 
+	typedef ncaFloat64			{type float64;} 	// not a YANG base type - issue 
+	typedef ncaString				{type string;}
+	typedef ncaBlob				[type binary;}
+	typedef ncaBlobFixedLen		{type binary;}
+}
+
+submodule FrameworkDatatypes {
+	description 
+	"
+		Framework datatypes
+	"
+	//	NCC standard submodule header
+	yang-version	1.1;
+	belongs-to 	NCC-F {prefix ncc;}
+	import 		ietf-complex-types {prefix ct;}
+	import 		control-extensions {prefix cx;}
+	// =========================================================================
+	
+	include Identifiers;
+	include TouchpointDatatypes;
+	include EventAndSubscriptionDatatypes;
+	
+	typedef ncaMethodStatus {						// Method status return values 
+		type enumeration {
+			enum OK								{value 0;}	// It worked. 
+			enum protocolVersionError 		{value 1;}	// Control PDU had incompatible protocol version number 
+			enum DeviceError 					{value 2;}	// Something went wrong 
+			enum Locked 						{value 3;}	// Addressed object is locked by another controller session 
+			enum BadCommandFormat 			{value 4;}	// Badly-formed command PDU 
+			enum BadOID 						{value 5;}	// Command addresses a nonexistent object 
+			enum ParameterError 				{value 6;}	// Method parameter has invalid format 
+			enum ParameterOutOfRange 		{value 7;}	// Method parameter has out-of-range value 
+			enum NotImplemented 				{value 8;}	// Addressed method is not implemented by the addressed object 
+			enum InvalidRequest 				{value 9;}	// Requested method call is invalid in current operating context 
+			enum ProcessingFailed 			{value 10;}	// Device did not succeed in executing the addressed method 
+			enum BadMethodID 					{value 11;}	// Command addresses a method that is not in the addressed object 
+			enum PartiallySucceeded 		{value 12;}	// Addressed method began executing but stopped before completing 
+			enum Timeout 						{value 13;}	// Method call did not finish within the allotted time 
+			enum BufferOverflow 				{value 14;}	// Something was too big 
+		}
+	}
+   typedef ncaLockState {					// Concurrency lock states.  See ncaRoot. 
+		type enumeration {
+			enum noLock;						{value 0;}		// object is not locked 
+			enum lockNoWrite;					{value 1;}		// object may be queried but not modified 
+			enum lockNoReadWrite;			{value 2;}		// object may neither be queried nor modified 
+		}
+   }
+	
+	ct:complex-type ncaPortId {
+		// Device-unique port identifier
+		leaf	owner								{type ncaOID;}	// OID of owning object
+		leaf	index								{type ncaID16;}	// Unique within owning object
+	}
+	
+	ct:complex-type ncaPortListEntry {
+		// Entry in object's port list
+			leaf	index							{type ncaID16;}		// Unique within owning object
+			leaf isSource						{type ncaBoolean;}	// TRUE: is source port, FALSE: is sink
+			leaf	name							{type ncaString;}		// User-settable
+			leaf 	clockOID						{type ncaOID;}			// OID of this port's sample clock or zero
+	}
+	
+	ct:complex-type ncaPort {
+		// Full description of port
+			leaf	ID								{type ncaPortId;}		// Unique within owning object
+			leaf 	isSource						{type ncaBoolean;}		// TRUE: is source port, FALSE: is sink
+			leaf	name							{type ncaString;}		// User-settable
+			leaf 	clockOID						{type ncaOID;}			// OID of this port's sample clock or zero
+	}
+	
+	ct:complex-type ncaPortParticulars {
+		// Full description of port without index value
+			leaf 	isSource						{type ncaBoolean;}	// TRUE: is source port, FALSE: is sink
+			leaf	name							{type ncaString;}		// User-settable
+			leaf 	clockOID						{type ncaOID;}			// OID of this port's sample clock or zero
+	}
+}
+submodule Identifiers {
+	description 
+	"
+		NCA identifiers of various kinds
+	"	
+	//	NCC standard submodule header
+	yang-version	1.1;
+	belongs-to 	FrameworkDatatypes {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	// CLASS ID --------------------------------------------------------------- 
+	include IdentifiersClassID
+
+	// OBJECT ID --------------------------------------------------------------
+	typedef ncaOID					{type ncaUint32;}
+	
+	// OBJECT NAME ------------------------------------------------------------
+	typedef ncaOName				{type ncaString;}
+	
+	// OBJECT NAME PATH -------------------------------------------------------
+	
+	// Syntax:
+	//		absolute:			/blockname/blockname/ ... /membername
+	//		relative:			blockname/blockname/ ... /membername
+	
+	typedef ncaONamePath			{type ncaString;}		
+		
+	// CLASS ELEMENT ID ------------------------------------------------------- 
+   ct:complex-type ncaElementID {
+      leaf DefLevel				{type ncaUint16;}
+      leaf PropertyIndex		{type ncaUint16;}
+   }
+	typedef ncaPropertyID		{type ncaElementID;}
+	typedef ncaMethodID			{type ncaElementID;}
+	typedef ncaEventID			{type ncaElementID;}
+	
+	// SCHEMA ID----------------------------------------------------------------
+	ct:complex-type ncaSchemaID {
+		leaf URI						{type ncaURI;}				// Where it lives
+		leaf name					{type ncaString;}			// Friendly name
+	}
+	
+	// MULTIPURPOSE INTERNAL HANDLES -------------------------------------------
+	typedef ncaID16				{type Uint16;}
+	typedef ncaID32				{type Uint32;}
+	
+	// OTHER -------------------------------------------------------------------
+	
+	typedef ncaURI					{type ncaString;}	
+}
+
+submodule IdentifiersClassID {
+	description 
+	"
+		Class ID datatypes
+		
+		In this specification, a class ID constant will be coded as 
+		'v,i1.i2. ...'\' 
+		where 
+			'v' is the class revision level
+			'i1', 'i2', etc. are the definition index values.
+		e.g.
+				- class ID of rev 1 of ncaRoot = 	'1,1'
+				- class ID of rev 1 of ncaBlock = 	'1,1.3'
+				- class ID of rev 2 of ncaWorker =	'2,1.1'
+				- class ID of rev 1 of ncaGain = 	'1,1.1.3'
+	"	
+
+	//	NCC standard submodule header
+	yang-version	1.1;
+	belongs-to 	Identifiers {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+
+	belongs-to FrameworkDatatypesIdentifiers  {prefix ncc;}
+	
+	ct:complex-type ncaOrganizationID {
+		description 
+		"
+			48-bit IEEE public Company ID (public CID) 
+			or IEEE Organizational Unique Identifier (OUI), 
+			or the value zero.
+		";
+
+      leaf value {type ncaBlobFixedLen {length 3;};}
+   }
+   
+   ct:complex-type ncaClassAuthorityID {
+      description "Authority key value for class ID";
+
+      leaf 				Sentinel 			{type ncaUint16; default &HFFFF;}
+      leaf 				Reserved 			{type ncaUint8; default 0;}
+      ct:instance 	OrganizationID 	{ct:instance-type ncaOrganizationID;}
+   }
+   
+   ct:complex-type ncaClassIDField{
+      description 
+		"
+			Class identifier field.  
+			There is one of these for each level in the ClassID.
+		"
+      choice value {
+         case index 			{type ncaUint16;}
+         case authorityID 	{ct:instance-type ncaClassAuthorityID}
+      }
+   }
+	
+   ct:complex-type ncaClassID {
+		leaf version {type ncaClassVersion;}
+      ct:instance-list fields {
+         ct:instance ncaClassIDField;
+         ordered-by user;
+      }
+   }
+}
+
+submodule TouchpointDatatypes {
+	description 
+	"
+		Datatypes of Touchpoint mechanism for interfacing with other
+		control architectures
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		FrameworkDatatypes {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import			control-extensions {prefix cx;}
+	// =========================================================================
+
+	// Abstract base classes  
+ 
+	ct:complex-type ncaTouchpoint{			
+		ct:abstract: true;				
+		leaf ContextNamespace {type ncaString;}
+		ct:instance-list Resources {						// Subclasses will override 
+			type ncaTouchpointResource; 		
+		}
+	}
+	ct:complex-type ncaTouchpointResource{	
+		ct:abstract: true;				
+		leaf ResourceType {type ncaString;}  
+		leaf Id {type anyvalue;}								// Subclasses will override 
+	}
+ 
+	// NMOS-specific subclasses 
+	
+	// IS-04 registrable entities
+	ct:complex-type ncaTouchpointNmos{		
+		ct:extends ncaTouchpoint;		
+		// ContextNamespace is inherited from ncaTouchpoint.
+		ct:instance-list Resources {type ncaTouchpointResourceNmos;}
+	}
+	ct:complex-type ncaTouchpointResourceNmos{
+		ct:extends ncaTouchpointResource;
+		// ResourceType is inherited from ncaTouchpoint. 
+		leaf Id {type ncaString;}													// override 
+	}
+	
+	// IS-08 inputs or outputs
+	ct:complex-type ncaTouchpointNmos_is_08{		
+	ct:extends ncaTouchpoint;		
+	/* ContextNamespace is inherited from ncaTouchpoint */
+	instance-list Resources {type ncaTouchpointResourceNmos_is_08;}
+}
+	ct:complex-type ncaTouchpointResourceNmos_is_08{
+		ct:extends ncaTouchpointResourceNmos;
+		/* ResourceType is inherited from ncaTouchpoint */
+		leaf Id {type ncaString;}
+		leaf IoId {type ncaString;}						// IS-08 input or output ID
+	}
+}
+submodule EventsAndSubscriptionDatatypes {
+	definition 
+	"
+		Datatypes for the NCC event and subscription mechanism
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		FrameworkDatatypes {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	ct:complex-type ncaEvent{
+      description  "NCA event - unique combination of emitter OID and Event ID.";
+      leaf EmitterOID {type ncaOID;}
+      leaf EventID {type ncaEventID;}
+   }
+   ct:complex-type ncaEventData{
+      description  "Base class for event payloads"
+      leaf Event {type ncaEvent;}
+		// Specific event-types' event data datatypes add payload properties HERE 
+   }
+   ct:complex-type 	ncaPropertyChangedEventData{		// .PropertyValue defn is tbd, see below 
+      ct:extends 	ncaEventData;
+      description 	"Payload of property-changed event";
+      leaf PropertyID {type ncaPropertyID;}
+      leaf ChangeType {type ncaPropertyChangeType;}
+		anydata PropertyValue;		// This will change to a Yang 'Choice' stmt in the final 
+   }
+	
+	ct:complex-type	ncaSynchronizeStateEventData {
+		ct:extends	ncaEventData;
+		description " Event data for NcaSubscriptionManager.SynchronizeState event";
+		leaf-list	changedObjectsIDs		{type ncaOID;}		// OIDs of objects changed while subscriptions were disabled.
+	}	
+	
+	typedef ncaStringComparisonType {
+		type enumeration {
+			enum exact 								{value 0;}		// exact case-sensitive compare
+			enum substring							{value 1;}		// "starts with" - case-sensitive
+			enum contains							{value 2;} 		// search string anywhere in target - case-sensitive
+			enum exactCaseInsensitive			{value 3;}		// exact case-insensitive compare
+			enum substringCaseInsensitive		{value 4;}		// "starts with" - case-insensitive
+			enum containsCaseInsensitive		{value 5;}		//	search string anywhere in target - case-insensitive
+		}
+	}
+}
+
+submodule BaseClasses {
+	description	
+	" 
+		Class ncaRoot and associated datatypes
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+   ct:complex-type ncaRoot{
+		description " Abstract base class for entire NCC class structure"
+      ct:abstract: true;
+      leaf classID			{type ncaClassID; default "1"; cx:element-id "1p1";}
+      leaf OID					{type ncaOID; cx:element-id "1p2";}
+      leaf lockable			{type ncaBoolean; cx:element-id "1p3"; }
+      leaf name				{type ncaString; cx:element-id "1p4";}
+      leaf lockState			{type ncaLockState; cx:element-id "1p5";}
+		ct:instance-list touchpoints 	{type ncaTouchpoint; }	
+		
+      action GetClassID{
+			description " Retrieves value of property 'classID'."
+			cx:element-id "1m1";
+         output {
+            leaf status		{type ncaMethodStatus;}
+            leaf ID			{type ncaClassID;}
+         }
+		}
+      action GetName{
+			description "Retrieves value of property 'name'."
+			cx:element-id "1m2";
+         output {
+            leaf status		{type ncaMethodStatus}
+            leaf name		{type ncaString;}
+         }
+      }
+      action GetLockable{
+			description " Retrieves value of property 'locakable'."
+			cx:element-id "1m3";
+         output {
+            leaf status 	{type ncaMethodStatus;}
+            leaf lockable 	{type ncaBoolean;}
+         }
+      }
+      action SetLock{
+			description " Locks or unlocks the object."
+			cx:element-id "1m4";
+         input { 
+            leaf state		{type ncaLockState;)}
+         }
+         output {
+            leaf status		{type ncaMethodStatus;}
+         }
+      }
+      action GetTouchpoints{
+			description "Retrieves the list of this property's touchpoints."
+			cx:element-id "1m5";
+         output {
+            leaf status		{type ncaMethodStatus;}
+            ct:instance-list touchpoints 	{type ncaTouchpoint;}
+         }
+      }
+      action SetTouchpoints{
+			description "Sets the entire list of this property's touchpoints."
+			cx:element-id "1m6";
+			input{
+            ct:instance-list touchpoints 	{type ncaTouchpoint;}
+			}
+         output {
+            leaf 				status			{type ncaMethodStatus;}
+         }
+      }
+      notification PropertyChanged {
+			description "Event raised whenever a property in this object changes value."
+			cx:element-id "1e1";
+         leaf  				 	EventData	{type ncaPropertyChangedEventData;}
+      }
+	}
+
+	ct:complex-type ncaWorker {
+		// Worker abstract base class
+		ct:abstract true;
+	}
+	
+	ct:complex-type ncaActuator {
+		// Actuator abstract base class
+		ct:abstract true;
+	}
+
+	ct:complex-type ncaSensor {
+		// Actuator abstract base class
+		ct:abstract true;
+	}
+	
+	ct:complex-type ncaAgent {
+		ct:extends ncaRoot;
+		description "Base class for agents"
+		leaf  		userLabel			{type ncaString; cx:element-id "2p1";}
+      action GetUserLabel{
+			description "Retrieves the value of the userLabel property."
+			cx:element-id "2m1";
+         output {
+            leaf status 				{type ncaMethodStatus;}
+            leaf label					{type ncaString;}
+         }
+      }
+      action SetUserLabel{
+			description "Sets the value of the userLabel property."
+			cx:element-id "2m2";
+			input{
+            leaf label					{type ncaString;}
+			}
+         output {
+            leaf status  				{type ncaMethodStatus;}
+         }
+      }	
+	}
+}
+submodule Block {
+	desciption
+	"
+		ncaBlock : container for NCA objects, and related datatypes.  
+		This is NCA's primary control API structuring mechanism.
+	"
+	//	---------------------------------------------------------
+	//	Leaving out dynamic object configuration features for now.
+	//	Leaving out parameter storage ("preset") features for now.
+	//	Leaving out dataset features for now.
+	//	- jb
+	//	---------------------------------------------------------
+	
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	ct:complex-type ncaBlock {
+		description
+		"
+			Container for NCA objects.  
+			This is NCA's primary control API structuring mechanism.
+		"		
+		ct:extends ncaRoot;
+		belongs-to NCC-F prefix ncc;
+ 
+		leaf 					classID			{type ncaClassID; default "1,1.1"; 			cx:element-id "1p1";}	// CONSTANT: classID of ncaBlock 
+		leaf					owner				{type ncaOID; 										cx:element-id "2p1";}	// what block contains this block 
+		leaf					enabled			{type ncaBoolean; default true;				cx:element-id "2p2"}		// TRUE iff block is functional
+		leaf 					userLabel		{type ncaString; 									cx:element-id "2p3";}	// user-settable label 
+		ct:instance			schemaID			{ct:instance-type ncaSchemaID; 				cx:element-id "2p4";}	// Global ID of this block's schema
+		leaf					isDynamic		{type: ncaBoolean;								cx:element-id "2p5";} 	// TRUE iff dynamic block
+		leaf					isModified		{type: ncaBoolean;								cx:element-id "2p6";}	// TRUE iff block contents modified since powerup
+		leaf-list 			members 			{type ncaOID; 										cx:element-id "2p7";}	// OIDs of this block's members 
+		ct:instance-list 	signalFlow		{ct:instance-type ncaSignalPath;  			cx:element-id "2p8";}	// this block's signal paths  
+		ct:instance-list	ports				{ct:instance-type ncaPortListEntry;  		cx:element-id "2p9";}	// this block's ports
+	
+		action GetImplements {
+			description " Returns ID of schema this block instance implements."		
+			cx:element-id "2m1";
+			output { 
+				leaf 				status			{type ncaMethodStatus;}
+				ct:instance 	ID					{ct:instance-type ncaSchemaID;}
+			}
+		}
+		
+		action GetEnabled {
+			description " Returns value of 'enabled' property."
+			cx:element-id "2m2";
+			output { 
+				leaf 				status			{type ncaMethodStatus;}
+				leaf			 	enabled			{type ncaBoolean;}
+			}
+		}
+		
+		action SetEnabled {
+			description "Sets value of 'enabled' property."
+			cx:element-id "2m3";
+			input {
+				leaf			 	enabled			{type ncaBoolean;}
+			}
+			output { 
+				leaf 				status			{type ncaMethodStatus;}
+				leaf			 	enabled			{type ncaBoolean;}
+			}
+		}
+		
+		//	BLOCK ENUMERATION METHODS	- Return lists of block members and signal flows. 
+		//	"member" means an object inside the block.
+		//	A nested block is considered to be a member of its containing block.
+	
+		action GetMembers {
+			description
+			"
+				Member enumeration:
+				Lists all members of given block, including nested blocks.
+				Includes members of nested blocks if property .recurse is TRUE. 
+			"
+			cx:element-id "2m4"
+			leaf 						recurse		{type ncaBoolean;} 	// True => include members of nested blocks
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+				ct:instance-list	members		{ct:instance-type ncaMemberDescriptor}
+			}
+		}
+		
+		action GetNestedBlocks {
+			description 
+			" 
+				Nested block enumeration.
+				Lists all blocks inside the current block.
+				Includes all nested blocks if property .recurse is TRUE.	
+			"
+			cx:element-id "2m5"
+			leaf recurse							{type ncaBoolean;} 	// True => include nested blocks
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+				ct:instance-list	blocks		{ct:instance-type ncaBlockDescriptor}
+			}
+		}
+		
+		action GetSignalPaths {
+			description
+			"
+				Signal path enumeration.
+				Lists all signal paths of given block.
+				Includes signal paths of nested blocks if property .recurse is TRUE. 
+				A signal path is considered to belong to a block if at least one of its ends
+				in an ncaPort of the block object itself or of a block member object.
+			"
+			cx:element-id "2m6"
+			leaf recurse								{type ncaBoolean;} 	// True => include flows of nested blocks
+			output {
+				leaf 					status			{type ncaMethodStatus;}
+				ct:instance-list 	paths				{ct:instance-type ncaSignalPath;}
+			}
+		}
+		
+		action GetSignalPath {
+			description "Retrieve a signal path specification with a given ID."
+			cx:element-ID "2m7"
+			input {	
+				leaf					 	Id				{type ncaID16;}
+			}
+			output {
+				leaf 						status		{type ncaMethodStatus;}
+				ct:instance				path			{ct:instance-type ncaSignalPath} 
+			}
+		}
+		
+		action AddSignalPath {
+			description "Adds a signal path to the block."
+			cx:element-ID "2m8"
+			input {	
+				ct:instance			path			{ct:instance-type ncaSignalPath} 
+			}
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+				leaf					Id				{type ncaID16;}				// Path ID
+			}
+		}
+		
+		action SetSignalPath {
+			description "Changes a signal path that's in the block."
+			cx:element-ID "2m9"
+			input {	
+				leaf					 Id			{type ncaID16;}				// Path ID
+				ct:instance			path			{ct:instance-type ncaSignalPath} 
+			}
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+			}
+		}
+		
+		action DeleteSignalPath {
+			description "Deletes a signal path with a given ID."
+			cx:element-ID "2m10"
+			input {	
+				leaf				 	Id				{type ncaID16;}				// Path ID
+			}
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+			}
+		}
+		
+		// PORT-RELATED METHODS
+		
+		action GetPorts {
+			description 
+			"
+				ncaPort enumeration.
+				Lists all ports of given block.
+				Includes ports of nested blocks if property .recurse is TRUE.
+			"	
+			cx:element-ID "2m11"
+			input {
+				leaf 					recurse		{type ncaBoolean;} 	// True => include ports of nested blocks
+			}
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+				ct:instance-list	ports			{ct:instance-type ncaPort;}
+			}
+		}
+		
+		action GetPort {
+			description "Retrieve the specifications of a given port."			
+			cx:element-ID "2m12"
+			input {
+				leaf 					ID				{type ncaID16;}
+			}
+			output {
+				leaf 					status		{type ncaMethodStatus;}
+				ct:instance		 	port			{ct:instance ncaPort;}
+			}
+		}
+		
+		action AddPort {
+			description "Add a port and return its ID."			
+			cx:element-ID "2m13"
+			input {
+				ct:instance 			port			{ct:instance ncaPortParticulars;}
+			}
+			output {
+				leaf 						status		{type ncaMethodStatus;}
+				leaf 						ID				{type ncaID16;}
+			}
+		}
+			
+		action SetPort {
+			description "Change the specifications of a given port."			
+			cx:element-ID "2m14"
+			input {
+				leaf 						ID				{type ncaID16;}
+				ct:instance-list 		port			{ct:instance ncaPortParticulars;}
+			}
+			output {
+				leaf 						status		{type ncaMethodStatus;}
+			}
+		}
+		
+		action DeletePort {
+			description "Delete given port."			
+			cx:element-ID "2m15"
+			input {
+				leaf 				ID			{type ncaID16;}
+			}
+			output {
+				leaf 				status	{type ncaMethodStatus;}
+			}
+		}
+		 
+		// BLOCK SEARCH METHODS	- Locate block members by given criteria. 
+		 
+		action FindMembersByNamePath { 
+			description 
+			"
+				Find members by name path.
+				Works the same regardless of whether the found member
+				is an application object or a nested block. 
+			"
+			cx:element-ID "2m8"
+			input {
+				leaf 				path				{type ncaNamePath;}
+				leaf 				resultFlags		{type ncaMemberSearchResultFlags;}
+			}
+			output {
+				leaf 				status			{type ncaMethodStatus;}
+				ct:instance-list result			{type ncaMemberSearchResult;}
+			}
+		}
+		
+		action FindMembersByUserLabel {
+			description 
+			"
+				Find members by user label.
+				Works the same regardless of whether the found member
+				is an application object or a nested block.
+				Always recurses down to innermost nested block.
+			"
+			cx:element-ID "2m9";
+			input {
+				leaf 					label							{type ncaString;}
+				leaf 					stringComparisonType		{type ncaStringComparisonType;}  
+				leaf 					resultFlags					{type ncaMemberSearchResultFlags;}
+			}
+			output {
+				leaf 					status						{type ncaMethodStatus;}
+				ct:instance-list	result						{type ncaMemberSearchResult;}
+			}
+		}
+		action GetDynamicParameters {
+			description
+			" 
+				Retrieves properties isDynamic and isModified.
+			"
+				output {
+				leaf 					status						{type ncaMethodStatus;}
+					leaf				isDynamic					{type ncaBoolean;}
+					leaf				isModified					{type ncaBoolean;}
+				}
+			cx:element-id "2m10";
+		}
+	}
+	//
+	// BLOCK-RELATED DATATYPES
+	//
+	ct:complex-type		ncaNamePath {
+		description 
+		"
+			Object name path.
+			Ordered list of block object names ending with name of object in question.
+			Object in question may be a block or an application object.
+			Absolute paths begin with root block name, which is always null.
+			Relative paths begin with name of first-level nested block inside current one.
+		"
+		leaf-list	path	{type ncaString;}
+	}
+	
+	ct:complex-type  		ncaSignalPath { 
+		description 	"Signal path specification"		
+		leaf				Id			{type ncaID16;}						// Local to block object
+		ct:instance		source	{ct:instance-type ncaID16;}		// Local ID within block object
+		ct:instance		sink		{ct:instance-type ncaID16;}		// Local ID within block object
+	}
+	
+	ct:complex-type  		ncaMemberDescriptor{ 
+		description		"Member descriptor returned in list from ncaBlock.GetMembers()"
+		leaf				OID	{type ncaOID;}								// Member OID
+		ct:instance		classID	{ct:instance-type ncaClassID;}	// Member class ID
+		leaf 				name	{type ncaString;}							// Member object name
+		leaf 				owner	{type ncaOID;}								// Containing block OID
+	}
+		
+	ct:complex-type		ncaBlockDescriptor{
+		//	Block descriptor
+		//	List element, as returned by ncaBlock.GetNestedBlocks()
+		
+		leaf					OID			{type ncaOID;}					// Block OID
+		leaf 					implements	{type ncaSchemaID;}			// ID of schema this block implements
+		leaf 					name			{type ncaString;}				// Block object name
+		leaf 					owner			{type ncaOID;}					// Containing block OID
+	}
+		
+	ct:complex-type  		ncaMemberSearchResult{ 
+		//	Member search result 
+		//	List element, as returned by ncaBlock.GetMembers()
+		
+		leaf					OID			{type ncaOID;}					// Member OID
+		ct:instance			classID		{ct:instance-type ncaClassID;}	// Member class ID
+		leaf 					path			{type ncaPath;}				// Member object name path
+		leaf 					owner			{type ncaOID;}					// Containing block OID
+		leaf					userLabel	{type ncaString;}				// User label
+	}
+	
+	typedef  				ncaMemberSearchResultFlags{ 
+		// Bitset that selects what fields are to be returned 
+		//	by block searches in ncaMemberSearchResult 
+		type bits {
+			bit 				OID			{position 0;}
+			bit 				classID		{position 1;}
+			bit 				path			{position 2;}
+			bit 				owner			{position 3;}
+			bit 				userLabel	{position 4;}
+		}
+	}
+}
+
+submodule Matrix { 
+	description
+	"
+		Matrix class
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	// TBD
+}
+submodule FrameworkAgents { 
+	description
+	"
+		Object-sequence agent
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	ct:complex-type ncaObjectSequence {	 						
+		ct:extends ncaAgent;
+		decription "ordered-list container"
+		ct:instance-list			entries {
+			type 						ncaObjectSequenceEntry;
+			ordered-by				user;
+		}
+		action GetSequence {
+			output { 
+				leaf					status		{type ncaMethodStatus;}
+				ct:instance-list	entries		{ct:instance-type ncaObjectSequenceEntry;}
+			}
+		}
+		
+		action GetEntry {
+			input {
+				leaf					index		{type ncaUint16;}
+			}
+			output {
+				leaf 					status	{type ncaMethodStatus;}
+				ct:instance			entry		{ct:instance-type ncaObjectSequenceEntry;}
+			}
+		}
+		action SetSequence {
+			input {
+				ct:instance-list	entries		{ct:instance-type ncaObjectSequenceEntry;}
+			}
+			output { 
+				leaf 						status		{type ncaMethodStatus;}
+			}
+		}
+	}
+	ct:complex-type ncaObjectSequenceEntry {					// Object-sequence list entry
+		leaf 							index				{type ncaUint16;}		// ordinal
+		leaf 							path				{type ncaOPath;}		// object path
+	}
+}
+submodule ConnectionManagementFramework {
+	description
+	"
+		Framework classes for stream connection managment
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	// TBD
+}
+submodule WorkflowDataFramework {
+	"
+		Framework classes for workflow data records.
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+		
+	ct:complex-type ncaWorkflowDataRecord {
+		ct:extends 	ncaRoot;
+		belongs-to 	NCC-F prefix ncc;
+		description "Base class for workflow data records"
+		
+		leaf classID				{type ncaClassID; default "1,1.7";}	 
+		leaf Type					{type ncaProductionDataRecordType;}
+		leaf ID						{type ncaProductionDataRecordID;}
+		
+		// Additional properties will be defined by subclasses
+		
+      action GetType{
+			description "Retrieves the value of property Type."
+			cx:element-id "2p1";
+         output {
+            leaf status			{type ncaMethodStatus;}
+            leaf type			{type ncaProductionDataType;}
+         }
+      }
+      action SetType{
+			description "Sets the value of property Type."
+			cx:element-id "2p2";
+			input{
+            leaf type			{type ncaProductionDataType;}
+			}
+         output {
+            leaf status			{type ncaMethodStatus;}
+         }
+      }
+      action GetID{
+			description "Retrieves the value of property ID."
+			cx:element-id "2p3";
+         output {
+            leaf status			{type ncaMethodStatus;}
+				leaf ID				{type ncaProductionDataID;}
+         }
+      }
+      action SetID{
+			description "Sets the value of property ID."
+			cx:element-id "2p4";
+			input{
+				leaf ID				{type ncaProductionDataID;}
+			}
+         output {
+            leaf status			{type ncaMethodStatus;}
+         }
+      }	
+	}
+	
+	typedef ncaWorkflowDataRecordType {
+		enum blob				{value 0;}		// binary large object, format undefined
+		enum AS10-header		{value 1;}
+		enum AS10-shim			{value 2;}
+	}
+}
+submodule DatasetFramework { 
+	description
+	"
+		Dataset classes.
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	// TBD
+}
+
+submodule Managers { 
+	description
+	"
+		Manager classes.
+	"
+	//	NCC standard submodule header
+	yang-version 	1.1;
+	belongs-to 		NCC-F {prefix ncc;}
+	import 			ietf-complex-types {prefix ct;}
+	import 			control-extensions {prefix cx;}
+	// =========================================================================
+	
+	ct:complex-type ncaManufacturer {
+		leaf			name						{type ncaString;} 			// Manufacturer's name
+		leaf			organizationID			{type ncaOrganizationID;}	// IEEEE  OUI or CID of manufacturer
+		leaf			website					{type ncaURI;}					// URL of the manufacturer's website
+		leaf			businessContact		{type ncaString;}				// Contact information for business issues
+		leaf			technicalContact		{type ncaString;}				// Contact information for technical issues
+	}
+	
+	ct:complex-type ncaProduct {
+		leaf			name						{type ncaString;}				// Product name
+		leaf			key						{type ncaString;}				// Manufacturer's unique key to product - model number, SKU, etc
+		leaf			revisionLevel			{type ncaString;}				// Manufacturer's product revision level code
+		leaf			brandName				{type ncaString;}				// Brand name under which product is sold
+		leaf			UUID						{type ncaUUID;}				// Unique UUID of product (not product instance)
+		leaf			description				{type ncaString:}				// Text description of product
+	}
+	
+	enumeration		ncaResetCause {
+		enum			PowerOn					{value:0;}
+		enum			InternalError			{value:1;}
+		enum			Upgrade					{value:2;}
+		enum			ExternalRequest		{value:3;}
+	}
+	
+	enumeration		ncaDeviceGenericState {
+		enum			NormalOperation		{value:0;}
+		enum			Initializing			{value:1;}
+		enum			Updating					{value:2;}
+		enum			ExpansionBase			{value:128;}`					// Add proprietary causes starting with 128
+	}
+	
+	ct:complex-type ncaManager {
+		extends		ncaRoot;
+		description "Base class for NCA Managers";
+		cx:class-id "1,1.7"
+	}
+	
+	ct:complex-type ncaDeviceManager {
+		extends		ncaManager;
+} 		description	
+		"
+		Device manager class.
+		Contains basic device information and status.
+	"
+			cx:class-id "1,1.7.1"
+			leaf			ncaVersion			{type ncaUint16; 			cx:element-id "2p1";}	// Version of NCA this dev uses
+			ct:instance	manufacturer		{type ncaManufacturer; 	cx:element-id "2p2";}	// Manufacturer descriptor
+			ct:instance	product				{type ncaProduct; 		cx:element-id "2p3";}	// Product descriptor
+			leaf			serialNumber		{type ncaString; 			cx:element-id "2p4";}	// Mfr's serial number of dev
+			leaf			ncaVersion			{type ncaUint16; 			cx:element-id "2p5";}	// Version of NCA this dev uses
+			leaf			userInventoryCode	{type ncaString; 			cx:element-id "2p6";}	// For asset tracking (user-specified)
+			leaf			deviceName			{type ncaString; 			cx:element-id "2p7";}	// Name of this dev in application. Instance name, not product name. 
+			leaf			deviceRole			{type ncaString; 			cx:element-id "2p8";}	// Role of dev in application.
+			leaf			controlEnabled		{type ncaBoolean;			cx:element-id "2p9";}	// TRUE iff dev is responsive to NCA commands
+			ct:instance	operationalState	{type ncaOperationalState; cx:element-id "2p10";}	// Device operational state
+			leaf			resetCause			{type ncaResetCause;		cx:element-id "2p11";}	// Reason for most recent dev reset
+			leaf			message				{type ncaString; 			cx:element-id "2p12";}	// Arbitrary message from dev to controller
+			leaf-list	managers				{type ncaOID; 				cx:element-id "2p13"}	// Object IDs of instantiated mgrs in this dev
+			leaf			loggingEnabled		{type ncaBoolean; 		cx:element-id "2p14";}	// TRUE iff dev shuold write its logs
+			leaf			mostRecentPatchOID	{type ncaOID; 			cx:element-id "2p15";}	// OID of most recent patch - for Stored Parameters feature
+		
+	// Methods - all the usual Get/Set methods, plus the following special ones:
+	
+	action SetResetKey  {			// Sets the emergency-reset key
+		input {
+			leaf key						{type ncaBlob;}
+		}
+		output {
+			leaf status					{type ncaMethodStatus;}
+		}
+	}
+	
+	action ClearResetCause  {		// Clears the .resetCause property
+		output {
+			leaf status					{type ncaMethodStatus;}
+		}
+	}
+	
+	action ApplyPatch {				// Used by the Stored Parameters feature set to apply a set of parameter values
+		input {
+			leaf OID						{type ncaOID;}				// object ID of patch dataset
+		}
+		output {
+			leaf status					{type ncaMethodStatus;}
+		}
+	}
+}
