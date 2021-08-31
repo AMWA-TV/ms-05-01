@@ -68,7 +68,7 @@ The [NMOS Glossary][NMOS-G] and [JTNM Reference Architecture][JTNM-RA] define _D
 
 As NCA is a part of the NMOS family of specification, use of this term is compatible with prior use within NMOS. However, NCA Devices include additional processing and logic functions not described in existing NMOS specifications, which are focused on senders and receivers \[IS-05\], event notification emitters and subscribers \[IS-07\], and routing matrices \[IS-08\].
 
-This document will use the capitalized term **Device** to denote a device in the NCA sense. The uncapitalized version will be used in nonspecific English uses of the term, e.g. "device control". Where a clear distinction must be made between earlier NMOS and NCA devices, the term will be qualified, as in "NCA Device", "NMOS Device", and so on.
+This document will use the capitalized term **Device** to denote the entity which hosts the NCA Device Model. The uncapitalized version will be used in nonspecific English uses of the term, e.g. "device control". Where a clear distinction must be made between IS-04 and NCA devices, the term will be qualified, as in "NCA Device", "IS-04 Device", and so on.
 
 ### The term _Controller_
 
