@@ -8,7 +8,7 @@ spec_server: specs.amwa.tv
 amwa_id: MS-05-01
 
 # Base name for site (typically lower case version of AMWA ID, or the repo name)
-baseurl: /MS-05-01
+baseurl: /ms-05-01
 
 # Which release or branch appears in header links and on the home page
 default_tree: branches/v1.0-dev # alternatively e.g. releases/v1.0
