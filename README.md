@@ -1,7 +1,7 @@
-# \[Work In Progress\] AMWA NMOS Modeling Specification
+# \[Work In Progress\] AMWA MS-05-01: NMOS Control Architecture Framework
 
-[![Lint Status](https://github.com/AMWA-TV/nmos-modeling/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-modeling/actions?query=workflow%3ALint)
-[![Render Status](https://github.com/AMWA-TV/nmos-modeling/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-modeling/actions?query=workflow%3ARender)
+[![Lint Status](https://github.com/AMWA-TV/nmos-control-architecture-framework/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/nmos-control-architecture-framework/actions?query=workflow%3ALint)
+[![Render Status](https://github.com/AMWA-TV/nmos-control-architecture-framework/workflows/Render/badge.svg)](https://github.com/AMWA-TV/nmos-control-architecture-framework/actions?query=workflow%3ARender)
 
 This repository holds the source for this Specification, part of the family of [Networked Media Open Specifications](https://specs.amwa.tv/nmos) from the [Advanced Media Workflow Association](https://amwa.tv)
 
