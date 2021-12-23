@@ -1,0 +1,10 @@
+amwa_id: MS-05-01
+url: https://specs.amwa.tv/ms-05-01
+name: NMOS Control Architecture Framework
+status: Work In Progress
+repo_name: ms-05-01
+alt_repo_name: nmos-control-architecture-framework
+repo_url: https://github.com/AMWA-TV/ms-05-01
+releases:
+default_branch: v1.0-dev
+show_in_index: true
