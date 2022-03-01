@@ -24,4 +24,4 @@ In many cases, Controllers will have been custom-built for Devices they control,
 
 A Controller needs a control protocol to access Device control APIs. NCA's Control Model defines APIs abstractly, leaving their realizations in protocols to separate specifications. 
 
-The document [NC-Protocol](Protocol.md) defines a JSON-encoded Remote Procedure Call (RPC) protocol for NCA.  Future protocols may implement control APIs in other ways, but all of them will share the same properties, methods, events, and semantics, as defined by the Control Model.
+The `NC-Protocol` repository defines a JSON-encoded Remote Procedure Call (RPC) protocol for NCA. Future protocols may implement control APIs in other ways, but all of them will share the same properties, methods, events, and semantics, as defined by the Control Model.
