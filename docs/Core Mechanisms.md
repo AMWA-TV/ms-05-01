@@ -36,7 +36,7 @@ Historically, Controllers have often tracked device changes by polling. A goal o
 
 Not all Controllers need to know about all events. When a Controller wants to be informed of the occurrence of a certain event in a certain object, it registers a **subscription** with the Device's _subscription manager,_ an instance of the class **ncaSubscriptionManager.**  A subscription causes a **notification message** to be delivered to the subscribing Controller whenever the designated event is raised in the designated object.
 
-Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the Controller's connection fails.
+Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the Controller's session ends.
 
 ### Notification messages
 
