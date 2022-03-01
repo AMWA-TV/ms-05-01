@@ -38,7 +38,7 @@ Not all Controllers need to know about all events. When a Controller wants to be
 
 Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the Controller's connection fails.
 
-### Notification messages ###
+### Notification messages
 
 A notification message is essentially a callback command whose parameters depend on the type of event. However, unlike actual commands, a notification does not require a response.
 
