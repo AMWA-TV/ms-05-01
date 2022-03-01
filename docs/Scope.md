@@ -41,7 +41,7 @@ NCA anticipates that the blockspec mechanism (3, above) will support the growth 
 
 ### Scope of this document
 
-This document describes the NCA architecture - item (1.) in the preceding section. The subsequent documents will be developed in later phases of the NCA workstream.
+This document describes the NCA architecture - item (1.) in the preceding section.
 
 ### Note on terminology ###
 
