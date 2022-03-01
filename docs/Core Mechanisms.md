@@ -50,7 +50,7 @@ The most common event is the **PropertyChanged** event.  **PropertyChanged**   i
 
 **PropertyChanged** is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers. 
 
-## Controller hierarchies ##
+## Controller hierarchies
 
 Some NCA-controlled media networks may contain thousands of devices. In such cases, it will not be practical for a single central Controller to maintain a separate control session with each device. To address this problem, indirect control using a hierarchy of Controllers may be implemented, with successive levels aggregating control functionality in ways appropriate to the applications.  NCA's core mechanisms are sufficient to support such configurations, but the exact implementation details are out of this specification's scope.
 
