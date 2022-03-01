@@ -54,7 +54,7 @@ Static identifiers that identify the properties, methods, and events of control 
 
 Object IDs can change from time to time within a device, based on dynamic configuration and other events. Each block object maintains an object ID revision timestamp that indicates the last time the object IDs of its members block have changed.
 
-## NCA-NMOS identity mapping ##
+## NCA-NMOS identity mapping
 
 NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace.
 
