@@ -4,7 +4,6 @@
 
 The control model defines a class named **ncaBlock** that is a container for objects. In Devices, block classes are instantiated to make objects known as **blocks**.
 
-In Devices, block classes are instantiated to make objects known as **blocks.** A block class may be instantiated as many times as required to define the required control API. For example, an eight-channel audio mixer might define a block class named **myMixChannel** and instantiate it eight times, to create eight blocks which define the eight required channel-control APIs.
 
 ### Nested blocks
 
