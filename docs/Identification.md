@@ -10,7 +10,7 @@ Uniquely identifies a class and its revision level.
 
 | Identifier | Datatype | Scope | Lifespan | 
 | ---------- | -------- | ----- | ---------| 
-| **Object ID** | _ncaOID_ | Device | See [Object IDs](#Object%20IDs) below.
+| **Object ID** | _ncaOID_ | Device | See [Object IDs](#object-ids) below.
 
 Compact read-only handle that uniquely identifies an object within its device. Every class inherits the **Object ID** property, and this property has a valid value for every object. 
 
