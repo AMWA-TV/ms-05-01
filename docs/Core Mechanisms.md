@@ -32,7 +32,7 @@ A common application of multiple controllers arises when a network-controlled de
 
 In all multiple multi-controller situations, timely tracking of parameter and state updates is required for error-free Device control. NCA's core update-tracking mechanism is the **event.** An event is anything that happens inside a Device that a Controller may need to know about.
 
-Historically, Controllers have often tracked device changes by polling. A goal of NCA is to render polling completely unnecessary in all cases. To this end, NCA events generate **notifications.**  A notification is a spontaneous message from a Device to one or more Controllers that announces the occurrence of an event and gives its particulars.
+Historically, Controllers have often tracked device changes by polling. A goal of NCA is to render polling completely unnecessary in all cases. To this end, NCA events generate **notifications**.  A notification is a spontaneous message from a Device to one or more Controllers that announces the occurrence of an event and gives its particulars.
 
 Not all Controllers need to know about all events. When a Controller wants to be informed of the occurrence of a certain event in a certain object, it registers a **subscription** with the Device's _subscription manager,_ an instance of the class **ncaSubscriptionManager.**  A subscription causes a **notification message** to be delivered to the subscribing Controller whenever the designated event is raised in the designated object.
 
