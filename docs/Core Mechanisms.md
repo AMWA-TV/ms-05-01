@@ -26,7 +26,7 @@ NCA control is session-oriented, which implies the following:
 
 ## Events, Notifications, and Subscriptions
 
-NCA supports the use of multiple simultaneous Controllers. Those Controllers might be coordinated - when a system has redundant Controllers, for example - or they might be uncoordinated - for example, when a system includes  Controllers from multiple makers.
+NCA supports the use of multiple simultaneous Controllers. Those Controllers might be coordinated - when a system has redundant Controllers, for example - or they might be uncoordinated - for example, when a system includes Controllers from multiple manufacturers.
 
 A common application of multiple controllers arises when a network-controlled device includes a non-blank front panel.  The front panel is a separate Controller. Thus, every case in which NCA controls Devices that have their own physical controls is a multi-controller application.
 
