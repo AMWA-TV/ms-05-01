@@ -13,7 +13,6 @@ A block may contain other blocks. The contained blocks are said to be **nested**
 
 Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.  This name is known as the _**role name**_.
 
-If a block class is instantiated multiple times in a device, the role names of its contained objects (e.g. `Gain`, `Mute`, `Pad`,...) will not conflict, because each of the eight block objects is a separate namespace.
 
 Every NCA object is uniquely identified by its _**role path**_.  See [**Identification(Role path)**](Identification.md#RolePath).
 
