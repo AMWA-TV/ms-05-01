@@ -89,7 +89,7 @@ The NCA lock mechanism is for transient programmatic use. It is not:
 - A reservation mechanism for securing user access to Devices or features at a later time; or
 - An operations mechanism for restricting Device access during maintenance, or when problems are occurring, or for other facility management purposes.
 
-## Capability enumeration ##
+## Capability enumeration
 
 To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths.  As well, the Controller can discover details of the classes from which those objects are built and the data types used.
 
