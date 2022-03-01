@@ -16,7 +16,7 @@ Every NCA object has a name that is unique _within its containing block_ (see [I
 
 Every NCA object is uniquely identified by its _**role path**_.  See [**Identification(Role path)**](Identification.md#RolePath).
 
-<a name="Blockspecs"/> ## Blockspecs and Blockspec IDs ##
+## Blockspecs and Blockspec IDs
 
 In NCA, a **schema** is a YANG code block (text file) that defines a block class. Schemas are built according to the following rules:
 
