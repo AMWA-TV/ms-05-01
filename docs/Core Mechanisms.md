@@ -24,7 +24,7 @@ NCA control is session-oriented, which implies the following:
 1. Devices shall report changing parameters to subscribing Controllers. Subscriptions are valid through the conclusion of the control session unless explicitly un-subscribed.
 1. When a communication failure occurs, the control session behaviour shall be well-defined. Whether the session survives or gracefully dies is a property of the protocol in use.
 
-## Events, Notifications, and Subscriptions ##
+## Events, Notifications, and Subscriptions
 
 NCA supports the use of multiple simultaneous Controllers. Those Controllers might be coordinated - when a system has redundant Controllers, for example - or they might be uncoordinated - for example, when a system includes  Controllers from multiple makers.
 
