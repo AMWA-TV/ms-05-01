@@ -155,7 +155,7 @@ See [Device reset](Framework%20Mechanisms.md#device-reset).
 
 NCA protocols (defined in future work) may support additional reliability features - for example, Ethernet-based protocols can support spanning-tree Ethernet and/or can use reliable data transport protocols such as TCP.
 
-### Device supervision ###
+### Device supervision
 
 Devices are continuously supervised with the aid of **heartbeat messages**. Such messages shall be defined as part of each NCA protocol specification.
 
