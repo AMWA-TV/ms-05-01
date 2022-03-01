@@ -4,13 +4,13 @@ NCA defines the following framework identifiers (a "framework" identifier is an 
 
 | Identifier | Datatype | Scope | Lifespan | 
 | ---------- | -------- | ----- | ---------| 
-| **Class ID** | _ncaClassID_<br>See [Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md") | NCA control model | Permanent |
+| **Class ID** | _ncaClassID_<br>See [Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md) | NCA control model | Permanent |
 
 Uniquely identifies a class and its revision level.
 
 | Identifier | Datatype | Scope | Lifespan | 
 | ---------- | -------- | ----- | ---------| 
-| **Object ID** | _ncaOID_ | Device | See [Object IDs](#ObjectIDs) below.
+| **Object ID** | _ncaOID_ | Device | See [Object IDs](#Object%20IDs) below.
 
 Compact read-only handle that uniquely identifies an object within its device. Every class inherits the **Object ID** property, and this property has a valid value for every object. 
 
@@ -42,7 +42,7 @@ Read-only GUID that uniquely identifies the particular product that constitutes 
 | ---------- | -------- | ----- | ---------| 
 | **Blockspec ID** _ncaGSID_ | Global or local, as declared | Permanent |
 
-Identifier of a blockspec - see [Device Model(Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecsblockspecs-and-blockspec-ids).
+Identifier of a blockspec - see [Device Model(Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
 
 | Identifier | Datatype | Scope | Lifespan | 
 | ---------- | -------- | ----- | ---------| 

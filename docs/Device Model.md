@@ -4,7 +4,6 @@
 
 The control model defines a class named **ncaBlock** that is a container for objects. In Devices, block classes are instantiated to make objects known as **blocks**.
 
-
 ### Nested blocks
 
 A block may contain other blocks. The contained blocks are said to be **nested** inside the containing block.
@@ -13,8 +12,7 @@ A block may contain other blocks. The contained blocks are said to be **nested**
 
 Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.  This name is known as the _**role name**_.
 
-
-Every NCA object is uniquely identified by its _**role path**_.  See [**Identification(Role path)**](Identification.md#RolePath).
+Every NCA object is uniquely identified by its _**role path**_.  See [**Identification(Role path)**](Identification.md).
 
 ## Blockspecs and Blockspec IDs
 
