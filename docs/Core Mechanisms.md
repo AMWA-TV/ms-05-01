@@ -54,7 +54,7 @@ The most common event is the **PropertyChanged** event.  **PropertyChanged**   i
 
 Some NCA-controlled media networks may contain thousands of devices. In such cases, it will not be practical for a single central Controller to maintain a separate control session with each device. To address this problem, indirect control using a hierarchy of Controllers can be implemented, with successive levels aggregating control functionality in ways appropriate to the applications.  NCA's core mechanisms are sufficient to support such configurations, but the exact implementation details are out of this specification's scope.
 
-## Concurrency control ##
+## Concurrency control
 
   Sometimes, application control actions will require the exchange of more than one control message. If two or more controllers are simultaneously attempting to perform such actions on the same set of objects, the potential for a race condition exists. To prevent race conditions, NCA contains features to enforce single-threaded operation when necessary.
 
