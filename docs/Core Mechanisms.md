@@ -44,7 +44,7 @@ A notification message is essentially a callback command whose parameters depend
 
 The parameters of notifications depend on the type of event. In general, event parameters are designed to give full detail about the event, so that Controllers receiving events can act on them immediately, without having to query the Device further.
 
-### The PropertyChanged event ###
+### The PropertyChanged event
 
 The most common event is the **PropertyChanged** event.  **PropertyChanged**   is defined by the base class **ncaObject**, so it is inherited by every object. 
 
