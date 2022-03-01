@@ -121,7 +121,7 @@ These functions return simple lists of signal-path descriptors. Each signal-path
 
 If a Controller does not have _a priori_ knowledge of a device's class definitions, it may discover the details of those definitions using the NCA _class discovery_ mechanism.  This mechanism returns descriptors to the Controller for each class and datatype the device uses.  These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
 
-## Reliability ##
+## Reliability
 
 NCA enables implementations reliable enough to satisfy:
 
