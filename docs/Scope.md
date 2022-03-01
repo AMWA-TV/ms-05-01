@@ -32,7 +32,8 @@ Documentation of the NCA is organized across multiple parts:
 1. An **architecture specification** that describes NCA's various models, mechanisms, and rules.
 1. A **framework specification** that defines NCA's repertoire of control and monitoring elements.
 1. A **blockspec specification** that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
-1. One or more **protocol specifications** that define protocols for accessing NCA's control and monitoring features over the network.
+1. At least one **protocol specification** that defines a way of accessing NCA's control and monitoring features over the network.
+
 
 Each specification may have multiple sections that include textual documentation and formal specifications written in various definition languages.
 
