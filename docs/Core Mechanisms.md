@@ -12,7 +12,7 @@ NCA traffic between Controllers and Devices consists of three kinds of control m
 
 NCA defines a Controller as a software function, not as a physical entity, and a Device as a real or virtual construct. The command travel paths listed above refer to communication of information between software entities, not necessarily physical pieces of equipment.
 
-The actual means of control message transport and the formats of the messages are determined by the protocol being used. One NCA protocol, a JSON-based RPC scheme, is defined in [NC-Protocol](NC-Protocol.md).
+The actual means of control message transport and the formats of the messages are determined by the protocol being used. A JSON-based RPC protocol is available in the `NC-Protocol` repository.
 
 ## Control sessions ##
 
