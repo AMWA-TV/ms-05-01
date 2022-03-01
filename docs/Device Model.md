@@ -7,7 +7,7 @@ The control model defines a class named **ncaBlock** that is a container for obj
 
 ### Nested blocks
 
-A block may contain other blocks. The contained blocks are said to be **nested** inside the containing block. For example, the **myMixChannel** class might specify an instance of a block named **EqA** that defines an equalizer section. **EqA** is "nested" inside **myMixChannel**.
+A block may contain other blocks. The contained blocks are said to be **nested** inside the containing block.
 
 ### Block namespaces
 
