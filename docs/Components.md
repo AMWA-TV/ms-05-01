@@ -6,7 +6,7 @@ NCA is based on two interrelated models:
 
 - The **control model**, also called the **NCA Framework**, which describes the mechanisms of NCA control, and the repertoire of  NCA control and monitoring functions. The control model is specified as a set of control classes which are defined using the Web IDL language and are available in the `NC-Framework` repository.
 
-- The **Device model**, which describes how control and management model elements are instantiated and configured to create a Device's network control API.  Definitions of particular Device models and Device model elements are contained in JSON files known as _**blockspecs**_.  The JSON schema defining the blockspec format is in the file [NC-Blockspecs.json](NC-Blockspecs.json).
+- The **Device model**, which describes how control and management model elements are instantiated and configured to create a Device's network control API.  Definitions of particular Device models and Device model elements are contained in JSON files known as _**blockspecs**_. The JSON schemas defining the blockspec format are available in the `NC-Blockspecs` repository.
 
 These models are concerned _only_ with defining Device control and monitoring APIs,  not with internal implementation structures that lie behind those APIs in NCA-compliant products.
 
