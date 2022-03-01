@@ -37,7 +37,7 @@ Documentation of the NCA is organized across multiple parts:
 
 Each specification may have multiple sections that include textual documentation and formal specifications written in various definition languages.
 
-NCA anticipates that the blockspec mechanism (3, above) will support the growth and evolution of a  set of common models and mechanisms for typical devices and device elements found in practice. Using blockspecs well will optimize interoperability between control systems and devices, and reduce custom engineering cost.
+NCA anticipates that the blockspec mechanism (3, above) will support the growth and evolution of a  set of common models and mechanisms for typical devices and device elements found in practice. Using well-defined common blockspecs will optimize interoperability between control systems and devices, and reduce engineering cost.
 
 ### Scope of this document
 
