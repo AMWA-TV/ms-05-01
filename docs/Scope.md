@@ -43,7 +43,8 @@ NCA anticipates that the blockspec mechanism (3, above) will support the growth 
 
 This document describes the NCA architecture - item (1.) in the preceding section.
 
-### Note on terminology ###
+### Note on terminology
+
 
 In NCA documents, the term "control" means "control and monitoring", except in contexts where control and monitoring are explicitly treated separately.
 
