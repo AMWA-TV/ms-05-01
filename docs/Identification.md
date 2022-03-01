@@ -50,7 +50,7 @@ Identifier of a blockspec - see [Device Model(Blockspecs and Blockspec IDs)](Dev
 
 Static identifiers that identify the properties, methods, and events of control classes. Values are defined by the class specification in the control model, and do not change over time. Unique within each class. See [Appendix B](Appendix%20B%20-%20Property%2C%20Method%2C%20Event%20IDs.md).
 
-## Object IDs ##
+## Object IDs
 
 Object IDs can change from time to time within a device, based on dynamic configuration and other events. Each block object maintains an object ID revision timestamp that indicates the last time the object IDs of its members block have changed.
 
