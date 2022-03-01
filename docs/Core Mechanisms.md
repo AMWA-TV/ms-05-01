@@ -14,7 +14,7 @@ NCA defines a Controller as a software function, not as a physical entity, and a
 
 The actual means of control message transport and the formats of the messages are determined by the protocol being used. A JSON-based RPC protocol is available in the `NC-Protocol` repository.
 
-## Control sessions ##
+## Control sessions
 
 NCA control is session-oriented, which implies the following:
 
