@@ -2,21 +2,23 @@
 
 ## Blocks
 
-The control model defines an abstract class named **ncaBlock** that is a container for objects. Subclasses of **ncaBlock** are called **block classes**. Each block class defines a specific configuration of objects.
+The control model defines a class named **ncaBlock** that is a container for objects. Subclasses of **ncaBlock** are called **block classes**. Each block class defines a specific configuration of objects.
 
 In Devices, block classes are instantiated to make objects known as **blocks.** A block class may be instantiated as many times as required to define the required control API. For example, an eight-channel audio mixer might define a block class named **myMixChannel** and instantiate it eight times, to create eight blocks which define the eight required channel-control APIs.
 
 ### Nested blocks
 
-A block may contain other blocks. The contained blocks are said to be **nested**inside the containing block. For example, the **myMixChannel** class might specify an instance of a block named **EqA** that defines an equalizer section. **EqA** is "nested" inside **myMixChannel**.
+A block may contain other blocks. The contained blocks are said to be **nested** inside the containing block. For example, the **myMixChannel** class might specify an instance of a block named **EqA** that defines an equalizer section. **EqA** is "nested" inside **myMixChannel**.
 
 ### Block namespaces
 
-Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.
+Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md), and every block constitutes a namespace for the objects it contains.  This name is known as the _**role name**_.
 
-If a block class is instantiated multiple times in a device, the names of its contained objects (e.g. **Gain,**** Mute, ****Pad,**...) will not conflict, because each of the eight block objects is a separate namespace - at a parent level of the hierarchy, the channels must have unique names.
+If a block class is instantiated multiple times in a device, the role names of its contained objects (e.g. `Gain`, `Mute`, `Pad`,...) will not conflict, because each of the eight block objects is a separate namespace.
 
-## Schemas and Schema IDs
+Every NCA object is uniquely identified by its _**role path**_.  See [**Identification(Role path)**](Identification.md#RolePath).
+
+<a name="Blockspecs"/> ## Blockspecs and Blockspec IDs ##
 
 In NCA, a **schema** is a YANG code block (text file) that defines a block class. Schemas are built according to the following rules:
 

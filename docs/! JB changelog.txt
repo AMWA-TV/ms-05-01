@@ -1,0 +1,14 @@
+2022.02.21 
+-------------------------------+---
+Components						done
+Control Model					WIP
+Definitions	
+Device Model
+Framework Mechanisms
+Identification
+Managers
+Matrixing
+Model Specification Language
+Scope
+Security
+Workflow Data

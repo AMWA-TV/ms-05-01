@@ -4,30 +4,24 @@
 
 NCA is based on two interrelated models:
 
-- The **control model**, which describes the mechanisms of NCA control, and the repertoire of elementary NCA control functions used to describe Device control elements. This includes the class definitions and methods.
-- The **Device model**, which describes how control and management model elements are instantiated and configured to create the control API that a Device exposes to the network.
+- The **control model**, also called the **NCA Framework**, which describes the mechanisms of NCA control, and the repertoire of  NCA control and monitoring functions. The control model is specified as a set of control classes.  These classes are defined in the Web IDL language, in the file [NC-Framework.webidl](nc-framework.webidl).
 
-The Device model is concerned _only_ with Device control and management APIs, and not internal implementation structures of NCA-compliant products.
+- The **Device model**, which describes how control and management model elements are instantiated and configured to create a Device's network control API.  Definitions of particular Device models and Device model elements are contained in JSON files known as _**blockspecs**_.  The JSON schema defining the blockspec format is in the file [NC-Blockspecs.json](NC-Blockspecs.json).
 
-NCA defines both the Device model and the control model in object-oriented terms. Thus:
+These models are concerned _only_ with defining Device control and monitoring APIs,  not with internal implementation structures that lie behind those APIs in NCA-compliant products.
 
-- The control model defines a set of **control classes** (or just **classes**) that can be used to construct **control objects** (or just **objects**);
-- The Device model describes how those classes are instantiated and configured to form Devices.
-
-In this document, control class names will be prefixed by " **nca**", e.g. " **ncaSwitch**" might be the name of a control class that exports an API for controlling a switching function.
+In this specification, standard control class names are prefixed by " **nca**".  For example, " **ncaSwitch**" is the name of a control class that defines an API for controlling a switching function.
 
 ## Classes, objects, and APIs
 
-In NCA, each object has its own control API. The signature of each object's API is completely defined by the class of which it is an instance. The complete API of a Device is exactly equal to the union of the APIs of all the objects it contains.
+In NCA, each control object has its own control API. The signature of each object's API is completely defined by the class of which it is an instance. The complete API of a Device is exactly equal to the union of the APIs of all the objects it contains.
 
 Thus, if a Controller knows all the objects in a Device, and if it knows the definitions of the classes of which those objects are instances, then it knows the Device's complete API.
 
-In many cases, Controllers will have been custom-built for Devices they control, and will therefore have the required object and class information _a priori._ However, NCA provides rich mechanisms for controllers to acquire such information from public registries and from the devices themselves.
+In many cases, Controllers will have been custom-built for Devices they control, and will therefore have the required object and class information _a priori._ However, NCA provides rich mechanisms for controllers to acquire such information from the devices themselves, and/or from public online sites.
 
 ## Protocols
 
-A controller needs a control protocol to access control APIs. The definition of control protocols is outside the scope of this architecture specification, but protocol definitions are clearly required for the models to be useful.
+A Controller needs a control protocol to access Device control APIs. NCA's Control Model defines APIs abstractly, leaving their realizations in protocols to separate specifications. 
 
-NCA's control model defines APIs abstractly, but leaves their physical specification to subsequent protocol design phases. Future protocols may implement control APIs in various ways, but all API implementations will share the parameters and semantics defined by the models.
-
-A future phase of the NCA project will define one or more control protocols.
+The document [NC-Protocol](Protocol.md) defines a JSON-encoded Remote Procedure Call (RPC) protocol for NCA.  Future protocols may implement control APIs in other ways, but all of them will share the same properties, methods, events, and semantics, as defined by the Control Model.
