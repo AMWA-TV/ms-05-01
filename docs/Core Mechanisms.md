@@ -91,7 +91,7 @@ The NCA lock mechanism is for transient programmatic use. It is not:
 
 ## Capability enumeration ##
 
-To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths.  As well, the Controller can discover details of the classes from which those objects are built.
+To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths.  As well, the Controller can discover details of the classes from which those objects are built and the data types used.
 
 ### Object enumeration ###
 
