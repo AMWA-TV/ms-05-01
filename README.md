@@ -15,7 +15,7 @@ It defines a system for modelling various types of devices which interrelates wi
 
 The modelling system provides for the definition of device configuration, control and monitoring APIs using a set of published class definitions and operating rules.  In so doing, the system will support at least a basic level of interoperability between compliant devices.
 
-The model includes the abilities for controllers to discover full device APIs in live systems, and into reconfigure devices dynamically (i.e. at run time).  
+The model includes the abilities for controllers to discover full device APIs in live systems, and to reconfigure devices dynamically (i.e. at run time).  
 
 In all cases, multiple simultaneous controllers are fully supported with no requirement for polling to maintain synchronization.
 
