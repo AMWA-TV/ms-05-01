@@ -1,6 +1,6 @@
-# Framework Mechanisms
+# Core Mechanisms
 
-By "framework mechanisms", we mean architectural mechanisms that are essential to the operation of NCA in all devices. Framework mechanisms are distinguished from **optional mechanisms** that may be configured into schemas as needed.
+By "Core mechanisms", we mean architectural mechanisms that are essential to the operation of NCA in all devices. Core mechanisms are distinguished from **optional mechanisms** that may be implemented as needed.
 
 ## Control Traffic
 

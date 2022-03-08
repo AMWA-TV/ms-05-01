@@ -1,0 +1,18 @@
+2022.02.21 
+-------------------------------+---
+Components						done
+Control Model					WIP
+Definitions						done
+Device Model					done
+Core Mechanisms					done
+Identification					done
+Managers
+Matrixing
+Model Specification Language
+Scope							done
+Security
+Workflow Data
+Appendix A - Class ID Format
+Appendix B - Property, Method, Event IDs
+-------------------------------+---
+Framework						replaced by Core Mechanisms

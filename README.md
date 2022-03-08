@@ -13,14 +13,18 @@ It defines a system for modelling various types of devices which interrelates wi
 
 ### Why does it matter?
 
-The modelling system can model actual devices on top of published classes and schemas, leading to at least basic interoperability between compatible devices. It also provides a way of conveying the model in a live system, including dynamic updates due to reconfiguration of the devices which can be consumed by a controller or management entity.
+The modelling system provides for the definition of device configuration, control and monitoring APIs using a set of published class definitions and operating rules.  In so doing, the system will support at least a basic level of interoperability between compliant devices.
+
+The model includes the abilities for controllers to discover full device APIs in live systems, and into reconfigure devices dynamically (i.e. at run time).  
+
+In all cases, multiple simultaneous controllers are fully supported with no requirement for polling to maintain synchronization.
 
 ### How does it work?
 
-The NMOS Control Architecture (NCA) defines class hierarchies, inheritance relationships, and also a powerful schema mechanism which can support the requirements of a modern modelling system.
+The NMOS Control Architecture (NCA) defines control and monitoring class hierarchies and core mechanisms for building device control APIs.  In addition, NCA defines a powerful specification mechanism for optimizing sharing and reuse of NCA control designs across the industry.
 
 <!-- INTRO-END -->
 
 ## Getting started
 
-There is more information about the NMOS Specifications and their GitHub repos at <https://specs.amwa.tv/nmos>.
+More information about NMOS Specifications and their GitHub repos is at <https://specs.amwa.tv/nmos>.

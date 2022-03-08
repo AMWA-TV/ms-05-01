@@ -7,7 +7,7 @@
 
 ### Models
 
-- [Control Model aka NCA Framework](Framework.md)
+- [Control Model](Control%20Model.md)
 - [Device Model](Device%20Model.md)
 - [Identification](Identification.md)
 
