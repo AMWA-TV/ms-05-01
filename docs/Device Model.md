@@ -80,7 +80,7 @@ Blockspec relationships are illustrated in the figure [Blockspec](#blockspec), b
 |:--:|
 | *Blockspec:  The ncBlock abstract class, a block class, two blocks, and related documents* |
 
-On the left is the control model with its WebIDL definition files. In this case, only two control model classes are shown: **ncObject** , which is the parent of everything, and `ncBlock` , which is the abstract base class upon which all block classes are built.
+On the left of the figure is the control model with its WebIDL definition files. In this case, only two control model classes are shown: **ncObject** , which is the parent of everything, and `ncBlock` , which is the abstract base class upon which all block classes are built.
 
 On the right is an example Device model showing blocks **X** and **Y**, the blockspecs that define them, and the standard JSON schema for blockspecs.  
 
