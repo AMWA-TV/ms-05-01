@@ -1,4 +1,4 @@
-# Control model
+# Control Model
 
 The NCA Control Model is a singly-inherited tree of classes. Each NCA class defines a particular control or monitoring API that devices may implement.
 
@@ -18,11 +18,11 @@ Each property, method, and event of a class has a unique identifier. These ident
 
 ## Class inheritance
 
-The NCA control model defines a class inheritance mechanism, in which the various classes' definitions are derived from the definitions of other, more elementary classes, with everything ultimately leading up (if you think of ancestry diagrams) or down (if you think of trees) to a single fundamental base or root named **ncObject**. Thus, a control class is the outcome of a **class inheritance hierarchy**.
+The NCA control model defines a class inheritance mechanism, in which the various classes' definitions are derived from the definitions of other, more elementary classes, with everything ultimately leading up (if you think of ancestry diagrams) or down (if you think of trees) to a single fundamental base or root named **ncaRoot**. Thus, a control class is the outcome of a **class inheritance hierarchy**.
 
-When a class inherits from another class, _all_ of its properties, methods, and events are inherited. A notable example of this mechanism is the **PropertyChanged(...)** event. **PropertyChanged** is defined in **ncObject**. All classes in the model inherit directly or indirectly from **ncObject** ; therefore, they all have **PropertyChanged(...)** events. Consequently, a controller can subscribe to property-value changes for any object in the NCA device.
+When a class inherits from another class, _all_ of its properties, methods, and events are inherited. A notable example of this mechanism is the **PropertyChanged(...)** event. **PropertyChanged** is defined in **ncaRoot**. All classes in the model inherit directly or indirectly from **ncaRoot** ; therefore, they all have **PropertyChanged(...)** events. Consequently, a controller can subscribe to property-value changes for any object in the NCA device.
 
-_This document will visualize the class inheritance hierarchy as a tree in inverted form, with ncObject at the top, and successive refinements of ncObject extending downward. Our tree will be a trailing vine._
+_This document will visualize the class inheritance hierarchy as a tree in inverted form, with ncaRoot at the top, and successive refinements of ncaRoot extending downward. Our tree will be a trailing vine._
 
 ### Class inheritance rules
 
@@ -45,21 +45,21 @@ NCA Control classes are specified in several categories and subcategories. Each 
 
 [Figure 1](#figure-1) illustrates the NCA class tree, and shows the categories.
 
-| ![NCA Control Model](images/Figure-1.png) |
+<span id="figure-1"/>
+
+| ![NCA Control Model](images/Figure-1.svg) |
 |:--:|
 | *Figure 1. NCA Control Model* |
 
 ### Class categories
 
-The categories shown in `Figure 1` are as follows:
+The categories shown in [Figure 1](#figure-1 are as follows:
 
-- The **Blocks** subtree contains the definition of **ncBlock** - see [Blocks](Device%20Model.md#blocks).
+- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#blocks).
 
 - The **Workers** subtree contains definitions of classes that have something to do with media signal processing. Here will be found all the familiar audio and video control and monitoring functions.
 
 **Workers** has two subtrees - **Actuators** , which affect signals in various ways, and **Sensors** , which monitor signals.
-
-- The **Matrices** subtree contains the definition of **ncMatrix** , an optional but useful class in which media signals are constructed by choosing (like in a crosspoint) or combining (like in a mixer) from a set of input signals.
 
 - The **Agents** subtree contains definitions of classes that affect control flow, or that handle specific non-media functions such as power supplies, geolocation sensors, and more.
 - Additional broad categories may emerge in future work.
@@ -68,10 +68,10 @@ The categories shown in `Figure 1` are as follows:
 
 Two particularly notable Managers are:
 
-1. **ncDeviceManager**. Contains generic product information (model &amp; serial numbers, for example) and holds overall Device status indicators.
+1. **ncDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
+
 2. **ncSubscriptionManager**. Manages Controller subscriptions to events.
 
-- The **Workflow Data Classes** subtree contains definitions of classes that contain production workflow information associated with the contents and context of media signals. NCA does not define the format of such data, but provides container services to store and forward it.
 
 ## Datatype definitions
 

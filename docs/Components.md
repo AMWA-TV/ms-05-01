@@ -4,11 +4,11 @@
 
 NCA is based on two interrelated models:
 
-- The **control model**, which defines the repertoire of  NCA control and monitoring functions and the common mechanisms that they use. The control model has two components:
+- The **Framework**, which defines the repertoire of  NCA control and monitoring functions and the common mechanisms that they use. The Framework has two components:
 
-	- **NC-Framework:** An inheritance tree of control classes that specify NCA's control and monitoring repertoire. These classes are defined in the WebIDL interface definition language and are available in the `NC-Framework` repository.
+	- **Control model:** An inheritance tree of control classes that specify NCA's control and monitoring repertoire. These classes are summarized in [Control Model](Control%20Model.md) and defined normatively in WebIDL interface definition language files in the `NC-Framework` repository.
 
-	- **Core Mechanisms:**  Common mechanisms used by the control classes.  These are defined in the [Core Mechanisms chapter of MS-05-01](Core%20Mechanisms.md).
+	- **Core Mechanisms:**  Common mechanisms used by the control classes.  These are defined in [Core Mechanisms](Core%20Mechanisms.md).
 
 - The **Device model**, which describes how control and management model elements are instantiated and configured to create a Device's network control API. The Device model is described in the [Device Model chapter of MS-05-01](Device%20Model.md).
 
