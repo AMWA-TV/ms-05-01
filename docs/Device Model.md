@@ -6,7 +6,7 @@ A block may contain other blocks. A contained block is said to be **nested** ins
 
 ## Device structure
 
-As illustrated in the figure [NCA Device](#nca-device) below, the Device model envisions a Device as a _**root block**_ accompanied by a few housekeeping objects. The root block contains all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
+As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a _**root block**_ accompanied by a few housekeeping objects. The root block contains all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
 
 Every Device contains exactly one root block.
 
@@ -26,7 +26,7 @@ Device housekeeping objects are called _**managers**_.  A manager class may be i
 
 "Device configurability" means the degree to which an NCA Device's object population and internal signal paths can be defined at run time, as opposed to time of manufacture.
 
-As shown in [Table 1](#table-1), NCA identifies four levels of Device configurability. The levels are further classified into **static** and **dynamic** categories. A Controller of a static Device can assume its configuration is fixed. A Controller of a dynamic Device can make no such assumption. In environments with multiple Controllers, each Controller will need to monitor the configurations of dynamic Devices to track changes.
+As shown in `Table 1`, NCA identifies four levels of Device configurability. The levels are further classified into **static** and **dynamic** categories. A Controller of a static Device can assume its configuration is fixed. A Controller of a dynamic Device can make no such assumption. In environments with multiple Controllers, each Controller will need to monitor the configurations of dynamic Devices to track changes.
 
 <span id="table-1"/>
 
@@ -54,7 +54,7 @@ Every NCA object is uniquely identified by its _**role path**_.  See [**Identifi
 
 ## Blockspecs and Blockspec IDs
 
-A _**blockspec**_ is a JSON object that defines the structure of a block. The blockspec format is defined normatively in [NC-Blockspecs].  In general, a blockspec must adhere to the following rules:
+A _**blockspec**_ is a JSON object that defines the structure of a block. The blockspec format is defined normatively in `NC-Blockspecs`. In general, a blockspec must adhere to the following rules:
 
 - The JSON format must conform to the JSON _**blockspec schema**_ in **NC-Blockspecs**.
 
@@ -72,7 +72,7 @@ A blockspec is a static block definition.  NCA also supports blocks (_dynamic bl
 
 Within a device, a blockspec may be instantiated any number of times.  For example, one might create a blockspec that defines an audio mixer channel, then instantiate it 64 times to define a 64-channel mixer.
 
-Blockspec relationships are illustrated in the figure [Blockspec](#blockspec), below.
+Blockspec relationships are illustrated in the figure `Blockspec`, below.
 
 <span id="blockspec"></span>
 
@@ -139,7 +139,7 @@ Signal path endpoints are called **NCA ports** or, in context, just **ports**. O
 
 Blocks can have ports. A port belonging to a block is called a **block port.** A block port is special in that it can connect to both ports of objects outside the block and ports of objects inside the block. Thus, signals enter and leave blocks via block ports.
 
-The figure [Equalizer](#equalizer) shows the ports and signal paths of a simple multistage audio equalizer block.
+The figure `Equalizer` shows the ports and signal paths of a simple multistage audio equalizer block.
 
 <span id="equalizer"/>
 
@@ -159,7 +159,7 @@ Depending on implementation, a block's signal flow may be read-write or read-onl
 
 ## Complete block example
 
-A complete block example is shown in the figure [MicPre](#micpre) below. This example illustrates both block composition and signal flow. The Device shown is a simplified microphone preamplifier. It includes a nested instance of the equalizer block shown in the figure [Equalizer](#equalizer) above.
+A complete block example is shown in the figure `MicPre` below. This example illustrates both block composition and signal flow. The Device shown is a simplified microphone preamplifier. It includes a nested instance of the equalizer block shown in the figure `Equalizer` above.
 
 <span id="micpre"/>
 

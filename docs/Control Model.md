@@ -43,7 +43,7 @@ For NCA to meet its interoperability objectives, a repertoire of common class de
 
 NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **ncObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
 
-[Figure 1](#figure-1) illustrates the NCA class tree, and shows the categories.
+`Figure-1` illustrates the NCA class tree, and shows the categories.
 
 <span id="figure-1"/>
 
@@ -53,9 +53,9 @@ NCA Control classes are specified in several categories and subcategories. Each 
 
 ### Class categories
 
-The categories shown in [Figure 1](#figure-1 are as follows:
+The categories shown in `Figure-1` are as follows:
 
-- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#blocks).
+- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
 
 - The **Workers** subtree contains definitions of classes that have something to do with media signal processing. Here will be found all the familiar audio and video control and monitoring functions.
 
@@ -64,7 +64,7 @@ The categories shown in [Figure 1](#figure-1 are as follows:
 - The **Agents** subtree contains definitions of classes that affect control flow, or that handle specific non-media functions such as power supplies, geolocation sensors, and more.
 - Additional broad categories may emerge in future work.
 
-- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device Schema](Device%20Model.md#base-device-schema).
+- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device blockspec](Device%20Model.md#Base-Device-blockspec).
 
 Two particularly notable Managers are:
 

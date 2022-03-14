@@ -11,13 +11,13 @@ struct ncaElementID {
 } /* Separate index for each of properties, methods, events */
 ```
 
-By convention, NCA documentation refers to these IDs in the form **LLtNN** , where
+By convention, NCA documentation refers to these IDs in the form **LLtNN**, where
 
 - **LL** is a two-digit **DefLevel** ,
 - **NN** is a two-digit **Index** , and
 - **t** is the type of ID: **p** for property, **m** for method, and **e** for event.
 
-For example, consider a gain-control class **ncaGain**. Referring to the control model in `Figure 1` (see [Class hierarchy](Framework.md#class-hierarchy)) and the example `Figure 10` (see [Complex matrices](Matrixing.md#complex-matrices)), above, **ncaGain's** ancestry is (using the convention that arrows point to parents):
+For example, consider a gain-control class **ncaGain**. Referring to the control model in `Figure 1` (see [Class hierarchy](Control%20model.md#class-hierarchy)) and the example `Figure 10` (see [Complex matrices](Matrixing.md#complex-matrices)), above, **ncaGain's** ancestry is (using the convention that arrows point to parents):
 
 **ncaRoot ← ncaWorker ← ncaActuator ← ncaGain**
 

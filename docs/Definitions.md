@@ -32,7 +32,7 @@ Definitions and abbreviations for this draft
 
 **Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices must implement all of the Framework Mechanisms.
 
-**Feature-set mechanism** Optional mechanisms that may be configured into schemas as needed.
+**Feature-set mechanism** Optional mechanisms that may be configured into blockspecs as needed.
 
 **List** Written **list\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
 
@@ -42,9 +42,9 @@ Definitions and abbreviations for this draft
 
 **Object container** Set of objects. An action which deletes a container also deletes the objects it contains. Note that objects are singly-contained (an object is only contained by one other object).
 
-**Schema** A formal description of the contents of a block.
+**Blockspec** A formal description of the contents of a block.
 
-**Schema composition** The process of assembling a schema that includes other schema.
+**Blockspec composition** The process of assembling a blockspec that includes other blockspecs.
 
 **Block** or **block object.** An instance of a block class.
 
