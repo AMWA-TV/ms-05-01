@@ -6,25 +6,25 @@ Definitions and abbreviations for this draft
 
 **Network control** The capability to control a product remotely, via a network.
 
-**NMOS-DM** NMOS Device Modeling project
+**NMOS-DM** NMOS Device Modeling project.
 
-**NCA** NMOS control architecture
+**NCA** NMOS control architecture.
 
-**Device** See `The term Device` below.
+**Device** See "The term _Device_" below.
 
 **ncaPort** An abstract feature of an object that represents the terminus of an internal signal path.
 
-**Controller** See `The term Controller` below.
+**Controller** See "The term _Controller_` below."
 
-**Control API** Methods, data, and rules for controlling something (a device, or a component of a device
+**Control API** Methods, data, and rules for controlling something (a device, or a component of a device.
 
-**Control class** Pattern for constructing control objects
+**Control class** Pattern for constructing control objects.
 
-**Control object** Realized instance of a control class
+**Control object** Realized instance of a control class.
 
 **Control class** or just **subclass**: a class created by inheritance from another ("parent" ) class. Synonym of "child class".
 
-**Control protocol** Definitions of message formats, data flows, data serializations, and exchange rules for accessing control APIs
+**Control protocol** Definitions of message formats, data flows, data serializations, and exchange rules for accessing control APIs.
 
 **Control aggregation** Mechanism by which changing one parameter changes a related set of parameters in a defined way.
 
@@ -32,23 +32,23 @@ Definitions and abbreviations for this draft
 
 **Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices must implement all of the Framework Mechanisms.
 
-**Feature-set mechanism** Optional mechanisms that may be configured into schemas as needed.
+**Feature-set mechanism** Optional mechanisms that may be configured into blockspecs as needed.
 
-**List** Written **list<K,V>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
+**List** Written **list\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
 
-**Map** Written **map<K,V>:** an unordered set of values of datatype **V** that is accessed via a unique key of datatype **K**. **K** may be any simple datatype; **V** may be a simple datatype or an object.
+**Map** Written **map\<K,V\>:** an unordered set of values of datatype **V** that is accessed via a unique key of datatype **K**. **K** may be any simple datatype; **V** may be a simple datatype or an object.
 
 **Object collection** Set of references to objects. An action which deletes or modifies a collection does not delete the objects it references. A Collection is a property of an object.
 
 **Object container** Set of objects. An action which deletes a container also deletes the objects it contains. Note that objects are singly-contained (an object is only contained by one other object).
 
-**Schema** A formal description of the contents of a block.
+**Blockspec** A formal description of the contents of a block.
 
-**Schema composition** The process of assembling a schema that includes other schema.
+**Blockspec composition** The process of assembling a blockspec that includes other blockspecs.
 
 **Block** or **block object.** An instance of a block class.
 
-**Block class** Subclass of **ncaBlock**.
+**Block class** Subclass of the class **ncaBlock**.
 
 **Block member** An object contained by a block.
 
@@ -56,7 +56,7 @@ Definitions and abbreviations for this draft
 
 **Root block** The single fundamental block in a device that contains all other control objects and blocks.
 
-**Owning block**or**owner** The block that contains a given object.
+**Owning block** _or_ **owner** The block that contains a given object.
 
 **Touchpoint** Linkage item which indicates the association between an NCA item and an identified resource in another control environment (e.g. NMOS IS-xx).
 

@@ -29,15 +29,24 @@ NCA's specification is designed to complement and interoperate with the existing
 
 Documentation of the NCA is organized across multiple parts:
 
-1. An **architectural framework** that describes NCA's various models, mechanisms, and rules.
-2. A **control repertoire specification** that defines NCA's specific underlying elements for controlling and monitoring the various components of media devices.
-3. One or more **protocol specifications** that define protocols for accessing NCA's control features over the network.
+1. An **architecture specification** that describes NCA's various models, mechanisms, and rules.
+1. A **framework specification** that defines NCA's repertoire of control and monitoring elements.
+1. A **blockspec specification** that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
+1. At least one **protocol specification** that defines a way of accessing NCA's control and monitoring features over the network.
 
-In addition to the above, NCA anticipates that future phases of work will develop processes for the documentation and curation of a growing set of common models and mechanisms for typical devices and device components found in practice. By leveraging these common models and mechanisms, interoperability between control systems and devices can be improved, and custom engineering avoided in many cases..
+
+Each specification may have multiple sections that include textual documentation and formal specifications written in various definition languages.
+
+NCA anticipates that the blockspec mechanism (3, above) will support the growth and evolution of a  set of common models and mechanisms for typical devices and device elements found in practice. Using well-defined common blockspecs will optimize interoperability between control systems and devices, and reduce engineering cost.
 
 ### Scope of this document
 
-This document describes the NCA architectural framework - item (1.) in the preceding section. The subsequent documents will be developed in later phases of the NCA workstream.
+This document describes the NCA architecture - item (1.) in the preceding section.
+
+### Note on terminology
+
+
+In NCA documents, the term "control" means "control and monitoring", except in contexts where control and monitoring are explicitly treated separately.
 
 ## References
 

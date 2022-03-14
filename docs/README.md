@@ -13,7 +13,7 @@
 
 ### Architecture
 
-- [Framework Mechanisms](Framework%20Mechanisms.md)
+- [Core Mechanisms](Core%20Mechanisms.md)
 - [Workflow Data](Workflow%20Data.md)
 - [Managers](Managers.md)
 - [Security](Security.md)

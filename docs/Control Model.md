@@ -1,14 +1,16 @@
-# Control model
+# Control Model
 
-## Classes
+The NCA Control Model is a singly-inherited tree of classes. Each NCA class defines a particular control or monitoring API that devices may implement.
 
-An NCA class is a control abstraction with three elements:
+NCA classes have three kinds of elements:
 
 - **Properties**. These are control and status parameters. Each has a datatype and a value. Datatypes may be simple values - boolean, number (various types), text string, bit string, etcetera, or complex structures defined in class definitions. A datatype may be an individual item (scalar), a List of items, or a Map of items.
-- **Methods** **.** Methods represent actions a Controller may take on the object. The most common kinds of methods are get(...) and set(...) functions that retrieve and store the values of properties. However, other kinds of methods (e.g. start(...), stop(...)) are defined for some classes.
+
+- **Methods** **.** Methods represent actions a Controller may take on the object. The most frequently-used methods are `get(...`) and `set(...)` functions that retrieve and store the values of properties. However, other kinds of methods (e.g. start(...), stop(...)) are defined for some classes.
+
 - **Events**. Events are defined conditions that arise inside objects; Controllers may subscribe to events from an object. For example, all objects include the **PropertyChanged(...)** event, which is raised (i.e. occurs) when the value of a property of the object has changed.
 
-The subscription mechanism is described further in [Events, Notifications and Subscriptions](Framework%20Mechanisms.md#events-notifications-and-subscriptions).
+	The event and subscription mechanism is described further in [Events, Notifications and Subscriptions](Framework%20Mechanisms.md#events-notifications-and-subscriptions).
 
 NCA classes are interface-defining classes that imply nothing about the programming classes inside actual products. Some Device developers may elect to use object-oriented programming environments with software class structures that mirror the NCA class tree, while others may take entirely different approaches. Such choices are outside NCA's scope.
 
@@ -37,37 +39,39 @@ These rules are:
 
 ## Class hierarchy
 
-For NCA to meet its interoperability objectives, a repertoire of common class definitions must exist. These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **ncaRoot**.
+For NCA to meet its interoperability objectives, a repertoire of common class definitions must exist. These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **ncObject**.
 
-NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **ncaRoot**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
+NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **ncObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
 
-`Figure 1` illustrates the NCA class tree, and shows the categories.
+`Figure-1` illustrates the NCA class tree, and shows the categories.
 
-| ![NCA Control Model](images/Figure-1.png) |
+<span id="figure-1"/>
+
+| ![NCA Control Model](images/Figure-1.svg) |
 |:--:|
 | *Figure 1. NCA Control Model* |
 
 ### Class categories
 
-The categories shown in `Figure 1` are as follows:
+The categories shown in `Figure-1` are as follows:
 
-- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#blocks).
+- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
+
 - The **Workers** subtree contains definitions of classes that have something to do with media signal processing. Here will be found all the familiar audio and video control and monitoring functions.
 
 **Workers** has two subtrees - **Actuators** , which affect signals in various ways, and **Sensors** , which monitor signals.
 
-- The **Matrices** subtree contains the definition of **ncaMatrix** , an optional but useful class in which media signals are constructed by choosing (like in a crosspoint) or combining (like in a mixer) from a set of input signals.
 - The **Agents** subtree contains definitions of classes that affect control flow, or that handle specific non-media functions such as power supplies, geolocation sensors, and more.
 - Additional broad categories may emerge in future work.
 
-- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device Schema](Device%20Model.md#base-device-schema).
+- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device blockspec](Device%20Model.md#Base-Device-blockspec).
 
 Two particularly notable Managers are:
 
-1. **ncaDeviceManager**. Contains generic product information (model &amp; serial numbers, for example) and holds overall Device status indicators.
-2. **ncaSubscriptionManager**. Manages Controller subscriptions to events.
+1. **ncDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
 
-- The **Workflow Data Classes** subtree contains definitions of classes that contain production workflow information associated with the contents and context of media signals. NCA does not define the format of such data, but provides container services to store and forward it.
+2. **ncSubscriptionManager**. Manages Controller subscriptions to events.
+
 
 ## Datatype definitions
 

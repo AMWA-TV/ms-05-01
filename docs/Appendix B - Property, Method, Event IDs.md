@@ -11,7 +11,7 @@ struct ncaElementID {
 } /* Separate index for each of properties, methods, events */
 ```
 
-By convention, NCA documentation refers to these IDs in the form **LLtNN** , where
+By convention, NCA documentation refers to these IDs in the form **LLtNN**, where
 
 - **LL** is a two-digit **DefLevel** ,
 - **NN** is a two-digit **Index** , and
