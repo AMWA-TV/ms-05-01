@@ -62,7 +62,7 @@ Definitions and abbreviations for this draft
 
 ### The term _Device_
 
-The [NMOS Glossary][NMOS-G] and [JTNM Reference Architecture][JTNM-RA] define _Device_ as follows:
+The [NMOS Glossary][NMOS-G] and [JT-NM Reference Architecture][JTNM-RA] define _Device_ as follows:
 
 **Device** _A Device is a block of functionality within a networked media infrastructure. Examples of devices could include: camera, microphone, SDI to IP adapter, chroma keyer, audio mixer._
 
@@ -74,10 +74,10 @@ This document will use the capitalized term **Device** to denote the entity whic
 
 In this document, the capitalized term **Controller** means a programmatic entity for controlling Devices using NCA-specified means. The uncapitalized version will be used for the nonspecific English use of the term, e.g. "controllers for non-NCA environments". Where a clear distinction must be made between NCA and non-NCA controllers, the term will be qualified, as in "non-NCA controller", "NCA Controller".
 
-[NMOS-G]: https://specs.amwa.tv/nmos/branches/main/docs/4.0._Glossary.html "NMOS Glossary"
+[NMOS-G]: https://specs.amwa.tv/nmos/branches/main/docs/Glossary.html "NMOS Glossary"
 
 <!-- 
-[NMOS-OV]: https://specs.amwa.tv/nmos/branches/main/docs/2.0._Technical_Overview.html "NMOS Technical Overview"
+[NMOS-OV]: https://specs.amwa.tv/nmos/branches/main/docs/Technical_Overview.html "NMOS Technical Overview"
  -->
 
 [JTNM-RA]: https://www.jt-nm.org/reference-architecture "Joint Taskforce on Network Media Reference Architecture v1.0"
