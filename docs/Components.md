@@ -4,17 +4,17 @@
 
 NCA is based on two interrelated models:
 
-- The **Framework**, which defines the repertoire of  NCA control and monitoring functions and the common mechanisms that they use. The Framework has two components:
+- The **Framework**, which defines the repertoire of  NCA control and monitoring functions and the common mechanisms that they use. The Framework has two sub-components:
 
-	- **Control model:** An inheritance tree of control classes that specify NCA's control and monitoring repertoire. These classes are summarized in [Control Model](Control%20Model.md) and defined normatively in WebIDL interface definition language files in the `NC-Framework` repository.
+	- **Control model:** An inheritance tree of control classes that specify NCA's control and monitoring **repertoire**. These classes are summarized in [Control Model](Control%20Model.md) and defined normatively in WebIDL interface definition language files in the MS-05-02 repository.  In this specification, standard control class names are prefixed by " **nc**".  For example, " **ncSwitch**" is the name of a control class that defines an API for controlling a switching function.
 
 	- **Core Mechanisms:**  Common mechanisms used by the control classes.  These are defined in [Core Mechanisms](Core%20Mechanisms.md).
 
-- The **Device model**, which describes how control and management model elements are instantiated and configured to create a Device's network control API. The Device model is described in the [Device Model chapter of MS-05-01](Device%20Model.md).
+- The **Device model**, which describes how control model elements are instantiated and configured to create a Device's network control API. The Device model is described in [Device Model](Device%20Model.md). 
 
-As detailed in [Device Model](Device%20Model.md), definitions of particular Device models and Device model elements are contained in JSON files known as _**blockspecs**_. The JSON schemas defining the blockspec format are available in the `NC-Blockspecs` repository.
+    - Device models are expressed in JSON files known as _**blockspecs**_. The blockspec format is defined normatively by JSON schemas in the `NC-Blockspecs` repository.
 
-In this specification, standard control class names are prefixed by " **nc**".  For example, " **ncSwitch**" is the name of a control class that defines an API for controlling a switching function.
+To summarize:  The control model defines the set of available control and monitoring API components.  The device model describes how those components are assembled into complete APIs for actual devices.
 
 ## Classes, objects, and APIs
 
