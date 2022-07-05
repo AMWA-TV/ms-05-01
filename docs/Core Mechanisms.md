@@ -91,35 +91,23 @@ The NCA lock mechanism is for transient programmatic use. It is not:
 
 ## Capability enumeration
 
-To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths.  As well, the Controller can discover details of the classes from which those objects are built and the data types used.
+To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths. As well, the Controller can discover details of the classes from which those objects are built and the data types used.
 
 ### Object enumeration
 
-We refer to an object contained by a block as a _member_ of that block. **ncaBlock** has the following methods for enumerating a block's members:
-
-**GetMembers(...)** Returns the list of members.
-
-**GetMembersRecursive(...)** Returns the list of members of the block and all contained blocks.
-
-**FindMembersByPath(...)** Finds members of the given block, given a path specification that may include wildcards.
-
-**FindMembersByPathRecursive(...)** Finds members of the given block and all contained blocks, given a path specification that may include wildcards.
-
-**FindMembersByUserLabelRecursive(...)** Finds members of the given block and all contained blocks, given a user label value that may include wildcards.
+We refer to an object contained by a block as a _member_ of that block. **NcBlock** offers means of retrieving the descriptors of its members which are defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
 
 ### Signal path enumeration
 
-**ncaBlock** defines two methods Controllers can use to enumerate signal paths:
-
-**GetSignalFlow(...)** Returns the block's internal signal flow.
-
-**GetSignalFlowsRecursive(...)** Returns the internal signal flows of the given block and all contained blocks.
+**NcBlock** offers means of retrieving its signal paths which defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
 
 These functions return simple lists of signal-path descriptors. Each signal-path descriptor specifies the ports at each end of the signal path.
 
 ### Class discovery
 
-If a Controller does not have _a priori_ knowledge of a device's class definitions, it may discover the details of those definitions using the NCA _class discovery_ mechanism.  This mechanism returns descriptors to the Controller for each class and datatype the device uses.  These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
+If a Controller does not have _a priori_ knowledge of a device's class definitions, it may discover the details of those definitions using the NCA _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
+
+The class discovery mechanism is available through the **NcClassManager** defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
 
 ## Reliability
 
@@ -162,14 +150,3 @@ Devices are continuously supervised with the aid of **heartbeat messages**. Such
 Device supervision ensures that a control session (see [Control sessions](Core%20Mechanisms.md#control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
 
 The exact format of heartbeat messages and the specific rules of the Device supervision mechanism are protocol-specific.
-
-### Device reset
-
-The NCA Device reset function allows systems to recover effectively from catastrophic errors. A Device reset has the effect of returning the affected Device to the state it was in immediately following power-up.
-
-Device reset is an optional feature.
-
-A Device reset is invoked when it receives a _Device-reset command_.
-
-- A Device-reset command may use a special protocol data unit with a simple, recognizable format that can be handled by low-level recovery code in devices.
-- Every Device reset command should include mechanisms to prevent malicious or inadvertent resets.

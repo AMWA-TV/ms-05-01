@@ -30,10 +30,9 @@ NCA's specification is designed to complement and interoperate with the existing
 Documentation of the NCA is organized across multiple parts:
 
 1. An **architecture specification** that describes NCA's various models, mechanisms, and rules.
-1. A **framework specification** that defines NCA's repertoire of control and monitoring elements.
-1. A **blockspec specification** that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
-1. At least one **protocol specification** that defines a way of accessing NCA's control and monitoring features over the network.
-
+1. A [framework specification](https://specs.amwa.tv/ms-05-02) that defines NCA's repertoire of control and monitoring elements.
+1. A [blockspec specification](https://specs.amwa.tv/ms-05-03) that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
+1. At least one [protocol specification](https://specs.amwa.tv/is-12) that defines a way of accessing NCA's control and monitoring features over the network.
 
 Each specification may have multiple sections that include textual documentation and formal specifications written in various definition languages.
 
@@ -45,37 +44,9 @@ This document describes the NCA architecture - item (1.) in the preceding sectio
 
 ### Note on terminology
 
-
 In NCA documents, the term "control" means "control and monitoring", except in contexts where control and monitoring are explicitly treated separately.
 
 ## References
-
-<!--
-[AS-10]: https://static.amwa.tv/as-10-mxf-for-production-spec.pdf "AMWA AS-10 MXF for Production"
-
-[BCP-003-01]: https://specs.amwa.tv/bcp-003-01 "AMWA BCP-003-01 Securing Communications in NMOS Systems"
-
-[BCP-003-02]: https://specs.amwa.tv/bcp-003-02 "AMWA BCP-003-02 Authorization in NMOS Systems"
-
-[BCP-003-03]: https://specs.amwa.tv/bcp-003-03 "AMWA BCP-003-03 Certificate Provisioning in NMOS Systems"
-
-[INFO-002]: https://specs.amwa.tv/info-002 "AMWA INFO-002 NMOS Security Implementation Guide"
--->
-
-[IS-04]: https://specs.amwa.tv/is-04 "AMWA IS-04 NMOS Discovery and Registration Specification"
-
-[IS-05]: https://specs.amwa.tv/is-05 "AMWA IS-05 NMOS Device Connection Management Specification"
-
-[IS-07]: https://specs.amwa.tv/is-07 "AMWA IS-07 NMOS Event & Tally Specification"
-
-[IS-08]: https://specs.amwa.tv/is-08 "AMWA IS-08 NMOS Audio Channel Mapping Specification"
-
-<!--
-[IS-10]: https://specs.amwa.tv/is-10 "AMWA IS-10 NMOS Authorization Specification"
--->
-
-[NMOS]: https://specs.amwa.tv/nmos "AMWA Networked Media Open Specifications"
-
 
 AMWA specifications and documents are referenced by hyperlinks.
 

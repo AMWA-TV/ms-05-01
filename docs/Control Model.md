@@ -10,7 +10,7 @@ NCA classes have three kinds of elements:
 
 - **Events**. Events are defined conditions that arise inside objects; Controllers may subscribe to events from an object. For example, all objects include the **PropertyChanged(...)** event, which is raised (i.e. occurs) when the value of a property of the object has changed.
 
-	The event and subscription mechanism is described further in [Events, Notifications and Subscriptions](Framework%20Mechanisms.md#events-notifications-and-subscriptions).
+The event and subscription mechanism is described further in [Events, Notifications and Subscriptions](Framework%20Mechanisms.md#events-notifications-and-subscriptions).
 
 NCA classes are interface-defining classes that imply nothing about the programming classes inside actual products. Some Device developers may elect to use object-oriented programming environments with software class structures that mirror the NCA class tree, while others may take entirely different approaches. Such choices are outside NCA's scope.
 
@@ -39,9 +39,9 @@ These rules are:
 
 ## Class hierarchy
 
-For NCA to meet its interoperability objectives, a repertoire of common class definitions must exist. These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **ncObject**.
+For NCA to meet its interoperability objectives, a repertoire of common class definitions must exist. These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **NcObject**.
 
-NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **ncObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
+NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **NcObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
 
 `Figure-1` illustrates the NCA class tree, and shows the categories.
 
@@ -55,23 +55,21 @@ NCA Control classes are specified in several categories and subcategories. Each 
 
 The categories shown in `Figure-1` are as follows:
 
-- The **Blocks** subtree contains the definition of **ncaBlock** - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
+- The **Blocks** subtree contains the definition of **NcBlock** - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
 
-- The **Workers** subtree contains definitions of classes that have something to do with media signal processing. Here will be found all the familiar audio and video control and monitoring functions.
+- The **Workers** subtree contains definitions of classes that may perform some kind of processing or monitoring function. **SignalWorkers** are specific workers which handle media signal processing.
 
-**Workers** has two subtrees - **Actuators** , which affect signals in various ways, and **Sensors** , which monitor signals.
-
-- The **Agents** subtree contains definitions of classes that affect control flow, or that handle specific non-media functions such as power supplies, geolocation sensors, and more.
-- Additional broad categories may emerge in future work.
+**SignalWorkers** has two subtrees - **Actuators** , which affect signals in various ways, and **Sensors** , which monitor signals.
 
 - The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device blockspec](Device%20Model.md#Base-Device-blockspec).
 
-Two particularly notable Managers are:
+Particularly notable Managers are:
 
-1. **ncDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
+1. **NcDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
 
-2. **ncSubscriptionManager**. Manages Controller subscriptions to events.
+2. **NcSubscriptionManager**. Manages Controller subscriptions to events.
 
+3. **NcClassManager**. Offers class and data type discovery mechanisms.
 
 ## Datatype definitions
 

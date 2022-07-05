@@ -12,11 +12,11 @@ Definitions and abbreviations for this draft
 
 **Device** See "The term _Device_" below.
 
-**ncaPort** An abstract feature of an object that represents the terminus of an internal signal path.
+**NcPort** An abstract feature of an object that represents the terminus of an internal signal path.
 
-**Controller** See "The term _Controller_` below."
+**Controller** See "The term _Controller_ below."
 
-**Control API** Methods, data, and rules for controlling something (a device, or a component of a device.
+**Control API** Methods, data, and rules for controlling something (a device, or a component of a device).
 
 **Control class** Pattern for constructing control objects.
 
@@ -30,7 +30,7 @@ Definitions and abbreviations for this draft
 
 **Control group** The set of related parameters that is the subject of a control aggregation instance.
 
-**Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices must implement all of the Framework Mechanisms.
+**Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices must implement all of the Framework Mechanisms applicable.
 
 **Feature-set mechanism** Optional mechanisms that may be configured into blockspecs as needed.
 
@@ -48,7 +48,7 @@ Definitions and abbreviations for this draft
 
 **Block** or **block object.** An instance of a block class.
 
-**Block class** Subclass of the class **ncaBlock**.
+**Block class** Subclass of the class **NcBlock**.
 
 **Block member** An object contained by a block.
 
