@@ -34,13 +34,13 @@ Definitions and abbreviations for this draft
 
 **Feature-set mechanism** Optional mechanisms that may be configured into blockspecs as needed.
 
-**List** Written **list\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
+**Sequence** Written **sequence\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
 
 **Map** Written **map\<K,V\>:** an unordered set of values of datatype **V** that is accessed via a unique key of datatype **K**. **K** may be any simple datatype; **V** may be a simple datatype or an object.
 
 **Object collection** Set of references to objects. An action which deletes or modifies a collection does not delete the objects it references. A Collection is a property of an object.
 
-**Object container** Set of objects. An action which deletes a container also deletes the objects it contains. Note that objects are singly-contained (an object is only contained by one other object).
+**Object container** Set of objects. An action which deletes a container also deletes the objects it contains. Note that objects may only be singly-contained, i.e. an object may be contained by at most one other object.
 
 **Blockspec** A formal description of the contents of a block.
 

@@ -92,7 +92,7 @@ The API the blockspec defines is a protocol-independent construct, expressed in 
 
 #### Base Device blockspec
 
-NCA defines the _**Base Device blockspec,**_ which is a root block blockspec that all Device blockspecs must implement to be NCA-compliant. It defines a minimal list of housekeeping objects, but no application function objects. The formal specification is detailed in the minimum device blockspec in [MS-05-03 NMOS Control Block Specifications](https://specs.amwa.tv/ms-05-03).
+NCA defines the _**Base Device blockspec,**_ which is a root block blockspec that all Device blockspecs must implement to be NCA-compliant. It defines a minimal list of housekeeping objects, but no application function objects. The formal specification is in [MS-05-03 NMOS Control Block Specifications](https://specs.amwa.tv/ms-05-03).
 
 ### Blockspec libraries
 
