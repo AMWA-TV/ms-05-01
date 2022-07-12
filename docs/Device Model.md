@@ -1,3 +1,8 @@
+<style>
+	H3	{font-weight:bold}
+	H4  {text-decoration:underline}
+</style>
+
 # Device model
 
 An _**NCA Device**_ is a physical or virtual device that publishes an NCA-conformant API. This API is organized around the concept of _**Blocks**_, which are containers for objects. The control model defines a class named `NcBlock` that is instantiated to create blocks.
@@ -6,47 +11,27 @@ A block may contain other blocks. A contained block is said to be **nested** ins
 
 ## Device structure
 
-As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a _**root block**_ accompanied by a few housekeeping objects. The root block contains all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
+As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a _**root block**_ accompanied by a few housekeeping objects. The root block shall contain all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
 
-Every Device contains exactly one root block.
+Every Device shall contain exactly one root block. 
+
+Every root block must be lockable.  See [**ControlModel(Concurrency Control)**](ControlModel#ConcurrencyControl.md).
 
 An object contained in a block is called a _**member**_ or _**member object**_ of that block.
 
 A Device may have certain application functions the designers wish not to be network-controllable. Such functions will not be represented in the root block or its nested blocks, and will consequently not be in the device's control API.
 
-Device housekeeping objects are called _**managers**_. A manager class may be instantiated at most once per device. See [Managers](Managers.md).
+Device housekeeping objects are called _**managers**_. A manager class may be instantiated at most once per device. See [Managers](Managers.md). 
 
 <span id="nca-device"/>
 
-| ![NCA device](images/DeviceModel.svg) |
+| ![NCA device](images/Device.png) |
 |:--:|
 | _**NCA device**_ |
 
-## Device configurability
-
-"Device configurability" means the degree to which an NCA Device's object population and internal signal paths can be defined at run time, as opposed to time of manufacture.
-
-As shown in `Table 1`, NCA identifies four levels of Device configurability. The levels are further classified into **static** and **dynamic** categories. A Controller of a static Device can assume its configuration is fixed. A Controller of a dynamic Device can make no such assumption. In environments with multiple Controllers, each Controller will need to monitor the configurations of dynamic Devices to track changes.
-
-<span id="table-1"/>
-
-| **Configurability** | **Category** | **Description** |
-| --- | --- | --- |
-| Fixed | static | The Device has a permanently assigned object repertoire and signal-flow topology, defined at time of firmware programming. |
-| Pluggable | static | The object repertoire and signal flow of the Device may be changed while the Device is offline, by plugging and unplugging of hardware modules, adjustment of physical controls, reloading or readjustment of software, or other manual means. |
-| Partially configurable | dynamic | Controllers may change the signal-flow topology of the Device while online. |
-| Fully configurable | dynamic | A superset of 'partially-configurable', with the addition that Controllers may create and delete objects inside the Device while online. |
-
-<hr>
-<p align="center">
-	<strong><em>
-		Table 1. Device configurability
-	</em></strong>
-</p>
-
 ## Block namespaces
 
-Every NCA object has a name that is unique _within its containing block_ (see [Identification](Identification.md)) and every block constitutes a namespace for the objects it contains.
+Every NCA object shall have a _role name_ that is unique within its containing block (see [Identification](Identification.md)) and every block shall constitute a namespace for the objects it contains.
 
 An object's name in its containing block is known as its _**role name**_.
 
@@ -62,17 +47,17 @@ A blockspec is a static block definition. NCA also supports blocks (_dynamic blo
 
 Within a device, a blockspec may be instantiated any number of times. For example, one might create a blockspec that defines an audio mixer channel, then instantiate it 64 times to define a 64-channel mixer.
 
-Blockspec relationships are illustrated in the figure `Blockspec`, below.
+Blockspec relationships are illustrated in the figure _**Blockspec**_ below.
 
 <span id="blockspec"></span>
 
-| ![The NcBlock abstract class, a block class, two blocks, and related documents](images/Blockspec.svg) |
+| ![The NcBlock abstract class, a block class, two blocks, and related documents](images/Blockspec.png) |
 |:--:|
-| *Blockspec:  The NcBlock abstract class, a block class, two blocks, and related documents* |
+| ***Blockspec**:  The **NcBlock** abstract class, a block class, two blocks, and related documents* |
 
-On the left of the figure is the control model with its WebIDL definition files. In this case, only two control model classes are shown: **NcObject** , which is the parent of everything, and `NcBlock` , which is the abstract base class upon which all block classes are built.
+On the left of the figure is the control model with its WebIDL definition files. In this case, only two control model classes are shown: `NcObject`, which is the parent of everything, and `NcBlock`, which is the abstract base class upon which all block classes are built.
 
-On the right is an example Device model showing blocks **X** and **Y**, the blockspecs that define them, and the standard JSON schema for blockspecs.
+On the right is an example Device model showing blocks **X** and **Y**, the two blockspecs that define them, and the standard JSON schema for all blockspecs.
 
 ### Blockspec composition
 
@@ -80,7 +65,7 @@ When a block contains nested blocks, its blockspec imports the nested blocks' bl
 
 The design process of creating a blockspec by including one or more other blockspecs is called _**blockspec composition**_, the resulting blockspec is called a _**composite blockspec,**_ and the corresponding block is called a _**composite block**_.
 
-By retrieving the value of the `.specID` property for each of a composite block's nested blocks - recursing to inner nesting levels as necessary - a Controller can acquire a complete definition of the block's capabilities.
+By retrieving the value of the `specID` property for each of a composite block's nested blocks - recursing to inner nesting levels as necessary - a Controller can acquire a complete definition of the block's capabilities.
 
 In addition to storing the blockspec ID, `NcBlock` defines methods for retrieving the detailed inventory of contained objects, as further detailed in section [Block enumeration](#block-enumeration).
 
@@ -107,17 +92,17 @@ It is expected that reusable blockspecs will be maintained in public, corporate,
 
 Since blockspecs are JSON documents, the envisioned reusable blockspec ecosystem will be fundamentally concerned with the storage, retrieval, and maintenance of JSON texts.
 
-#### Global blockspec IDs
+### Global blockspec IDs
 
-A key NCA feature to support blockspec libraries is the Global blockspec ID, or GSID. In blockspec libraries, a unique GSID value will be assigned to each blockspec intended for reuse. GSIDs will be the principal query key for people or systems seeking to retrieve blockspec definitions from public or corporate libraries, and will be the primary way Controllers retrieve definitions of blockspecs that Devices implement.
+A key NCA feature to support blockspec libraries is the **Global blockspec ID**, or **GSID**. In blockspec libraries, a unique GSID value will be assigned to each blockspec intended for reuse. GSIDs will be the principal query key for people or systems seeking to retrieve blockspec definitions from public or corporate libraries, and will be the primary way Controllers retrieve definitions of blockspecs that Devices implement.
 
 The syntax of the GSID is defined in [Identification](Identification.md).
 
 ## Block enumeration
 
-The base `NcBlock` class defines enumeration functions that allow Controllers to interrogate blocks and their sub-blocks directly, to reveal their detailed contents.
+The base **`NcBlock`** class defines enumeration functions that allow Controllers to interrogate blocks and their sub-blocks directly, to reveal their detailed contents.
 
-The block enumeration functions are regular methods of **NcBlock-** derived classes, accessed in the usual manner through protocol exchanges between Controller and Device. In the case of dynamically-defined devices in which the contents of blocks may vary at runtime, the property-change event can be used to notify controllers about changes to the NcBlock inventory.
+The block enumeration functions are regular methods of **`NcBlock`**, accessed in the usual manner through protocol exchanges between Controller and Device. In the case of dynamically-defined devices in which the contents of blocks may vary at runtime, the property-change event can be used to notify controllers about changes to the NcBlock inventory.
 
 ## Signal paths
 
@@ -127,13 +112,13 @@ Signal path endpoints are called **NCA ports** or, in context, just **ports**. O
 
 Blocks can have ports. A port belonging to a block is called a **block port.** A block port is special in that it can connect to both ports of objects outside the block and ports of objects inside the block. Thus, signals enter and leave blocks via block ports.
 
-The figure `Equalizer` shows the ports and signal paths of a simple multistage audio equalizer block.
+The figure ***Equalizer*** shows the ports and signal paths of a simple multistage audio equalizer block.
 
 <span id="equalizer"/>
 
-| ![A simple block, its block ports, its members and their ports, and its signal paths](images/Equalizer.svg) |
+| ![A simple block, its block ports, its members and their ports, and its signal paths](images/Equalizer.png) |
 |:--:|
-| _**Equalizer: A simple block, its block ports, its members and their ports, and its signal paths**_|
+| _**Equalizer**: A simple block, its block ports, its members and their ports, and its signal paths_|
 
 Signal paths cannot cross block boundaries - no signal path may extend from a port inside a given block to a port outside that same block. However, a signal path may extend from a port inside a given block to a block port of that same block, and from there to other block ports, etcetera.
 
@@ -147,10 +132,10 @@ Depending on implementation, a block's signal flow may be read-write or read-onl
 
 ## Complete block example
 
-A complete block example is shown in the figure `MicPre` below. This example illustrates both block composition and signal flow. The Device shown is a simplified microphone preamplifier. It includes a nested instance of the equalizer block shown in the figure `Equalizer` above.
+A complete block example is shown in the figure ***MicPre*** below. This example illustrates both block composition and signal flow. The Device shown is a simplified microphone preamplifier. It includes a nested instance of the equalizer block shown in the figure ***Equalizer*** above.
 
 <span id="micpre"/>
 
-| ![Example microphone preamplifier](images/MicPre.svg) |
+| ![Example microphone preamplifier](images/MicPre.png) |
 |:--:|
-| _**MicPre: Example microphone preamplifier**_ |
+| _**MicPre**: Example microphone preamplifier_ |
