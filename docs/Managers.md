@@ -11,5 +11,3 @@ NCA defines a set of classes called **managers** that perform central housekeepi
 | **NcFirmwareManager** | Reports firmware versions. |
 | **NcLockManager** | Provides functions to help Controllers lock objects. |
 | **NcDeviceTimeManager** | Collects the device's time-source object(s) and provides access to the device's time-of-day clock. |
-
-*Table 3. Managers*
