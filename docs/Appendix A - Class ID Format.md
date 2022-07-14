@@ -15,7 +15,7 @@ A class identifier is represented as {K,n}, where K is a _lineage key_ and n is 
 - A lineage key is a sequence of numbers {i1•i2•i3 ...}, as will be described below.
 - A version number is a version string that complies with the Semantic Versioning convention defined [here](https://semver.org/). 
 
-An annotated example is given in `Figure 11` below.
+An annotated example is given in the figure ***Class IDs*** below.
 
 ## Lineage keys
 
@@ -79,4 +79,4 @@ The IEEE (Institute of Electrical and Electronic Engineers) OUI and CID are iden
 
 | ![Standard and nonstandard class IDs for an ncaGain subtree](images/classID.png) |
 |:--:|
-| *Figure 11. Standard and nonstandard class IDs* |
+| ***Class IDs:**  Standard and nonstandard forms* |

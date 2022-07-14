@@ -91,7 +91,7 @@ Identifier of a blockspec.  Stored in property `NcBlock.specID`.
 
 | Datatype     | Scope    | Lifespan  | Reference |
 | ------------ | -------- | --------  | ---------------------------------------------------------------- |
-| `NcName`     | Varies   | Permanent |[Device Model(Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs)|
+| `NcString`   | Varies   | Permanent |[Device Model(Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs)|
 |              |          |           |                                                                  |
 
 ## Object IDs
