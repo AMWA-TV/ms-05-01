@@ -69,6 +69,6 @@ An authority key is a negative 32-bit integer, constructed by prepending FFh ont
 
 ## Example
 
-| ![Standard and nonstandard class IDs for an ncaGain subtree](images/classId.png) |
+| ![Standard and nonstandard class IDs for an NcGain subtree](images/ClassID.png) |
 |:--:|
 | **Class IDs:**  Standard and nonstandard forms |
