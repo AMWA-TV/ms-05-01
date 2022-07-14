@@ -62,8 +62,8 @@ The categories shown in figure **NCA Control Model** are as follows:
 
 - The **Workers** subtree contains definitions of classes that may perform some kind of processing or monitoring function. **SignalWorkers** are specific workers which handle media signal processing.
 **SignalWorkers** has two subtrees:
-  - **Actuators** , which affect signals in various ways;
-  - **Sensors**, which monitor signals.
+    - **Actuators** , which affect signals in various ways;
+    - **Sensors**, which monitor signals.
 
 - The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device blockspec](Device%20Model.md#Base-Device-blockspec).
 
