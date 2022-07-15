@@ -34,4 +34,4 @@ A _**block**_ is a collection of objects that defines a subset of a Device's con
 
 In addition to the basic models described above, NCA defines a powerful tool named the _**blockspec**_ for specifying reusable control configurations. Blockspecs are specifications of NCA device control subassemblies - or even entire devices - that can be adapted and reused to create new devices. Going forward, the use of blockspecs may reduce engineering cost and increase interoperability of NCA-based products.
 
-Blockspecs are described in [Device Model(Blockspecs and Blockspec IDs)](Device%20Model.md#blockspecs-and-blockspec-ids) and defined formally in [MS-05-03 NMOS Control Block Specifications](https://specs.amwa.tv/ms-05-03).
+Blockspecs are described in [Device Model (Blockspecs and Blockspec IDs)](Device%20Model.md#blockspecs-and-blockspec-ids) and defined formally in [MS-05-03 NMOS Control Block Specifications](https://specs.amwa.tv/ms-05-03).
