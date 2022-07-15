@@ -13,7 +13,7 @@ This document introduces NCA, the **NMOS Control Architecture**. NCA is an archi
 
 In this and other NCA documents, the term "device control" means "device configuration, control and monitoring" unless otherwise specified. Note that the use of the term "device" in this document does not have exactly the same meaning as it does in earlier NMOS IS-xx specifications. In this document we use the terms "NCA device" and "NMOS device" to make the distinction clear.
 
-NCA's specification is designed to complement and interoperate with the existing family of **NMOS** specifications.
+NCA's specification is designed to complement and interoperate with the existing family of [NMOS](https://specs.amwa.tv/nmos) specifications.
 
 **NCA's purpose is device control (and status monitoring) only.** NCA does not define higher-level mechanisms such as compound media formats, production role data, studio asset records, facilities reservations, accounting data, performance rights data, and so on and on. Such mechanisms might build (in part) upon NCA device control, but their specification is out of NCA's scope.
 
