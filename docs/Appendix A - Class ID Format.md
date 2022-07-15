@@ -19,7 +19,7 @@ Each class shall be identified by a hierarchical key nominally of the form i(1)â
 
 The lineage key of a class shall be a set of class indices that identifies the entire lineage of the class, beginning from `NcObject`,  extending down through all ancestor classes, and ending at the class in question. The key may contain as many class indices as needed to describe the inheritance hierarchy.
 
-To support compatible addition of nonstandard classes to the standard control model, lineage keys allow   _**authority keys**_ to be interposed in the sequence of class indices.  This feature is described in [Nonstandard classIds](#nonstandard-classIds), below.
+To support compatible addition of nonstandard classes to the standard control model, lineage keys allow   _**authority keys**_ to be interposed in the sequence of class indices.  This feature is described in [Nonstandard classIds](#nonstandard-classids), below.
 
 A class defined by NCA is called a _**standard class**_. The lineage key of a standard class shall contain no authority keys.
 
