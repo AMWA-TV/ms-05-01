@@ -101,7 +101,7 @@ NCA's **Touchpoint** feature allows applications to attach a list of _touchpoint
 
 This document defines the mapping to NMOS IS-xx resources; other mappings may be defined in the future, through specifications or by implementers as necessary.
 
-The Touchpoint feature is implemented by the **Touchpoints** property of any **NcObject**. **Touchpoints** shall be a list of zero or more **touchpoint descriptors**. For a given **NcObject**, each touchpoint descriptor shall identify a foreign namespace and a list of one or more identifiers of entities within the foreign namespace.
+The Touchpoint feature is implemented by the **Touchpoints** property of any **NcObject**. **Touchpoints** shall be a list of zero or more **touchpoint descriptors**. For a given **NcObject**, each touchpoint descriptor shall identify a foreign namespace and a resource identifier within the foreign namespace.
 
 Because **Touchpoints** is a property of **NcObject**, it shall be inherited by every NCA object and may be used wherever required.
 
@@ -110,28 +110,28 @@ Because **Touchpoints** is a property of **NcObject**, it shall be inherited by 
 Namespaces for NMOS are as follows:
 
 - IS-04: **x-nmos** (includes the identities which link to IS-05 and IS-07)
-- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 Input and Output resources)
+- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 input and Ootput resources)
 
-### Touchpoint Resources for NMOS
+### Touchpoint Resource for NMOS
 
-The resources shall be provided as an array of objects. The NMOS touchpoint resources shall include:
+The NMOS touchpoint resource shall include:
 
 - Resource type type of resource linked
 - ID identity of the resource in the given namespace
 
 For the **x-nmos** namespace, **NcTouchpointResourceNmos** is defined and shall support the following resource types:
 
-- Node
-- Device
-- Source
-- Flow
-- Sender
-- Receiver
+- node
+- device
+- source
+- flow
+- sender
+- receiver
 
 For the **x-nmos/channelmapping** namespace, **NcTouchpointResourceNmos_is_08** is defined, and shall support the following resource types, and the touchpoint resource id should be that of the underlying NMOS device.
 
-- Inputs
-- Outputs
+- input
+- output
 
 WebIDL models for the touchpoints are defined in the control model in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
 
