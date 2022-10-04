@@ -110,7 +110,7 @@ Because **Touchpoints** is a property of **NcObject**, it shall be inherited by 
 Namespaces for NMOS are as follows:
 
 - IS-04: **x-nmos** (includes the identities which link to IS-05 and IS-07)
-- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 input and Ootput resources)
+- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 input and output resources)
 
 ### Touchpoint Resource for NMOS
 
