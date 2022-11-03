@@ -67,7 +67,7 @@ The IEEE (Institute of Electrical and Electronic Engineers) OUI and CID are iden
 
 For organizations which own a unique CID or OUI the authority key MUST be a negative 32-bit integer, constructed by prepending FFh onto the 24-bit organization identifier.
 
-For organizations which do now own a unique CID or OUI the authority key MUST be **0**.
+For organizations which do not own a unique CID or OUI the authority key MUST be **0**.
 
 ## Example
 
