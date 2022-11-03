@@ -19,7 +19,7 @@ Each class shall be identified by a hierarchical key nominally of the form i(1)�
 
 The lineage key of a class shall be a set of class indices that identifies the entire lineage of the class, beginning from `NcObject`,  extending down through all ancestor classes, and ending at the class in question. The key may contain as many class indices as needed to describe the inheritance hierarchy.
 
-To support compatible addition of nonstandard classes to the standard control model, lineage keys allow   _**authority keys**_ to be interposed in the sequence of class indices.  This feature is described in [Nonstandard classIds](#nonstandard-classids), below.
+To support compatible addition of nonstandard classes to the standard control model, lineage keys allow   _**authority keys**_ to be interposed in the sequence of class indices. This feature is described in [Nonstandard classIds](#nonstandard-classids), below.
 
 A class defined by NCA is called a _**standard class**_. The lineage key of a standard class shall contain no authority keys.
 
@@ -43,7 +43,7 @@ A class not defined by NCA is called a _**nonstandard class**_, and its classId 
 
 Nonstandard classes and their classIds may be created by a manufacturer of a device or by any other organization. The source of a classId is called the class's _**authority**_. An authority key uniquely identifies an authority.
 
-A nonstandard classId shall be constructed by inserting an authority key into the lineage key immediately before the index of the first nonstandard class. In the following details, authority keys will be indicated by " **A**", as in **{i(1)•i(2)•A•i(3) ...}**.
+A nonstandard classId shall be constructed by inserting an authority key into the lineage key immediately before the index of the first nonstandard class. In the following details, authority keys will be indicated by "**A**", as in **{i(1)•i(2)•A•i(3) ...}**.
 
 The interpretation of a lineage key that includes an authority key **A** shall be as follows:
 
@@ -65,7 +65,9 @@ Authority keys use IEEE-registered organization identifiers.
 
 The IEEE (Institute of Electrical and Electronic Engineers) OUI and CID are identifiers that uniquely identify organizations. Any incorporated organization may receive a unique Public CID or OUI from the IEEE upon request and payment of a one-time fee. The difference between the two is that OUIs are used in Ethernet MAC addresses, CIDs are not. The address spaces of the two do not overlap, so they are the same for NCA purposes.
 
-An authority key is a negative 32-bit integer, constructed by prepending FFh onto the 24-bit organization identifier.
+For organizations which own a unique CID or OUI the authority key MUST be a negative 32-bit integer, constructed by prepending FFh onto the 24-bit organization identifier.
+
+For organizations which do now own a unique CID or OUI the authority key MUST be **0**.
 
 ## Example
 
