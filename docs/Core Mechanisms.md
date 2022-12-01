@@ -22,7 +22,7 @@ NCA control is session-oriented, which implies the following:
 1. Controlled Devices (and their inventory of objects) have persistent application relationships with Controllers.
 1. Prompt discovery of Device failure or communication failure is a required feature of the protocol.
 1. Devices shall report changing parameters to subscribing Controllers. Subscriptions are valid through the conclusion of the control session unless explicitly un-subscribed.
-1. When a communication failure occurs, the control session behaviour shall be well-defined. Whether the session survives or gracefully dies is a property of the protocol in use.
+1. When a communication failure occurs, the control session behaviour shall be well-defined under the protocol in use.
 
 ## Events, Notifications, and Subscriptions
 
@@ -144,8 +144,6 @@ NCA protocols (defined in future work) may support additional reliability featur
 
 ### Device supervision
 
-Devices are continuously supervised with the aid of **heartbeat messages**. Such messages shall be defined as part of each NCA protocol specification.
-
 Device supervision ensures that a control session (see [Control sessions](Core%20Mechanisms.md#control-sessions)) is not retained after either of its endpoints disappears, while simultaneously allowing the case that the control session might (protocol specific) be allowed to persist in the case of temporary communication failure.
 
-The exact format of heartbeat messages and the specific rules of the Device supervision mechanism are protocol-specific.
+Device supervision implementations are protocol-specific.
