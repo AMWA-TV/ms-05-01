@@ -56,52 +56,7 @@ Some NCA-controlled media networks may contain thousands of devices. In such cas
 
 ## Concurrency control
 
-  Sometimes, application control actions will require the exchange of more than one control message. If two or more controllers are simultaneously attempting to perform such actions on the same set of objects, the potential for a race condition exists. To prevent race conditions, NCA contains features to enforce single-threaded operation when necessary.
-
-An NCA _**lock**_ is a mutual exclusion ("mutex") capable of preventing some or all access to the object by anyone other than the lockholder.
-
-The NCA mechanism supports two levels of lock, as follows:
-
-1. **NoReadWrite** locks, which prevent all access to the object by non-lockholders - read requests while in this state will return a "not-ready" type of status.
-2. **NoWrite** locks, which prevent non-lockholders from modifying object data, but allow them to retrieve it.
-
-The owner of a lock (lockholder) is the Controller that sets the lock. Locks are expected to be ephemeral.
-
-The primary lock interface is defined in the **NcObject** class, and is therefore inherited by every other NCA class. However, non-lockable objects may be defined, if desired, as described below.
-
-Locking rules are defined as follows:
-
-1. An object may be implemented as **lockable** or **non-lockable**. A non-lockable object shall return the **NotImplemented** status codes from all locking-related commands.
-
-2. The lockability or an object shall be indicated by the value of its **Lockable** property. **Lockable** is inherited from **ncaObject**.
-
-3. A lockable object shall be locked by at most one lockholder at a time.
-
-4. A locked object may be locked **NoReadWrite** or locked **NoWrite** , but not both.
-
-5. An object locked **NoReadWrite** may only be read or written by the lockholder.
-
-6. An object locked **NoWrite** may be read by any Controller but only written by the lockholder.
-
-7. A lockholder may upgrade its lock from **NoWrite** to **NoReadWrite** , or downgrade its lock from **NoReadWrite** to **NoWrite, or** remove its lock entirely.
-
-8. No lock survives a Device reset.
-
-9. Controller to Device communication is session-oriented. When a Controller's session ends for any reason, the Device must automatically remove all locks set by that Controller session.
-
-10. It is possible to lock an entire Device by locking its root block object (see [DeviceModel (Structure)](Device%20Model.md#device-structure) provided that none of the device's other objects are locked.
-
-11. Locked objects may not be deleted.
-
-The NCA lock mechanism is for transient programmatic use. It is not:
-
-- An authorization/permission mechanism for controlling user access to Devices or their features;
-- A reservation mechanism for securing user access to Devices or features at a later time; or
-- An operations mechanism for restricting Device access during maintenance, or when problems are occurring, or for other facility management purposes.
-
-### Waiting on locks
-
-The optional manager class `NcLockManager` defines a Manager that allows Controllers to request locks and wait on them until they're granted.  Devices are not required to implement this class, but if implemented it will make implementation of multiple-Controller systems easier, by eliminating race conditions from multiple simultaneous lock requests.
+Concurrency control is left to specific device implementations, however devices SHOULD always return relevant response statuses when there are conflicts, errors or other noteworthy states (see [NcMethodStatus in MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02)).
 
 ## Capability enumeration
 
