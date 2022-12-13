@@ -9,5 +9,4 @@ NCA defines a set of classes called **managers** that perform central housekeepi
 | **NcSubscriptionManager** | Manages subscriptions, the constructs by which Devices inform Controllers of significant events. |
 | **NcClassManager** | Manages class and data type discovery. |
 | **NcFirmwareManager** | Reports firmware versions. |
-| **NcLockManager** | Provides functions to help Controllers lock objects. |
 | **NcDeviceTimeManager** | Collects the device's time-source object(s) and provides access to the device's time-of-day clock. |
