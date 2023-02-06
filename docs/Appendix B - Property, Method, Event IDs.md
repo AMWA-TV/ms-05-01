@@ -29,6 +29,6 @@ For example, consider a gain-control class `NcGain`. Referring to the control mo
 | property     | classId         | 01p01   | NcObject             |
 | event        | PropertyChanged | 01e01   | NcObject             |
 | property     | ports           | 03p01   | NcSignalWorker       |
-| property     | setPoint        | 05p01   | NcGain               |
+| property     | gainValue       | 05p01   | NcGain               |
 
 Defining IDs in this way ensures it will always be possible to define specification upgrades and proprietary classes compatibly, without element ID clashes or number address space constraints.

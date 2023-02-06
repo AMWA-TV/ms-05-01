@@ -49,7 +49,7 @@ Static, read-only text property that names an object within the block to which i
 
 | Datatype     | Scope    | Lifespan  | Reference |
 | ----------   | -------- | --------  | ---------------------------------------------------------------- |
-| `NcName`     | Block    | Permanent |                                                                  |
+| `NcString`   | Block    | Permanent |                                                                  |
 |              |          |           |                                                                  |
 
 ### Role path
