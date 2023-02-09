@@ -36,8 +36,6 @@ Definitions and abbreviations for this draft
 
 **Sequence** Written **sequence\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** may be a simple datatype or an object.
 
-**Map** Written **map\<K,V\>:** an unordered set of values of datatype **V** that is accessed via a unique key of datatype **K**. **K** may be any simple datatype; **V** may be a simple datatype or an object.
-
 **Object collection** Set of references to objects. An action which deletes or modifies a collection does not delete the objects it references. A Collection is a property of an object.
 
 **Object container** Set of objects. An action which deletes a container also deletes the objects it contains. Note that objects may only be singly-contained, i.e. an object may be contained by at most one other object.
