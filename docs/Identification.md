@@ -110,7 +110,7 @@ Because **Touchpoints** is a property of **NcObject**, it shall be inherited by 
 Namespaces for NMOS are as follows:
 
 - IS-04: **x-nmos** (includes the identities which link to IS-05 and IS-07)
-- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 input and output resources)
+- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 Audio Channel Mapping input and output resources)
 
 ### Touchpoint Resource for NMOS
 
@@ -128,7 +128,7 @@ For the **x-nmos** namespace, **NcTouchpointResourceNmos** is defined and shall 
 - sender
 - receiver
 
-For the **x-nmos/channelmapping** namespace, **NcTouchpointResourceNmos_is_08** is defined, and shall support the following resource types, and the touchpoint resource id should be that of the underlying NMOS device.
+For the **x-nmos/channelmapping** namespace, **NcTouchpointResourceNmosChannelMapping** is defined, and shall support the following resource types, and the touchpoint resource id should be that of the underlying NMOS device.
 
 - input
 - output
