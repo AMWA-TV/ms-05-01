@@ -71,9 +71,7 @@ Particularly notable Managers are:
 
 1. **NcDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
 
-2. **NcSubscriptionManager**. Manages Controller subscriptions to events.
-
-3. **NcClassManager**. Offers class and data type discovery mechanisms.
+2. **NcClassManager**. Offers class and data type discovery mechanisms.
 
 ## Datatype definitions
 
