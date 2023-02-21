@@ -1,31 +1,20 @@
 # Appendix A - Class ID Format
 
-## Class identifiers
-
-A complete class identifier shall consist of a class ID and a class version number.  In NC-Framework, class IDs are stored in property `NcObject.classId`, and class version numbers are stored in `Ncobject.classVersion`.  Both of these properties are inherited by every NCA class.  The value of classId shall be unique for every class.
-
 ## Class IDs
 
-A class identifier is represented as {K,n}, where K is a _lineage key_ and n is a version number.
+Each class id shall be identified by a hierarchical key nominally of the form i(1)•i(2)•i(3) ... where each i(n) shall be a positive integer that uniquely identifies a class within its siblings at a particular inheritance level of the class tree. Each i(n) is called a _**class index**_.
 
-- A lineage key is a sequence of numbers {i1•i2•i3 ...}, as will be described below.
-- A version number is a version string that complies with the Semantic Versioning convention defined [here](https://semver.org/).
+The lineage key of a class shall be a set of class indices that identifies the entire lineage of the class, beginning from `NcObject`, extending down through all ancestor classes, and ending at the class in question. The key may contain as many class indices as needed to describe the inheritance hierarchy.
 
-An annotated [Example](#example) is given below.
-
-## Lineage keys
-
-Each class shall be identified by a hierarchical key nominally of the form i(1)•i(2)•i(3) ... where each i(n) shall be a positive integer that uniquely identifies a class within its siblings at a particular inheritance level of the class tree. Each i(n) is called a _**class index**_.
-
-The lineage key of a class shall be a set of class indices that identifies the entire lineage of the class, beginning from `NcObject`,  extending down through all ancestor classes, and ending at the class in question. The key may contain as many class indices as needed to describe the inheritance hierarchy.
-
-To support compatible addition of nonstandard classes to the standard control model, lineage keys allow   _**authority keys**_ to be interposed in the sequence of class indices. This feature is described in [Nonstandard classIds](#nonstandard-classids), below.
+To support compatible addition of nonstandard classes to the standard control model, lineage keys allow _**authority keys**_ to be interposed in the sequence of class indices. This feature is described in [Nonstandard classIds](#nonstandard-classids), below.
 
 A class defined by NCA is called a _**standard class**_. The lineage key of a standard class shall contain no authority keys.
 
+An annotated [Example](#example) is given below.
+
 ## Class Indices
 
-A class index shall be a positive 32-bit integer.  The value zero is reserved.  
+A class index shall be a positive 32-bit integer.  The value zero is reserved.
 
 For example, for a standard class `NcXXX` whose lineage key is **1•2•12•7** , the lineage key shall be interpreted left-to-right as follows:
 

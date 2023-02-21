@@ -13,15 +13,6 @@ Uniquely identifies a class.  Stored in property `NcObject.classId`.  Every clas
 | `NcclassId`  | NCA control model | Permanent |[Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md)  |
 |              |                   |           |                                                         |
 
-### Class version
-
-Uniquely identifies the version of a class.  Stored in property `NcObject.classVersion`.  Every class shall inherit this property, and this property shall have a valid value for every class and every class instance.  The value shall conform to the Semantic Versioning 2.0.0 convention, defined [here](https://semver.org/).
-
-| Datatype        | Scope             | Lifespan  | Reference |
-| --------------  | ----------------- | ----------| ------------------------------------------------------- |
-| `NcVersionCode` | NCA control model | Permanent |[Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md)  |
-|                 |                   |           |                                                         |
-
 ### Object ID
 
 Compact read-only handle that uniquely identifies an object within its device. Stored in property `NcObject.oid`.  Every class shall inherit this property, and this property shall have a valid value for every object.
