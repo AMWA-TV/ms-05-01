@@ -34,9 +34,11 @@ In all multiple-controller situations, timely tracking of parameter and state up
 
 Historically, controllers have often tracked device changes by polling. A goal of NCA is to render polling completely unnecessary in all cases. To this end, NCA events generate **notifications**.  A notification is a spontaneous message from a Device to one or more Controllers that announces the occurrence of an event and gives its particulars.
 
-Not all Controllers need to know about all events. When a Controller wants to be informed of the occurrence of a certain event in a certain object, it registers a **subscription** with the Device's _subscription manager,_ an instance of the class **NcSubscriptionManager.**  A subscription causes a **notification message** to be delivered to the subscribing Controller whenever the designated event is raised in the designated object.
+Not all Controllers need to know about all events. When a Controller wants to be informed of the occurrence of a certain event in a certain object, it registers a **subscription** with the Device. A subscription causes a **notification message** to be delivered to the subscribing Controller whenever the designated event is raised in the designated object.
 
 Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the Controller's session ends.
+
+Subscriptions and their implementation are protocol-specific.
 
 ### Notification messages
 
@@ -46,7 +48,7 @@ The parameters of notifications depend on the type of event. In general, event p
 
 ### The PropertyChanged event
 
-The most common event is the **PropertyChanged** event.  **PropertyChanged**   is defined by the base class **ncaObject**, so it is inherited by every object.
+The most common event is the **PropertyChanged** event.  **PropertyChanged**   is defined by the base class **NcObject**, so it is inherited by every object.
 
 **PropertyChanged** is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
 

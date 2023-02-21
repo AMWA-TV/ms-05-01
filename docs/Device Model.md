@@ -10,8 +10,6 @@ As illustrated in the figure `NCA Device` below, the Device model envisions a De
 
 Every Device shall contain exactly one root block.
 
-Every root block must be lockable. See [Core mechanisms (Concurrency Control)](Core%20Mechanisms.md#concurrency-control).
-
 An object contained in a block is called a _**member**_ or _**member object**_ of that block.
 
 A Device may have certain application functions the designers wish not to be network-controllable. Such functions will not be represented in the root block or its nested blocks, and will consequently not be in the device's control API.
