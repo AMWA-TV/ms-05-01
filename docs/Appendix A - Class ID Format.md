@@ -54,7 +54,7 @@ Authority keys use IEEE-registered organization identifiers.
 
 The IEEE (Institute of Electrical and Electronic Engineers) OUI and CID are identifiers that uniquely identify organizations. Any incorporated organization may receive a unique Public CID or OUI from the IEEE upon request and payment of a one-time fee. The difference between the two is that OUIs are used in Ethernet MAC addresses, CIDs are not. The address spaces of the two do not overlap, so they are the same for NCA purposes.
 
-For organizations which own a unique CID or OUI the authority key MUST be a negative 32-bit integer, constructed by prepending FFh onto the 24-bit organization identifier.
+For organizations which own a unique CID or OUI the authority key MUST be the organization identifier as an integer which MUST be negated.
 
 For organizations which do not own a unique CID or OUI the authority key MUST be **0**.
 
