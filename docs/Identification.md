@@ -35,15 +35,12 @@ Static identifier of a property, method, or event of a [control class](https://s
 
 ### Role
 
-Static, read-only text property that names an object within the block to which it belongs. Unique within the block. Stored in property `NcObject.role`. Every class shall inherit this property, and this property shall have a valid value for every object.
+Static, read-only text property that names an object within the block to which it belongs. Unique within the block. Stored in property [NcObject.role](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
-`Role` values are analogous to labels on a physical control panel, e.g.
-**Input Gain**, **Output Select**, etcetera., or to filenames in a hierarchical file system.
-
-| Datatype     | Scope    | Lifespan  | Reference |
-| ----------   | -------- | --------  | ---------------------------------------------------------------- |
-| `NcString`   | Block    | Permanent |                                                                  |
-|              |          |           |                                                                  |
+| Datatype                                                                                    | Scope    | Lifespan  |
+| ------------------------------------------------------------------------------------------- | -------- | --------  |
+| [NcString](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#primitives) | Block    | Permanent |
+|                                                                                             |          |           |
 
 ### Role path
 
