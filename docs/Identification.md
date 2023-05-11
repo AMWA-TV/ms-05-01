@@ -10,7 +10,7 @@ Uniquely identifies a class. Stored in property [NcObject.classId](https://specs
 
 | Datatype                                                                                     | Scope             | Lifespan  |
 | -------------------------------------------------------------------------------------------  | ----------------- | ----------|
-| [NcclassId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncclassid)  | NCA control model | Permanent |
+| [NcClassId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncclassid)  | NCA control model | Permanent |
 |                                                                                              |                   |           |
 
 Further information provided in [Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md).
@@ -54,12 +54,12 @@ Role paths are enabled by the existence of [blocks](https://specs.amwa.tv/ms-05-
 
 ### User label
 
-Read/write string that users may set to identify an object's operational purpose in a particular application context. Analogous to the texts written on mixing console scribble strips, labels, and bits of paper tape affixed to equipment in use. "Elvis's Vocal Mic", "First violins #3", etcetera.  Stored in property `NcObject.userLabel`. Every class shall inherit this property, so any object may have a user label value.  There are no constraints on the syntax or lifetime of user labels - they are intended to convey application information of any and all kinds.
+Read/write string that users may set to identify an object's operational purpose in a particular application context. Analogous to the texts written on mixing console scribble strips, labels, and bits of paper tape affixed to equipment in use. Stored in property [NcObject.userLabel](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
-| Datatype     | Scope    | Lifespan  | Reference |
-| ------------ | -------- | --------  | ---------------------------------------------------------------- |
-| `NcString`   | n/a      | volatile  |                                                                  |
-|              |          |           |                                                                  |
+| Datatype                                                                                    | Scope    | Lifespan  |
+| ------------------------------------------------------------------------------------------- | -------- | --------- |
+| [NcString](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#primitives) | n/a      | Permanent |
+|                                                                                             |          |           |
 
 ### Product UUID
 
