@@ -22,7 +22,7 @@ NCA control is session-oriented, which implies the following:
 1. Controlled Devices (and their inventory of objects) have persistent application relationships with Controllers.
 1. Prompt discovery of Device failure or communication failure is a required feature of the protocol.
 1. Devices shall report changing parameters to subscribing Controllers. Subscriptions are valid through the conclusion of the control session unless explicitly un-subscribed.
-1. When a communication failure occurs, the control session behaviour shall be well-defined under the protocol in use.
+1. When a communication failure occurs, the control session behaviour is defined by the protocol in use.
 
 ## Events, Notifications, and Subscriptions
 
