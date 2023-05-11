@@ -44,7 +44,7 @@ These rules are:
 
 ## Class hierarchy
 
-For NCA to meet its interoperability objectives, a repertoire of common class definitions must exist. These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **NcObject**.
+For NCA to meet its interoperability objectives, a repertoire of common control class models are defined in the [NMOS Control Framework](https://specs.amwa.tv/ms-05-02). These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **NcObject**.
 
 NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **NcObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
 
