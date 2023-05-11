@@ -63,12 +63,12 @@ Read/write string that users may set to identify an object's operational purpose
 
 ### Product UUID
 
-UUID that shall uniquely identify the particular product that constitutes the Device. Stored in property `uuid` of datatype `NcProduct`.  In turn, the value of `NcProduct` for the Device shall be stored in property `NcDeviceManager.product`.
+UUID that uniquely identifies the particular product that constitutes the Device. Stored in field `uuid` of datatype [NcProduct](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncproduct). In turn, product descriptor for a Device is stored in property [NcDeviceManager.product](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncdevicemanager).
 
-| Datatype        | Scope    | Lifespan  | Reference |
-| --------------- | -------- | --------  | ---------------------------------------------------------------- |
-| `NcString`| Universe | Permanent |                                                                  |
-|                 |          |           |                                                                  |
+| Datatype                                                                              | Scope                  | Lifespan  |
+| ------------------------------------------------------------------------------------- | ---------------------- | --------  |
+| [NcUuid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncuuid) | Manufacturer portfolio | Permanent |
+|                                                                                       |                        |           |
 
 ### Blockspec ID
 
@@ -121,4 +121,4 @@ WebIDL models for the touchpoints are defined in the control model in [MS-05-02 
 
 ## NCA discoverability in IS-04
 
-Compliant NCA protocols will need to be advertised through existing IS-04 practices inside the controls array of an NMOS Device. The requirements are detailed in [IS-12 NMOS Control Protocol](https://specs.amwa.tv/is-12).
+Compliant NCA protocols are advertised through existing IS-04 practices inside the controls array of an NMOS Device. The requirements are detailed in [IS-12 NMOS Control Protocol](https://specs.amwa.tv/is-12).
