@@ -17,12 +17,12 @@ Further information provided in [Appendix A](Appendix%20A%20-%20Class%20ID%20For
 
 ### Object ID
 
-Compact read-only handle that uniquely identifies an object within its device. Stored in property `NcObject.oid`.  Every class shall inherit this property, and this property shall have a valid value for every object.
+Compact read-only handle that uniquely identifies an object within its device. Stored in property [NcObject.oid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
-| Datatype     | Scope    | Lifespan  | Reference |
-| ------------ | -------- | --------- | ---------------------------------------------------------------- |
-| `NcOid`      | Device   |           | [Object IDs](#object-ids), below                                 |
-|              |          |           |                                                                  |
+| Datatype                                                                            | Scope    | Lifespan  |
+| ----------------------------------------------------------------------------------- | -------- | --------- |
+| [NcOid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncoid) | Device   |           |
+|                                                                                     |          |           |
 
 ### Element ID
 
@@ -81,12 +81,6 @@ Identifier of a blockspec.  Stored in property `NcBlock.specID`.
 | ------------ | -------- | --------  | ---------------------------------------------------------------- |
 | `NcString`   | Varies   | Permanent |[Device Model (Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs)|
 |              |          |           |                                                                  |
-
-## Object IDs
-
-Object ID values are 32-bit unsigned integers.  No semantics are attached to particular values, and device designs may use any value greater than 4095.  Values 1...4095 shall be reserved for possible future NCA features. The value zero shall be reserved to denote the absence of an object.  
-
-In some Devices, object IDs can change from time to time.  Each block object shall maintain an object ID revision timestamp that indicates the last time the object IDs of its members block have changed.  As well, the readonly boolean property `NcObject.constantOid`, inherited by every class and instantiated in every object, shall be TRUE when the object's OID is fixed at time of manufacture and does not change thereafter, FALSE otherwise.
 
 ## NCA-NMOS identity mapping
 
