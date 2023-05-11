@@ -44,13 +44,13 @@ Static, read-only text property that names an object within the block to which i
 
 ### Role path
 
-Unique identifier of an object within a device.  Sequence of strings, consisting of the `role` values of all the object's containing blocks, starting from the root block and ending with the object's own `role` value.
-In some implementations, object IDs may change over time, but role paths shall not, unless the device is dynamically reconfigurable.
+Unique identifier of an object within a device model. Sequence of strings, consisting of the `role` values of all the object's containing blocks, starting from the root block and ending with the object's own `role` value.  
+Role paths are enabled by the existence of [blocks](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) in the device model.
 
-| Datatype     | Scope    | Lifespan  | Reference |
-| ------------ | -------- | --------  | ---------------------------------------------------------------- |
-| `NcRolePath` | Device   | Permanent |                                                                  |
-|              |          |           |                                                                  |
+| Datatype                                                                                      | Scope    | Lifespan  |
+| --------------------------------------------------------------------------------------------- | -------- | --------  |
+| [NcRolePath](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncrolepath) | Device   | Permanent |
+|                                                                                               |          |           |
 
 ### User label
 
