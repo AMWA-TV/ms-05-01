@@ -26,12 +26,12 @@ Compact read-only handle that uniquely identifies an object within its device. S
 
 ### Element ID
 
-Static identifier of a property, method, or event of a control class. Values shall be defined by the class specification in the control model, and shall not change over time. Values shall be unique within each class.
+Static identifier of a property, method, or event of a [control class](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#control-classes).
 
-| Datatype     | Scope    | Lifespan  | Reference |
-| ------------ | -------- | --------  | ---------------------------------------------------------------- |
-| `NcElementId`| Class    | Permanent | [Appendix B](Appendix%20B%20-%20Property%2C%20Method%2C%20Event%20IDs.md)|
-|              |          |           |                                                                  |
+| Datatype                                                                                        | Scope    | Lifespan  |
+| ----------------------------------------------------------------------------------------------- | -------- | --------  |
+| [NcElementId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncelementid) | Class    | Permanent |
+|                                                                                                 |          |           |
 
 ### Role
 
