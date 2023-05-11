@@ -6,12 +6,14 @@ NCA defines the following framework identifiers (a "framework" identifier is an 
 
 ### Class ID
 
-Uniquely identifies a class.  Stored in property `NcObject.classId`.  Every class shall inherit this property, and this property shall have a valid value for every class and every class instance.
+Uniquely identifies a class. Stored in property [NcObject.classId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject)
 
-| Datatype     | Scope             | Lifespan  | Reference |
-| -----------  | ----------------- | ----------| ------------------------------------------------------- |
-| `NcclassId`  | NCA control model | Permanent |[Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md)  |
-|              |                   |           |                                                         |
+| Datatype                                                                                     | Scope             | Lifespan  |
+| -------------------------------------------------------------------------------------------  | ----------------- | ----------|
+| [NcclassId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncclassid)  | NCA control model | Permanent |
+|                                                                                              |                   |           |
+
+Further information provided in [Appendix A](Appendix%20A%20-%20Class%20ID%20Format.md).
 
 ### Object ID
 
