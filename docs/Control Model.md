@@ -30,7 +30,7 @@ Over time, the NCA-defined tree of classes will grow. Additionally, product deve
 
 These rules are:
 
-1. New classes must be defined by inheritance from existing ones.
+1. New classes are defined by inheritance from existing ones.
 
 1. A new ("child") class must implement all the properties, methods, and events of the class ("parent") from which it inherits.
 
