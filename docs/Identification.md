@@ -72,12 +72,14 @@ UUID that uniquely identifies the particular product that constitutes the Device
 
 ### Blockspec ID
 
-Identifier of a blockspec.  Stored in property `NcBlock.specID`.
+Identifier of a blockspec. Stored in property [NcBlock.specId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock).
 
-| Datatype     | Scope    | Lifespan  | Reference |
-| ------------ | -------- | --------  | ---------------------------------------------------------------- |
-| `NcString`   | Varies   | Permanent |[Device Model (Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs)|
-|              |          |           |                                                                  |
+| Datatype     | Scope    | Lifespan  |
+| ------------ | -------- | --------  |
+| `NcString`   | Varies   | Permanent |
+|              |          |           |
+
+More information and examples provided in [Device Model (Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
 
 ## NCA-NMOS identity mapping
 
