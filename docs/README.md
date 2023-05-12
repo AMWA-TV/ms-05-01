@@ -13,7 +13,6 @@
 ### Architecture
 
 - [Core Mechanisms](Core%20Mechanisms.md)
-- [Managers](Managers.md)
 - [Security](Security.md)
 
 ### Appendices

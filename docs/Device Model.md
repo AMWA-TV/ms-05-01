@@ -6,15 +6,11 @@ A block may contain other blocks. A contained block is said to be **nested** ins
 
 ## Device structure
 
-As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a _**root block**_ accompanied by a few housekeeping objects. The root block shall contain all the objects that control the device's application functions. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
-
-Every Device shall contain exactly one root block.
+As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they will be contained in a hierarchy of blocks nested inside the root block.
 
 An object contained in a block is called a _**member**_ or _**member object**_ of that block.
 
 A Device may have certain application functions the designers wish not to be network-controllable. Such functions will not be represented in the root block or its nested blocks, and will consequently not be in the device's control API.
-
-Device housekeeping objects are called _**managers**_. A manager class may be instantiated at most once per device. See [Managers](Managers.md).
 
 | ![NCA device](images/Device.png) |
 |:--:|

@@ -65,13 +65,7 @@ The categories shown in figure **NCA Control Model** are as follows:
     - **Actuators** , which affect signals in various ways;
     - **Sensors**, which monitor signals.
 
-- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions. Each manager class may be instantiated at most once per NCA device. A few of them must be instantiated for NCA conformance - see [Base Device blockspec](Device%20Model.md#Base-Device-blockspec).
-
-Particularly notable Managers are:
-
-1. **NcDeviceManager**. Contains generic product information (model and serial numbers, for example) and holds overall Device status indicators.
-
-2. **NcClassManager**. Offers class and data type discovery mechanisms.
+- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions.
 
 ## Datatype definitions
 
