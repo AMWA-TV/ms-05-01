@@ -81,43 +81,12 @@ Identifier of a blockspec.  Stored in property `NcBlock.specID`.
 
 ## NCA-NMOS identity mapping
 
-NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace.
+NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace. Stored in property [NcObject.touchpoints](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
-This document defines the mapping to NMOS IS-xx resources; other mappings may be defined in the future, through specifications or by implementers as necessary.
-
-The Touchpoint feature is implemented by the **Touchpoints** property of any **NcObject**. **Touchpoints** shall be a list of zero or more **touchpoint descriptors**. For a given **NcObject**, each touchpoint descriptor shall identify a foreign namespace and a resource identifier within the foreign namespace.
-
-Because **Touchpoints** is a property of **NcObject**, it shall be inherited by every NCA object and may be used wherever required.
-
-## NMOS Namespaces
-
-Namespaces for NMOS are as follows:
-
-- IS-04: **x-nmos** (includes the identities which link to IS-05 and IS-07)
-- IS-08: **x-nmos/channelmapping** (special touchpoints for IS-08 Audio Channel Mapping input and output resources)
-
-### Touchpoint Resource for NMOS
-
-The NMOS touchpoint resource shall include:
-
-- Resource type type of resource linked
-- ID identity of the resource in the given namespace
-
-For the **x-nmos** namespace, **NcTouchpointResourceNmos** is defined and shall support the following resource types:
-
-- node
-- device
-- source
-- flow
-- sender
-- receiver
-
-For the **x-nmos/channelmapping** namespace, **NcTouchpointResourceNmosChannelMapping** is defined, and shall support the following resource types, and the touchpoint resource id should be that of the underlying NMOS device.
-
-- input
-- output
-
-WebIDL models for the touchpoints are defined in the control model in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
+| Datatype                                                                                          | Scope                  | Lifespan  |
+| ------------------------------------------------------------------------------------------------- | ---------------------- | --------  |
+| [NcTouchpoint](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#nctouchpoint) | Referred namespace     | Permanent |
+|                                                                                                   |                        |           |
 
 ## NCA discoverability in IS-04
 
