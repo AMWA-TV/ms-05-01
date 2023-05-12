@@ -58,7 +58,7 @@ Some NCA-controlled media networks may contain thousands of devices. In such cas
 
 ## Concurrency control
 
-Concurrency control is left to specific device implementations, however devices SHOULD always return relevant response statuses when there are conflicts, errors or other noteworthy states (see [NcMethodStatus in MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02)).
+Concurrency control is left to specific device implementations, however devices MUST always return relevant response statuses when there are conflicts, errors or other noteworthy states (see [NMOS Control Framework: NcMethodStatus](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncmethodstatus)).
 
 ## Capability enumeration
 
