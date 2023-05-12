@@ -90,4 +90,4 @@ NCA's **Touchpoint** feature allows applications to attach a list of _touchpoint
 
 ## NCA discoverability in IS-04
 
-Compliant NCA protocols are advertised through existing IS-04 practices inside the controls array of an NMOS Device. The requirements are detailed in [IS-12 NMOS Control Protocol](https://specs.amwa.tv/is-12).
+Compliant NCA protocols are advertised through existing IS-04 practices inside the controls array of an NMOS Device.
