@@ -54,7 +54,7 @@ Role paths are enabled by the existence of [blocks](https://specs.amwa.tv/ms-05-
 
 ### User label
 
-Read/write string that users may set to identify an object's operational purpose in a particular application context. Analogous to the texts written on mixing console scribble strips, labels, and bits of paper tape affixed to equipment in use. Stored in property [NcObject.userLabel](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
+Read/write string that users can set to identify an object's operational purpose in a particular application context. Analogous to the texts written on mixing console scribble strips, labels, and bits of paper tape affixed to equipment in use. Stored in property [NcObject.userLabel](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
 | Datatype                                                                                    | Scope    | Lifespan  |
 | ------------------------------------------------------------------------------------------- | -------- | --------- |
