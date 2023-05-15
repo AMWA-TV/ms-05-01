@@ -18,4 +18,3 @@
 ### Appendices
 
 - [Appendix A - Class ID Format](Appendix%20A%20-%20Class%20ID%20Format.md)
-- [Appendix B - Property, Method, Event IDs](Appendix%20B%20-%20Property,%20Method,%20Event%20IDs.md)
