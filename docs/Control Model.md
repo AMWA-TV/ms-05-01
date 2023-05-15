@@ -1,26 +1,26 @@
 # Control Model
 
-The NCA Control Model is a singly-inherited tree of classes. Each NCA class defines a particular control or monitoring API that devices may implement.
+The NCA Control Model is a singly-inherited tree of classes. Each NCA class defines a particular control or monitoring API that devices implement.
 
-NCA classes have three kinds of elements:
+NCA [control classes](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#control-classes) can have three kinds of elements:
 
-- **Properties**. These are control and status parameters. Each has a datatype and a value. Datatypes may be simple values - boolean, number (various types), text string, bit string, etcetera, or complex structures defined in class definitions. A datatype may be an individual item (scalar), a List of items, or a Map of items.
+- **Properties**. These are control and status parameters.
 
-- **Methods** **.** Methods represent actions a Controller may take on the object. The most frequently-used methods are `get(...`) and `set(...)` functions that retrieve and store the values of properties. However, other kinds of methods (e.g. start(...), stop(...)) are defined for some classes.
+- **Methods** **.** Methods represent actions a Controller can perform on the object.
 
-- **Events**. Events are defined conditions that arise inside objects; Controllers may subscribe to events from an object. For example, all objects include the **PropertyChanged(...)** event, which is raised (i.e. occurs) when the value of a property of the object has changed.
+- **Events**. Events are defined conditions that arise inside objects. For example, all objects include the [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) event, which is raised (i.e. occurs) when the value of a property of the object has changed.
 
 The event and subscription mechanism is described further in [Events, Notifications and Subscriptions](Core%20Mechanisms.md#events-notifications-and-subscriptions).
 
-NCA classes are interface-defining classes that imply nothing about the programming classes inside actual products. Some Device developers may elect to use object-oriented programming environments with software class structures that mirror the NCA class tree, while others may take entirely different approaches. Such choices are outside NCA's scope.
+NCA classes are interface-defining classes that imply nothing about the programming classes inside actual products. Some Device developers can elect to use object-oriented programming environments with software class structures that mirror the NCA class tree, while others can take entirely different approaches. Such choices are outside NCA's scope.
 
-Each property, method, and event of a class has a unique identifier. These identifiers (_element identifiers_) are described in the **Identification** section later in this document.
+Each property, method, and event of a class has a unique identifier. These identifiers (_element identifiers_) are described in the [Identification](Identification.md).
 
 ## Class inheritance
 
-The NCA control model defines a class inheritance mechanism, in which the various classes' definitions are derived from the definitions of other, more elementary classes, with everything ultimately leading up (if you think of ancestry diagrams) or down (if you think of trees) to a single fundamental base or root named **NcObject**. Thus, a control class is the outcome of a **class inheritance hierarchy**.
+The NCA control model defines a class inheritance mechanism, in which the various classes' definitions are derived from the definitions of other, more elementary classes, with everything ultimately leading up (if you think of ancestry diagrams) or down (if you think of trees) to a single fundamental base named [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject). Thus, a control class is the outcome of a **class inheritance hierarchy**.
 
-When a class inherits from another class, _all_ of its properties, methods, and events are inherited. A notable example of this mechanism is the **PropertyChanged(...)** event. **PropertyChanged** is defined in **NcObject**. All classes in the model inherit directly or indirectly from **NcObject** ; therefore, they all have **PropertyChanged(...)** events. Consequently, a controller can subscribe to property-value changes for any object in the NCA device.
+When a class inherits from another class, _all_ of its properties, methods, and events are inherited. A notable example of this mechanism is the **PropertyChanged** event. **PropertyChanged** is defined in [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event). All classes in the model inherit directly or indirectly from [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject) ; therefore, they all have **PropertyChanged** events. Consequently, a controller can subscribe to property-value changes for any object in the NCA device.
 
 _This document will visualize the class inheritance hierarchy as a tree in inverted form, with NcObject at the top, and successive refinements of NcObject extending downward. Our tree will be a trailing vine._
 
@@ -32,21 +32,17 @@ These rules are:
 
 1. New classes are defined by inheritance from existing ones.
 
-1. A new ("child") class must implement all the properties, methods, and events of the class ("parent") from which it inherits.
+1. A new ("child") class MUST implement all the properties, methods, and events of the class ("parent") from which it inherits.
 
-1. A child class may expand its parent's definition by:
+1. A child class can expand its parent's definition by defining additional properties, methods, and/or events.
 
-    1. Defining additional properties, methods, and/or events; and/or
-
-    1. Augmenting the definitions of existing properties, methods, and/or events, In this case, the enhanced definitions must support all functions defined by the parent class.
-
-1. A child class's inherited elements must retain the respective element IDs (see [Identification](Identification.md)) from its parent class.
+1. A child class's inherited elements MUST retain the respective element IDs (see [Identification](Identification.md)) from its parent class.
 
 ## Class hierarchy
 
-For NCA to meet its interoperability objectives, a repertoire of common control class models are defined in the [NMOS Control Framework](https://specs.amwa.tv/ms-05-02). These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from **NcObject**.
+For NCA to meet its interoperability objectives, a repertoire of common control class models are defined in the [NMOS Control Framework](https://specs.amwa.tv/ms-05-02). These classes are defined in the NCA control model, via an inheritance hierarchy of control classes that descends from [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
-NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly from **NcObject**. All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
+NCA Control classes are specified in several categories and subcategories. Each category or subcategory has its own base class that inherits directly or indirectly from [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject). All the classes in a category inherit from that category's base class. Thus, each category is a subtree of the overall hierarchy.
 
 Figure **NCA Control Model** illustrates the NCA class tree, and shows the categories.
 
@@ -58,15 +54,15 @@ Figure **NCA Control Model** illustrates the NCA class tree, and shows the categ
 
 The categories shown in figure **NCA Control Model** are as follows:
 
-- The **Blocks** subtree contains the definition of **NcBlock** - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
+- The **Blocks** subtree contains the definition of [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
 
-- The **Workers** subtree contains definitions of classes that may perform some kind of processing or monitoring function. **SignalWorkers** are specific workers which handle media signal processing.
-**SignalWorkers** has two subtrees:
-    - **Actuators** , which affect signals in various ways;
-    - **Sensors**, which monitor signals.
+- The [Workers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#workers) subtree contains definitions of classes that can perform some kind of processing or monitoring function. [SignalWorkers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsignalworker) are specific workers which handle media signal processing.
+[SignalWorkers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsignalworker) has two subtrees:
+    - [Actuators](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncactuator) , which affect signals in various ways;
+    - [Sensors](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsensor), which monitor signals.
 
-- The **Managers** subtree contains definitions of classes that perform Device housekeeping functions.
+- The [Managers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncmanager) subtree contains definitions of classes that perform Device housekeeping functions.
 
 ## Datatype definitions
 
-To support the class definitions, the control model also contains an extensive set of **datatype definitions**. These definitions specify the scalar and structural datatypes used to define class properties and method parameters.
+To support the class definitions, the control model also contains an extensive set of [datatype definitions](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#datatypes). These definitions specify the scalar and structural datatypes used to define class properties and method parameters.
