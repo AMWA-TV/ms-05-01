@@ -26,7 +26,7 @@ Definitions and abbreviations for this draft
 
 **Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices implement all of the Framework Mechanisms applicable.
 
-**Feature-set mechanism** opt-in mechanisms which devices implement if they implement the specific feature set.
+**Feature-set mechanism** conditional mechanism required when a device implements a specific feature set.
 
 **Sequence** Written **sequence\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** can be a simple datatype or an object.
 
