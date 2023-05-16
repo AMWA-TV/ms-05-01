@@ -6,7 +6,7 @@ A block can contain other blocks. A contained block is said to be **nested** ins
 
 ## Device structure
 
-As illustrated in the figure `NCA Device` below, the Device model envisions a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they are contained in a hierarchy of blocks nested inside the root block.
+As illustrated in the figure `NCA Device` below, the Device model defines a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they are contained in a hierarchy of blocks nested inside the root block.
 
 An object contained in a block is called a _**member**_ or _**member object**_ of that block.
 
