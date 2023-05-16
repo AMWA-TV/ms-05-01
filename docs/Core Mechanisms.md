@@ -50,10 +50,6 @@ The most common event is the [PropertyChanged](https://specs.amwa.tv/ms-05-02/br
 
 [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
 
-## Concurrency control
-
-Concurrency control is left to specific device implementations, however devices MUST always return relevant response statuses when there are conflicts, errors or other noteworthy states (see [NMOS Control Framework: NcMethodStatus](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncmethodstatus)).
-
 ## Capability enumeration
 
 To discover the detailed capabilities of a block, a Controller can enumerate its contained members. Furthermore, the Controller can discover details of the classes from which those objects are built and the data types used.
