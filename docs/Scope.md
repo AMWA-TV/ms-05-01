@@ -17,7 +17,7 @@ NCA's specification is designed to complement and interoperate with the existing
 
 **NCA's purpose is device control (and status monitoring) only.** NCA does not define higher-level mechanisms such as compound media formats, production role data, studio asset records, facilities reservations, accounting data, performance rights data, and so on and on. Such mechanisms might build (in part) upon NCA device control, but their specification is out of NCA's scope.
 
-**NCA takes as a requirement that media control networks might not be connected to the Internet.** The general operation of NCA does not depend on connections to external data or code resources. Manufacturers may choose to supply controllers and/or devices that depend on wide-area connections to libraries, cloud services, and so on, but such choices will be application decisions not mandated by NCA.
+**NCA takes as a requirement that media control networks might not be connected to the Internet.** The general operation of NCA does not depend on connections to external data or code resources.
 
 **NCA can apply equally to physical or virtual NCA devices.** In NCA documentation, the term NCA device refers to both unless otherwise stated.
 
@@ -29,14 +29,10 @@ NCA's specification is designed to complement and interoperate with the existing
 
 Documentation of the NCA is organized across multiple parts:
 
-1. An **architecture specification** that defines NCA's various models, mechanisms, and rules.
-1. A [framework specification](https://specs.amwa.tv/ms-05-02) that defines NCA's repertoire of control and monitoring elements.
+1. An **architecture specification** that defines NCA's various concepts, mechanisms, and rules.
+1. A [framework specification](https://specs.amwa.tv/ms-05-02) that defines NCA's repertoire of standard control classes and datatypes.
 1. A [blockspec specification](https://specs.amwa.tv/ms-05-03) that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
 1. At least one [protocol specification](https://specs.amwa.tv/is-12) that defines a way of accessing NCA's control and monitoring features over the network.
-
-Each specification may have multiple sections that include textual documentation and formal specifications written in various definition languages.
-
-NCA anticipates that the blockspec mechanism (3, above) will support the growth and evolution of a  set of common models and mechanisms for typical devices and device elements found in practice. Using well-defined common blockspecs will optimize interoperability between control systems and devices, and reduce engineering cost.
 
 ### Scope of this document
 
@@ -49,5 +45,3 @@ In NCA documents, the term "control" means "control and monitoring", except in c
 ## References
 
 AMWA specifications and documents are referenced by hyperlinks.
-
-IETF RFC documents are referenced by constructs of the form **\[RFC n\]** where n is the RFC number.

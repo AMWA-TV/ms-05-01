@@ -1,6 +1,6 @@
 # Core Mechanisms
 
-By "Core mechanisms", we mean architectural mechanisms that are essential to the operation of NCA in all devices. Core mechanisms are distinguished from **optional mechanisms** that may be implemented as needed.
+By "Core mechanisms", we mean architectural mechanisms that are essential to the operation of NCA in all devices.
 
 ## Control Traffic
 
@@ -10,9 +10,7 @@ NCA traffic between Controllers and Devices consists of three kinds of control m
 - A **response** is a controlled object's returned result from a Command. The Response travels from the controlled object to the requesting Controller.
 - A **notification** is an object's announcement of an event occurrence. Notifications travel from the controlled object to all of the Controllers that have subscribed to the given event.
 
-NCA defines a Controller as a software function, not as a physical entity, and a Device as a real or virtual construct. The command travel paths listed above refer to communication of information between software entities, not necessarily physical pieces of equipment.
-
-The actual message formats and means of message transport are determined by the protocol being used. A JSON-based RPC protocol is specified in [IS-12 NMOS Control Protocol](https://specs.amwa.tv/is-12).
+The actual message formats and means of message transport are determined by the protocol being used.
 
 ## Control sessions
 
@@ -21,22 +19,22 @@ NCA control is session-oriented, which implies the following:
 1. Requests and responses occur in correlated (but not blocking) pairs.
 1. Controlled Devices (and their inventory of objects) have persistent application relationships with Controllers.
 1. Prompt discovery of Device failure or communication failure is a required feature of the protocol.
-1. Devices shall report changing parameters to subscribing Controllers. Subscriptions are valid through the conclusion of the control session unless explicitly un-subscribed.
-1. When a communication failure occurs, the control session behaviour shall be well-defined under the protocol in use.
+1. Devices report changing parameters to subscribing Controllers as defined by the protocol in use.
+1. When a communication failure occurs, the control session behaviour is defined by the protocol in use.
 
 ## Events, Notifications, and Subscriptions
 
 NCA supports the use of multiple simultaneous Controllers. Those Controllers might be coordinated - when a system has redundant Controllers, for example - or they might be uncoordinated - for example, when a system includes Controllers from multiple manufacturers.
 
-A common multiple Controller case arises when a network-controlled device includes a non-blank front panel.  The front panel is a separate Controller. Thus, every case in which NCA controls Devices that have their own physical controls is a multiple-controller application.
+A common multiple Controller case arises when a network-controlled device includes a non-blank front panel. The front panel is a separate Controller. Thus, every case in which NCA controls Devices that have their own physical controls is a multiple-controller application.
 
 In all multiple-controller situations, timely tracking of parameter and state updates is required for error-free Device control. NCA's update-tracking mechanism is the **event.** An event is anything that happens inside a Device that a Controller may need to know about.
 
-Historically, controllers have often tracked device changes by polling. A goal of NCA is to render polling completely unnecessary in all cases. To this end, NCA events generate **notifications**.  A notification is a spontaneous message from a Device to one or more Controllers that announces the occurrence of an event and gives its particulars.
+Historically, controllers have often tracked device changes by polling. A goal of NCA is to render polling completely unnecessary in all cases. To this end, NCA events generate **notifications**. A notification is a spontaneous message from a Device to one or more Controllers that announces the occurrence of an event and gives its particulars.
 
 Not all Controllers need to know about all events. When a Controller wants to be informed of the occurrence of a certain event in a certain object, it registers a **subscription** with the Device. A subscription causes a **notification message** to be delivered to the subscribing Controller whenever the designated event is raised in the designated object.
 
-Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the Controller's session ends.
+Once registered, a subscription remains in effect for the life of the control session, unless the Controller cancels it or the control session ends.
 
 Subscriptions and their implementation are protocol-specific.
 
@@ -48,37 +46,27 @@ The parameters of notifications depend on the type of event. In general, event p
 
 ### The PropertyChanged event
 
-The most common event is the **PropertyChanged** event.  **PropertyChanged**   is defined by the base class **NcObject**, so it is inherited by every object.
+The most common event is the [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) event. [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) is defined by the base class [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), so it is inherited by every object.
 
-**PropertyChanged** is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
-
-## Controller hierarchies
-
-Some NCA-controlled media networks may contain thousands of devices. In such cases, it will not be practical for a single central Controller to maintain a separate control session with each device. To address this problem, indirect control using a hierarchy of Controllers can be implemented, with successive levels aggregating control functionality in ways appropriate to the applications.  NCA's core mechanisms are sufficient to support such configurations, but the exact implementation details are out of this specification's scope.
-
-## Concurrency control
-
-Concurrency control is left to specific device implementations, however devices SHOULD always return relevant response statuses when there are conflicts, errors or other noteworthy states (see [NcMethodStatus in MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02)).
+[PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
 
 ## Capability enumeration
 
-To discover the detailed capabilities of a block, a Controller can enumerate its objects and signal paths. As well, the Controller can discover details of the classes from which those objects are built and the data types used.
+To discover the detailed capabilities of a block, a Controller can enumerate its contained members. Furthermore, the Controller can discover details of the classes from which those objects are built and the data types used.
 
 ### Object enumeration
 
-We refer to an object contained by a block as a _member_ of that block. **NcBlock** offers means of retrieving the descriptors of its members which are defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
+We refer to an object contained by a block as a _member_ of that block. [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) offers means of retrieving the descriptors of its members.
 
 ### Signal path enumeration
 
-**NcBlock** offers means of retrieving its signal paths which defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
-
-These functions return simple lists of signal-path descriptors. Each signal-path descriptor specifies the ports at each end of the signal path.
+[NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html#ports-and-signal-paths) offers means of retrieving its signal paths.
 
 ### Class discovery
 
-If a Controller does not have _a priori_ knowledge of a device's class definitions, it may discover the details of those definitions using the NCA _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
+If a Controller does not have _a priori_ knowledge of a device's class definitions, it can discover the details of those definitions using the NCA _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
 
-The class discovery mechanism is available through the **NcClassManager** defined in [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02).
+The class discovery mechanism is available through the [NcClassManager](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Managers.html#class-manager).
 
 ## Reliability
 
@@ -96,8 +84,6 @@ NCA's architecture supports reliable implementations with the following features
 4. **Fully-acknowledged command/response architecture**. All NCA commands are acknowledged. No open-ended mechanisms (e.g. multicasting) are used for critical protocol traffic.
 5. **Poll-free design**. All asynchronous device changes can be discovered by event subscription; no Controller polling is required. With correct implementation, no polling-related race conditions are possible.
 6. **Device supervision**. See [Device supervision](Core%20Mechanisms.md#device-supervision).
-
-NCA protocols (defined in future work) may support additional reliability features - for example, Ethernet-based protocols can support spanning-tree Ethernet and/or can use reliable data transport protocols such as TCP.
 
 ### Device supervision
 
