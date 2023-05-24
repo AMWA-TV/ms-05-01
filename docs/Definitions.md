@@ -10,8 +10,6 @@ Definitions and abbreviations for this draft
 
 **Device** See "The term _Device_" below.
 
-**Port** An abstract feature of an object that represents the terminus of an internal signal path.
-
 **Controller** See "The term _Controller_ below."
 
 **Control API** Methods, data, and rules for controlling something (a device, or a component of a device).
@@ -29,8 +27,6 @@ Definitions and abbreviations for this draft
 **Feature-set mechanism** conditional mechanism required when a device implements a specific feature set.
 
 **Sequence** Written **sequence\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** can be a simple datatype or an object.
-
-**Blockspec** A formal description of the contents of a block.
 
 **Block** or **block object.** An instance of a block class.
 

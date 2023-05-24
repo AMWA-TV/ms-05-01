@@ -58,10 +58,6 @@ To discover the detailed capabilities of a block, a Controller can enumerate its
 
 We refer to an object contained by a block as a _member_ of that block. [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) offers means of retrieving the descriptors of its members.
 
-### Signal path enumeration
-
-[NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html#ports-and-signal-paths) offers means of retrieving its signal paths.
-
 ### Class discovery
 
 If a Controller does not have _a priori_ knowledge of a device's class definitions, it can discover the details of those definitions using the NCA _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.

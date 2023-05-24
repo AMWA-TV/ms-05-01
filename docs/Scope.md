@@ -31,7 +31,6 @@ Documentation of the NCA is organized across multiple parts:
 
 1. An **architecture specification** that defines NCA's various concepts, mechanisms, and rules.
 1. A [framework specification](https://specs.amwa.tv/ms-05-02) that defines NCA's repertoire of standard control classes and datatypes.
-1. A [blockspec specification](https://specs.amwa.tv/ms-05-03) that defines the format and semantics of _blockspecs_, which are specifications of specific functional groups of NCA control elements for particular application purposes.
 1. At least one [protocol specification](https://specs.amwa.tv/is-12) that defines a way of accessing NCA's control and monitoring features over the network.
 
 ### Scope of this document
