@@ -26,4 +26,4 @@ In reading this specification, it is important to remember that NCA is concerned
 
 A Controller needs a control protocol to access Device control APIs. NCA's Control Model defines APIs abstractly, leaving their realizations in protocols to separate specifications.
 
-All NCA compliant protocols share the same traits as defined by the [Control Model](Control%20Model.md).
+All NCA compliant protocols implement the Control Model as described in [Control Model](Control%20Model.md) and defined in MS-05-02.
