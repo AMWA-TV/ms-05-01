@@ -54,12 +54,9 @@ Figure **NCA Control Model** illustrates the NCA class tree, and shows the categ
 
 The categories shown in figure **NCA Control Model** are as follows:
 
-- The **Blocks** subtree contains the definition of [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) - see [Blocks](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
+- The **Blocks** subtree contains the definition of [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) - see [Blocks](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html).
 
-- The [Workers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#workers) subtree contains definitions of classes that perform processing or monitoring functions. [SignalWorkers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsignalworker) are Workers which handle media signal processing.
-[SignalWorkers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsignalworker) has two subtrees:
-    - [Actuators](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncactuator) , which affect signals in various ways;
-    - [Sensors](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncsensor), which monitor signals.
+- The [Workers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#workers) subtree contains definitions of classes that perform processing or monitoring functions.
 - The [Managers](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncmanager) subtree contains definitions of classes that perform Device housekeeping functions.
 
 ## Datatype definitions

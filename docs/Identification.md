@@ -70,17 +70,6 @@ UUID that uniquely identifies the particular product that constitutes the Device
 | [NcUuid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncuuid) | Manufacturer portfolio | Permanent |
 |                                                                                       |                        |           |
 
-### Blockspec ID
-
-Identifier of a blockspec. Stored in property [NcBlock.specId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock).
-
-| Datatype     | Scope    | Lifespan  |
-| ------------ | -------- | --------  |
-| `NcString`   | Varies   | Permanent |
-|              |          |           |
-
-More information and examples provided in [Device Model (Blockspecs and Blockspec IDs)](Device%20Model.md#Blockspecs-and-Blockspec-IDs).
-
 ## NCA-NMOS identity mapping
 
 NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace. Stored in property [NcObject.touchpoints](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).

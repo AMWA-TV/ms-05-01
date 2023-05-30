@@ -26,7 +26,6 @@ It provides the architecture for control and monitoring class hierarchies and co
 ### Other specifications in the suite
 
 - [MS-05-02 NMOS Control Framework](https://specs.amwa.tv/ms-05-02)
-- [MS-05-03 NMOS Control Block Specifications](https://specs.amwa.tv/ms-05-03)
 - [IS-12 NMOS Control Protocol](https://specs.amwa.tv/is-12)
 
 <!-- INTRO-END -->
