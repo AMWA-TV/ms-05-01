@@ -10,7 +10,7 @@ To support compatible addition of non-standard classes to the standard control m
 
 A control class defined by the [Control framework](https://specs.amwa.tv/ms-05-02/) is called a _**standard class**_. The lineage key of a standard class contains no authority keys.
 
-Devices exposing vendor specific functionality would make use of non-standard classes in their device models.
+Devices use non-standard classes to model vendor specific functionality in their device models.
 
 An annotated [Example](#example) is given below.
 
