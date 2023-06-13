@@ -30,7 +30,7 @@ For example, for a standard class `NcXXX` whose lineage key is **1•2•12•7*
 
 ## Non-standard classIds
 
-A class not defined by NCA is called a _**nonstandard class**_, and its classId is called a _**non-standard classId**_. A non-standard classId contains at least one authority key.
+A class not defined by NCA is called a _**non-standard class**_, and its classId is called a _**non-standard classId**_. A non-standard classId contains at least one authority key.
 
 A non-standard classId is constructed by inserting an authority key into the lineage key immediately before the index of the first non-standard class. In the following examples the authority key is indicated by "**A**", as in **{i(1)•i(2)•A•i(3) ...}**.
 
