@@ -8,7 +8,7 @@ A block can contain other blocks. A contained block is said to be **nested** ins
 
 As illustrated in the figure `NCA Device` below, the Device model defines a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they are contained in a hierarchy of blocks nested inside the root block.
 
-An object contained in a block is called a _**member**_ or _**member object**_ of that block.
+An object contained in a block is called a _**member**_ of that block.
 
 A Device can have certain application functions the designers wish not to be network-controllable. Such functions might not be represented in the root block or its nested blocks, and consequently might not be in the device's control API.
 
@@ -30,6 +30,6 @@ The device model is created by instantiating control model classes as shown in t
 |:--:|
 | _**Device model**_ |
 
-On the left of the figure is the control model with its WebIDL fragment. In this case, only two control model classes are shown: [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), which is the parent of everything, and [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock), which is the abstract base class upon which all block classes are built.
+In this case, only two control model classes are shown: [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), which is the parent class of all control classes, and [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock), which is the base class upon which all block classes are built.
 
 On the right is an example Device model showing blocks **X** and **Y**.

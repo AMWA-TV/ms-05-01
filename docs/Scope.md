@@ -23,7 +23,7 @@ NCA's specification is designed to complement and interoperate with the existing
 
 **NCA is not a device or controller implementation specification.** NCA's features and structures serve to define NCA device Application Programming Interfaces (APIs) that can be used for device control, but the internal programming structures behind those APIs are strictly out of NCA's scope.
 
-**NCA is not a user interface specification.** The NCA control model defines numerous elements with application functions (switches, indicators, gain controls, etcetera), but these elements are embodied only as abstractions in a NCA device control model. How, whether, or when they are represented in a user control interface is out of NCA's scope.
+**NCA is not a user interface specification.** The NCA control model defines numerous elements with application functions (switches, indicators, gain controls etc.), but these elements are embodied only as abstractions in a NCA device control model. How, whether, or when they are represented in a user control interface is out of NCA's scope.
 
 ## NCA Documentation Structure
 
