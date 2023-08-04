@@ -13,7 +13,7 @@ It defines the architecture for modelling various types of devices which interre
 
 ### Why does it matter?
 
-The modelling system provides for the definition of device configuration, control and monitoring APIs using a set of published class definitions and operating rules. In so doing, the system will support at least a basic level of interoperability between compliant devices.
+The modelling system provides for the definition of device configuration, control and monitoring APIs using a set of published class definitions and operating rules.
 
 The model includes the abilities for controllers to discover full device APIs in live systems, and to reconfigure devices dynamically (i.e. at run time).
 
@@ -21,7 +21,7 @@ In all cases, multiple simultaneous controllers are fully supported with no requ
 
 ### How does it work?
 
-It provides the architecture for control and monitoring class hierarchies and core mechanisms for building device control APIs. In addition, NCA defines a powerful specification mechanism for optimizing sharing and reuse of NCA control designs across the industry.
+It provides the architecture for control and monitoring class hierarchies and core mechanisms for building device control and monitoring APIs.
 
 ### Other specifications in the suite
 
