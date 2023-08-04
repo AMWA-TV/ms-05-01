@@ -42,7 +42,7 @@ Subscriptions and their implementation are protocol-specific.
 
 A notification message is essentially a callback command whose parameters depend on the type of event. However, unlike actual commands, a notification does not require a response.
 
-The parameters of notifications depend on the type of event. In general, event parameters are designed to give full detail about the event, so that Controllers receiving events can act on them immediately, without having to query the Device further.
+The parameters of notifications depend on the type of event. In general, event parameters are designed to give full details about the event, so that Controllers receiving events can act on them immediately, without having to query the Device further.
 
 ### The PropertyChanged event
 
@@ -60,7 +60,7 @@ We refer to an object contained by a block as a _member_ of that block. [NcBlock
 
 ### Class discovery
 
-If a Controller does not have _a priori_ knowledge of a device's class definitions, it can discover the details of those definitions using the NCA _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
+If a Controller does not have _a priori_ knowledge of a device's class definitions, it can discover the details of those definitions using the _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
 
 The class discovery mechanism is available through the [NcClassManager](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Managers.html#class-manager).
 

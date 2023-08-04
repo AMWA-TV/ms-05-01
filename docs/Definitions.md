@@ -1,6 +1,6 @@
 # Definitions
 
-Definitions and abbreviations for this draft
+Definitions and abbreviations used in the architecture, framework and protocol specifications.
 
 **Control** The capability to affect and/or monitor a product's function. In this document, _control_ usually implies _network control_, defined next.
 
@@ -16,21 +16,21 @@ Definitions and abbreviations for this draft
 
 **Control class** Pattern for constructing control objects.
 
-**Control object** Realized instance of a control class.
-
-**Control class** or just **subclass**: a class created by inheritance from another ("parent" ) class. Synonym of "child class".
+**Control object** Instance of a control class.
 
 **Control protocol** Definitions of message formats, data flows, data serializations, and exchange rules for accessing control APIs.
 
-**Framework mechanism** Architectural mechanism essential to NCA operation in any type of device. Conformant Devices implement all of the Framework Mechanisms applicable.
+**Core mechanisms** Architectural mechanisms that are essential to the operation of NCA in all devices.
 
-**Feature-set mechanism** conditional mechanism required when a device implements a specific feature set.
+**Framework** Models (classes and datatypes) and Core Mechanisms essential to NCA operation in any type of device. Conformant Devices implement all of the Framework models and mechanisms applicable.
 
-**Sequence** Written **sequence\<V\>:** an ordered set of values of datatype **V** that is accessed via an index. **V** can be a simple datatype or an object.
+**Feature set** Conditional models (classes and datatypes) required for devices to expose specific functionality.
+
+**Sequence** Written **sequence\<V\>:** An ordered set of values of datatype **V** that is accessed via an index. **V** can be a simple datatype or an object.
 
 **Block** or **block object.** An instance of a block class.
 
-**Block class** Subclass of the class **NcBlock**.
+**Block class** Class which inherits from **NcBlock**.
 
 **Block member** An object contained by a block.
 
@@ -38,7 +38,7 @@ Definitions and abbreviations for this draft
 
 **Root block** The single fundamental block in a device that contains all other control objects and blocks.
 
-**Owning block** _or_ **owner** The block that contains a given object.
+**Containing block** _or_ **owner** The block that contains a given object.
 
 **Touchpoint** Linkage item which indicates the association between an NCA item and an identified resource in another control environment (e.g. NMOS IS-xx).
 

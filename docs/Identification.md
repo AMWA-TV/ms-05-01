@@ -21,7 +21,7 @@ Compact read-only handle that uniquely identifies an object within its device. S
 
 | Datatype                                                                            | Scope    | Lifespan  |
 | ----------------------------------------------------------------------------------- | -------- | --------- |
-| [NcOid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncoid) | Device   |           |
+| [NcOid](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncoid) | Device   | Constant until reboot          |
 |                                                                                     |          |           |
 
 ### Element ID
@@ -44,7 +44,7 @@ Static, read-only text property that names an object within the block to which i
 
 ### Role path
 
-Unique identifier of an object within a device model. Sequence of strings, consisting of the `role` values of all the object's containing blocks, starting from the root block and ending with the object's own `role` value.  
+Uniquely identifies the location of an object within a device model. Sequence of strings, consisting of the `role` values of all the object's containing blocks, starting from the root block and ending with the object's own `role` value.  
 Role paths are enabled by the existence of [blocks](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) in the device model.
 
 | Datatype                                                                                      | Scope    | Lifespan  |
@@ -72,7 +72,7 @@ UUID that uniquely identifies the particular product that constitutes the Device
 
 ## NCA-NMOS identity mapping
 
-NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any NCA object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace. Stored in property [NcObject.touchpoints](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
+NCA's **Touchpoint** feature allows applications to attach a list of _touchpoints_ to any control object. A touchpoint is a defined relation between an entity in NCA and an entity in a different namespace. Stored in property [NcObject.touchpoints](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject).
 
 | Datatype                                                                                          | Scope                  | Lifespan  |
 | ------------------------------------------------------------------------------------------------- | ---------------------- | --------  |
