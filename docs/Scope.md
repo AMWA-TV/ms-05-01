@@ -1,4 +1,4 @@
-# AMWA MS-05-01 NMOS Control Architecture \[Work In Progress\]
+# AMWA MS-05-01 NMOS Control Architecture
 
 {:.no_toc}
 

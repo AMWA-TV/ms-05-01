@@ -2,9 +2,9 @@
 
 ## Class IDs
 
-Each class id is identified by using the [NcClassId](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncclassid) datatype.
+Each class id is identified by using the [NcClassId](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncclassid) datatype.
 
-The lineage key of a class is set of class indices that identifies the entire lineage of the class, beginning from [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), extending down through all ancestor classes, and ending at the class in question. The key contains as many class indices as needed to describe the inheritance hierarchy.
+The lineage key of a class is set of class indices that identifies the entire lineage of the class, beginning from [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncobject), extending down through all ancestor classes, and ending at the class in question. The key contains as many class indices as needed to describe the inheritance hierarchy.
 
 To support compatible addition of non-standard classes to the standard control model, lineage keys allow _**authority keys**_ to be interposed in the sequence of class indices. This feature is described in [Non-standard classIds](#non-standard-classids).
 

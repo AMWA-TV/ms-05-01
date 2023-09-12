@@ -6,7 +6,7 @@ NCA is based on two interrelated models:
 
 - The [Framework](https://specs.amwa.tv/ms-05-02), which defines the NCA control and monitoring models and the common mechanisms that they use. The Framework has two components:
 
-  - **Control model:** An inheritance tree of control classes that specify NCA's control and monitoring repertoire. These classes are summarized in the [Control Model](Control%20Model.md) and defined normatively in the framework collection of [model definitions](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html).
+  - **Control model:** An inheritance tree of control classes that specify NCA's control and monitoring repertoire. These classes are summarized in the [Control Model](Control%20Model.md) and defined normatively in the framework collection of [model definitions](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html).
 
   - **Core Mechanisms:** Common mechanisms used by the control classes. These are defined in [Core Mechanisms](Core%20Mechanisms.md).
 

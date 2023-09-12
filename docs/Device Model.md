@@ -1,12 +1,12 @@
 # Device model
 
-An _**NCA Device**_ is a physical or virtual device that publishes an NCA-conformant API. This API is organized around the concept of _**Blocks**_, which are containers for objects. The control model defines a class named [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock) that is instantiated to create blocks.
+An _**NCA Device**_ is a physical or virtual device that publishes an NCA-conformant API. This API is organized around the concept of _**Blocks**_, which are containers for objects. The control model defines a class named [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncblock) that is instantiated to create blocks.
 
 A block can contain other blocks. A contained block is said to be **nested** inside its containing block.
 
 ## Device structure
 
-As illustrated in the figure `NCA Device` below, the Device model defines a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they are contained in a hierarchy of blocks nested inside the root block.
+As illustrated in the figure `NCA Device` below, the Device model defines a Device as a [root block](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Blocks.html) accompanied by a few control objects. In simple devices, these objects might be contained directly in the root block; in more complex devices, they are contained in a hierarchy of blocks nested inside the root block.
 
 An object contained in a block is called a _**member**_ of that block.
 
@@ -30,6 +30,6 @@ The device model is created by instantiating control model classes as shown in t
 |:--:|
 | _**Device model**_ |
 
-In this case, only two control model classes are shown: [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), which is the parent class of all control classes, and [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncblock), which is the base class upon which all block classes are built.
+In this case, only two control model classes are shown: [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncobject), which is the parent class of all control classes, and [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncblock), which is the base class upon which all block classes are built.
 
 On the right is an example Device model showing blocks **X** and **Y**.

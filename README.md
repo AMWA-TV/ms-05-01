@@ -1,4 +1,4 @@
-# \[Work In Progress\] AMWA MS-05-01: NMOS Control Architecture
+# AMWA MS-05-01: NMOS Control Architecture
 
 [![Lint Status](https://github.com/AMWA-TV/ms-05-01/workflows/Lint/badge.svg)](https://github.com/AMWA-TV/ms-05-01/actions?query=workflow%3ALint)
 [![Render Status](https://github.com/AMWA-TV/ms-05-01/workflows/Render/badge.svg)](https://github.com/AMWA-TV/ms-05-01/actions?query=workflow%3ARender)

@@ -46,9 +46,9 @@ The parameters of notifications depend on the type of event. In general, event p
 
 ### The PropertyChanged event
 
-The [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) event is defined by the base class [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Framework.html#ncobject), so it is inherited by every object.
+The [PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/NcObject.html#propertychanged-event) event is defined by the base class [NcObject](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Framework.html#ncobject), so it is inherited by every object.
 
-[PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/NcObject.html#propertychanged-event) is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
+[PropertyChanged](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/NcObject.html#propertychanged-event) is the key mechanism for NCA's support of multiple Controllers without polling. By subscribing to changes in the properties it cares about, a Controller can stay in sync with the device, even when those properties are being changed by other controllers.
 
 ## Capability enumeration
 
@@ -56,13 +56,13 @@ To discover the detailed capabilities of a block, a Controller can enumerate its
 
 ### Object enumeration
 
-We refer to an object contained by a block as a _member_ of that block. [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Blocks.html) offers means of retrieving the descriptors of its members.
+We refer to an object contained by a block as a _member_ of that block. [NcBlock](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Blocks.html) offers means of retrieving the descriptors of its members.
 
 ### Class discovery
 
 If a Controller does not have _a priori_ knowledge of a device's class definitions, it can discover the details of those definitions using the _class discovery_ mechanism. This mechanism returns descriptors to the Controller for each class and datatype the device uses. These descriptors are sufficient for the Controller to construct well-formed API calls to the device; however, they do not describe the semantics of such calls.
 
-The class discovery mechanism is available through the [NcClassManager](https://specs.amwa.tv/ms-05-02/branches/v1.0-dev/docs/Managers.html#class-manager).
+The class discovery mechanism is available through the [NcClassManager](https://specs.amwa.tv/ms-05-02/branches/v1.0.x/docs/Managers.html#class-manager).
 
 ## Reliability
 
