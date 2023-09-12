@@ -5,6 +5,6 @@ status: AMWA Specification
 repo_name: ms-05-01
 alt_repo_name: nmos-control-architecture-framework
 repo_url: https://github.com/AMWA-TV/ms-05-01
-releases:
+releases: v1.0.0
 default_branch: v1.0.x
 show_in_index: true
