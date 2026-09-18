@@ -1,0 +1,25 @@
+{
+  "amwa_id": "MS-05-01",
+  "url": "https://specs.amwa.tv/ms-05-01",
+  "name": "NMOS Control Architecture",
+  "status": "AMWA Specification",
+  "repo_name": "ms-05-01",
+  "alt_repo_name": "nmos-control-architecture-framework",
+  "repo_url": "https://github.com/AMWA-TV/ms-05-01",
+  "releases": "v1.0.0",
+  "default_branch": "v1.0.x",
+  "show_in_index": true,
+  "intro": {
+    "what_does_it_do": [
+      "It defines the architecture for modelling various types of devices which interrelates with existing NMOS Specifications and the JT-NM Reference Architecture."
+    ],
+    "why_does_it_matter": [
+      "The modelling system provides for the definition of device configuration, control and monitoring APIs using a set of published class definitions and operating rules.",
+      "The model includes the abilities for controllers to discover full device APIs in live systems, and to reconfigure devices dynamically (i.e. at run time).",
+      "In all cases, multiple simultaneous controllers are fully supported with no requirement for polling to maintain synchronization."
+    ],
+    "how_does_it_work": [
+      "It provides the architecture for control and monitoring class hierarchies and core mechanisms for building device control and monitoring APIs."
+    ]
+  }
+}

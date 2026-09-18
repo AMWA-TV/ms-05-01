@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Scope/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Definitions/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Components/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Control%20Model/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Device%20Model/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Identification/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Core%20Mechanisms/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Security/</loc>
+      </url>
+      <url>
+        <loc>https://specs.amwa.tv/new/ms-05-01/v1.0.x/Appendix%20A%20-%20Class%20ID%20Format/</loc>
+      </url>
+</urlset>
